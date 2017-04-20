@@ -1,0 +1,1 @@
+-bash: ./RunDefaultServer.bash: Nie ma takiego pliku ani katalogu

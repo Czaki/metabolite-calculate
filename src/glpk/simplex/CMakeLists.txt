@@ -1,0 +1,6 @@
+INCLUDE_DIRECTORIES(.. ../env)
+INCLUDE_DIRECTORIES(.. ../bflib)
+
+AUX_SOURCE_DIRECTORY(. FILES)
+
+add_library(simplex ${FILES})

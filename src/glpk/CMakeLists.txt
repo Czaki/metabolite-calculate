@@ -1,0 +1,34 @@
+ADD_SUBDIRECTORY(amd)
+ADD_SUBDIRECTORY(misc)
+ADD_SUBDIRECTORY(colamd)
+ADD_SUBDIRECTORY(minisat)
+ADD_SUBDIRECTORY(api)
+ADD_SUBDIRECTORY(zlib)
+
+INCLUDE_DIRECTORIES(
+	${METABOLITE_SOURCE_DIR}/glpk/env
+	${METABOLITE_SOURCE_DIR}/glpk/api
+	${METABOLITE_SOURCE_DIR}/glpk/amd 
+	${METABOLITE_SOURCE_DIR}/glpk/bflib 
+	${METABOLITE_SOURCE_DIR}/glpk/colamd
+	${METABOLITE_SOURCE_DIR}/glpk/cglib 
+	${METABOLITE_SOURCE_DIR}/glpk/minisat 
+	${METABOLITE_SOURCE_DIR}/glpk/misc 
+	${METABOLITE_SOURCE_DIR}/glpk/mpl
+	${METABOLITE_SOURCE_DIR}/glpk/proxy  
+	${METABOLITE_SOURCE_DIR}/glpk/simplex
+  ${METABOLITE_SOURCE_DIR}/glpk/zlib
+  ${METABOLITE_SOURCE_DIR}/glpk)
+
+AUX_SOURCE_DIRECTORY(${METABOLITE_SOURCE_DIR}/glpk FILES)
+
+add_library(glpk ${FILES})
+
+ADD_SUBDIRECTORY(cglib)
+ADD_SUBDIRECTORY(env)
+ADD_SUBDIRECTORY(bflib)
+ADD_SUBDIRECTORY(mpl)
+ADD_SUBDIRECTORY(proxy)
+ADD_SUBDIRECTORY(simplex)
+
+target_link_libraries(glpk simplex api glpk_env amd bflib cglib colamd minisat glpk_misc proxy zlib mpl)
