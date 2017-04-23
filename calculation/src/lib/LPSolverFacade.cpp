@@ -6,6 +6,7 @@
  */
 
 #include "LPSolverFacade.h"
+#include "../glpk/glpk.h"
 #include <cstddef>
 #include <cstdlib>
 #include <memory>
@@ -236,6 +237,7 @@ std::pair<OptError, double> LPSolverFacade::optimize(const Method &method_,
     parm.meth = GLP_DUAL;
     parm.it_lim = 500000;
     parm.presolve = GLP_ON;
+      parm.msg_lev=GLP_MSG_OFF;
     if (glp_simplex(root, &parm) == 0 && glp_get_status(root) == GLP_OPT) {
       // successfully completed
       result = glp_get_obj_val(root);

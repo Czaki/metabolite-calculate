@@ -276,6 +276,10 @@ public:
   }
   bool end() { return current >= range.second; }
 
+    size_t length(){
+      return range.second - range.first;
+    }
+
 private:
   std::vector<std::vector<T>> iterate_values;
   std::vector<typename std::vector<T>::const_iterator> iterator_vector;
@@ -304,7 +308,7 @@ Metabolism::Metabolism(std::string qsspn_file_path,
   this->solver->print_info();
 }
 
-void Metabolism::getProblemConstraintList(std::string result_file_name) {
+void Metabolism::getProblemConstraintList(std::ostream &result_file) {
   size_t counter = 0;
   size_t variants = 1;
   std::vector<std::vector<counter_type>> enzyme_values;
@@ -316,12 +320,11 @@ void Metabolism::getProblemConstraintList(std::string result_file_name) {
   for (auto &el : enzyme_values) {
     std::cerr << el.size() << " ";
   }
-  std::cerr << std::endl;
   std::vector<counter_type> dd;
   auto all_variant_iterator =
       VectorIterator<counter_type>(enzyme_values, range_);
-  std::ofstream of(result_file_name);
-  if (!of.good()) {
+  std::cerr << all_variant_iterator.length() << std::endl;
+  if (!result_file.good()) {
     std::cerr << "Error" << std::endl;
     exit(-1);
   }
@@ -332,14 +335,13 @@ void Metabolism::getProblemConstraintList(std::string result_file_name) {
     for (auto &name : this->targets_set_) {
       opt_res[name] = this->solver->optimize(name, constraint);
     }
-    of << dd << " |";
+    result_file << dd << " |";
     for (auto & met : this->metabolites_){
-      of << " " << met(opt_res[met.goal()]);
+      result_file << " " << met(opt_res[met.goal()]);
     }
-    of << std::endl;
+    result_file << std::endl;
 
   }
-  of.close();
 }
 
 SFBA::SFBA(std::string sfba_path, std::string ext_tag,
