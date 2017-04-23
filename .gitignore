@@ -1,4 +1,7 @@
 # Prerequisites
+spark-2.1.0-bin-hadoop2.7
+target
+project
 cmake-build-debug
 *.DS_Store
 
