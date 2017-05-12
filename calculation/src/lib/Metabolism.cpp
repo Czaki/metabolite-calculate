@@ -14,7 +14,7 @@ namespace {
 
 template <class T>
 inline std::ostream &operator<<(std::ostream &os, const std::vector<T> &v) {
-  os << v.size();
+  //os << v.size();
   for (auto val : v) {
     os << " " << val;
   }
@@ -316,10 +316,10 @@ void Metabolism::getProblemConstraintList(std::ostream &result_file) {
     enzyme_values.push_back(el.get_threshold_values());
     variants *= enzyme_values.back().size();
   }
-  std::cerr << "SIZES: ";
+  /* std::cerr << "SIZES: ";
   for (auto &el : enzyme_values) {
     std::cerr << el.size() << " ";
-  }
+  }*/
   std::vector<counter_type> dd;
   auto all_variant_iterator =
       VectorIterator<counter_type>(enzyme_values, range_);

@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
       end = boost::lexical_cast<size_t>(line.substr(pos + 1, line.length() - pos - 2));
       //std:: cin >> begin >> end;
       met.set_range(begin, end);
-      std::cerr << "Start " << line << " " << begin << " " << end << "\n";
+      // std::cerr << "Start " << line << " " << begin << " " << end << "\n";
       /*for (size_t i = 0; i< end-begin; i++){
         std::cout << "1 1 1 1 8 1 1 1 1 1 1 1 1 9\n";
       }*/

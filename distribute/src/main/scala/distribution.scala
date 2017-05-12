@@ -33,7 +33,8 @@ object SimpleApp {
       sys.error("Wrong execution arguments\n")
       System.exit(1)
     }
-    val executalble = args(0)
+
+    val executable = args(0)
     val file_list = getListOfFiles(args(1))
     val qsspn_file = file_list.filter(getFileExtension(_) == "qsspn").head
     val sfba_file = file_list.filter(getFileExtension(_) == "sfba").head
@@ -53,20 +54,27 @@ object SimpleApp {
       i += 1
     }
     println(combination_num)
-    combination_num = 20
+    combination_num = 200
     val single_step = 4
-    val ranges = {
-      val base_range = List.range(0, combination_num, single_step)
-      if (combination_num % single_step != 0)
-        base_range ++ List(combination_num)
-      else
-        base_range
+    val distData =  if (args.length == 3){
+      val pos = Source.fromFile(args(2)).getLines().toArray.map(_.toInt)
+      val pos2 = pos.map(_+1)
+      val ranges = pos zip pos2
+      sc.makeRDD(ranges)
+    } else {
+      val ranges = {
+        val base_range = List.range(0, combination_num, single_step)
+        if (combination_num % single_step != 0)
+          base_range ++ List(combination_num)
+        else
+          base_range
+      }
+      println(ranges zip ranges.tail)
+      sc.makeRDD(ranges zip ranges.tail)
     }
-    println(ranges zip ranges.tail)
-    val distData = sc.makeRDD(ranges zip ranges.tail)
     val range_num = distData.count()
     val c = {
-      distData.pipe(executalble + " " + qsspn_file + " " + sfba_file + " -str")
+      distData.pipe(executable + " " + qsspn_file + " " + sfba_file + " -str")
     }
     print("Res: ")
     println(c.count())
