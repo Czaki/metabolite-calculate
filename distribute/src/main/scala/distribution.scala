@@ -3,13 +3,43 @@ import org.apache.spark.SparkContext
 import org.apache.spark.SparkContext._
 import org.apache.spark.SparkConf
 import scala.io.Source
+import java.io.File
+
+
 
 object SimpleApp {
+  def getListOfFiles(dir: String):List[File] = {
+    val d = new File(dir)
+    if (d.exists && d.isDirectory) {
+      d.listFiles.filter(_.isFile).toList
+    } else {
+      List[File]()
+    }
+  }
+
+  def getFileExtension(file: File) = {
+    val name = file.getName()
+    try
+      name.substring(name.lastIndexOf(".") + 1)
+    catch {
+      case e: Exception =>
+        ""
+    }
+  }
+
   def main(args: Array[String]) {
-    val logFile = "../data/HepatoNet1.PIPES.sfba" // Should be some file on your system
+    if (args.length < 2){
+      println(args(0).toString)
+      sys.error("Wrong execution arguments\n")
+      System.exit(1)
+    }
+    val executalble = args(0)
+    val file_list = getListOfFiles(args(1))
+    val qsspn_file = file_list.filter(getFileExtension(_) == "qsspn").head
+    val sfba_file = file_list.filter(getFileExtension(_) == "sfba").head
     val conf = new SparkConf().setAppName("Simple Application").setMaster("local[4]")
     val sc = new SparkContext(conf)
-    val lines = Source.fromFile("../data/HepatocyteQSSPN.qsspn").getLines.toArray
+    val lines = Source.fromFile(qsspn_file).getLines.toArray
     var i = 0
     var combination_num = 1
 
@@ -23,7 +53,7 @@ object SimpleApp {
       i += 1
     }
     println(combination_num)
-    combination_num = 200
+    combination_num = 20
     val single_step = 4
     val ranges = {
       val base_range = List.range(0, combination_num, single_step)
@@ -36,15 +66,11 @@ object SimpleApp {
     val distData = sc.makeRDD(ranges zip ranges.tail)
     val range_num = distData.count()
     val c = {
-      distData.pipe("/Users/grzegorzbokota/Documents/projekty/metabolite-calculate/calculation/cmake-build-debug/metabolite ../data/HepatocyteQSSPN.qsspn ../data/HepatoNet1.PIPES.sfba -str")
+      distData.pipe(executalble + " " + qsspn_file + " " + sfba_file + " -str")
     }
     print("Res: ")
     println(c.count())
     c.saveAsTextFile("../ex_res_txt")
-    val logData = sc.textFile(logFile, 2).cache()
-    val numAs = logData.filter(line => line.contains("a")).count()
-    val numBs = logData.filter(line => line.contains("b")).count()
-    println(s"Lines with a: $numAs, Lines with b: $numBs ranges: $range_num")
     sc.stop()
   }
 }
