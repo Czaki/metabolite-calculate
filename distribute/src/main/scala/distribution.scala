@@ -38,7 +38,7 @@ object SimpleApp {
     val file_list = getListOfFiles(args(1))
     val qsspn_file = file_list.filter(getFileExtension(_) == "qsspn").head
     val sfba_file = file_list.filter(getFileExtension(_) == "sfba").head
-    val conf = new SparkConf().setAppName("Simple Application").setMaster("local[4]")
+    val conf = new SparkConf().setAppName("Simple Application") //.setMaster("local[4]")
     val sc = new SparkContext(conf)
     val lines = Source.fromFile(qsspn_file).getLines.toArray
     var i = 0
@@ -72,12 +72,11 @@ object SimpleApp {
       println(ranges zip ranges.tail)
       sc.makeRDD(ranges zip ranges.tail)
     }
-    val range_num = distData.count()
     val c = {
       distData.pipe(executable + " " + qsspn_file + " " + sfba_file + " -str")
     }
-    print("Res: ")
-    println(c.count())
+    //print("Res: ")
+    //println(c.count())
     c.saveAsTextFile("../ex_res_txt")
     sc.stop()
   }

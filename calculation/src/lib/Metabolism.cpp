@@ -323,7 +323,7 @@ void Metabolism::getProblemConstraintList(std::ostream &result_file) {
   std::vector<counter_type> dd;
   auto all_variant_iterator =
       VectorIterator<counter_type>(enzyme_values, range_);
-  std::cerr << all_variant_iterator.length() << std::endl;
+  // std::cerr << all_variant_iterator.length() << std::endl;
   if (!result_file.good()) {
     std::cerr << "Error" << std::endl;
     exit(-1);
