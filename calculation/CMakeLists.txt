@@ -1,10 +1,10 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.1)
 project(metabolite)
 
 set(CMAKE_CXX_STANDARD 14)
 SET(METABOLITE_SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/src)
 
-
+include_directories(${METABOLITE_SOURCE_DIR}/boost_extract/)
 message("CMAKE_C_FLAGS_DEBUG is ${CMAKE_C_FLAGS_DEBUG}")
 message("CMAKE_C_FLAGS_RELEASE is ${CMAKE_C_FLAGS_RELEASE}")
 message("CMAKE_CXX_FLAGS_DEBUG is ${CMAKE_CXX_FLAGS_DEBUG}")
