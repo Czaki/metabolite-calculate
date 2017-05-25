@@ -1,0 +1,3789 @@
+
+SUBSTANCES
+   FGF19_mRNA_dual 1 1 1
+   DR1 0 1 1
+   SLCO1B3_mRNA 0 1 1
+   UGT2B4_protein 0 1 3
+   cFOS 0 1 1
+   AAs 1 1 2
+   CYP27A1 0 1 1
+   CYP8B1 0 1 1
+   SLCO1A2_mRNA 0 1 1
+   NR5A2_mRNA 0 1 1
+   NR0B2_mRNA 0 1 1
+   FGF19_mRNA 0 1 1
+   MRP2 0 1 3
+   SLCO1B1_dual 1 1 1
+   BACAT 0 1 3
+   FGFR4_mRNA 0 1 1
+   FGF19_gene_dual 1 1 1
+   ABCB4 0 1 1
+   dNTPs 1 1 2
+   UGT2B4_dual 1 1 1
+   HNF4A_mRNA_dual 1 1 1
+   CYP7A1_dual 1 1 1
+   BSEP 0 1 3
+   CYP8B1_mRNA 0 1 1
+   NR2B1_mRNA 0 1 1
+   SHP 0 1 1
+   FTF 0 1 1
+   ABCC2_dual 1 1 1
+   NR2B1 1 1 1
+   BAAT_mRNA 0 1 1
+   BACS 0 1 3
+   AAs_dual 0 1 2
+   RXRa 0 1 1
+   FGFR4_mRNA_dual 1 1 1
+   FXR_agonist_dual 1 1 1
+   Bile_acid_high 0 1 1
+   HNF4A_dual 1 1 1
+   UGT2B4 0 1 1
+   BACAT_II 0 1 3
+   ABCB4_mRNA 0 1 1
+   ABCC2_mRNA_dual 1 1 1
+   SLC10A1_mRNA_dual 1 1 1
+   BA_HIGH 0 1 1
+   SLC27A5_mRNA 0 1 1
+   MDR3 0 1 3
+   NR2B1_mRNA_dual 1 1 1
+   NR1H4_mRNA_dual 1 1 1
+   CYP7A1_mRNA_dual 1 1 1
+   CYP7A1_mRNA 0 1 1
+   FTF_dual 1 1 1
+   DR1_dual 1 1 1
+   IR1 0 1 1
+   UGT2B4_mRNA 0 1 1
+   SLCO1B1 0 1 1
+   NR5A2_mRNA_dual 1 1 1
+   Bile_acid_high_dual 1 1 1
+   SLCO1B3 0 1 1
+   Cholesterol_7_alpha_monooxygenase 0 1 3
+   OATP2 0 1 3
+   SLC10A1_dual 1 1 1
+   SLC27A5_mRNA_dual 1 1 1
+   Sterol_12_alpha_hydoxylase 0 1 3
+   FXR_agonist 0 1 1
+   SHP_dual 1 1 1
+   Cholate_Intracellular_dual 0 1 2
+   FXR 0 1 1
+   HNF4A_gene 1 1 1
+   CYP27A1_mRNA_dual 1 1 1
+   Cholate_r 0 1 2
+   SLCO1B1_mRNA 0 1 1
+   NR0B2_mRNA_dual 1 1 1
+   SLCO1B3_mRNA_dual 1 1 1
+   SLC10A1 0 1 1
+   FGF19_gene 0 1 1
+   CYP27A1_dual 1 1 1
+   NTCP 0 1 3
+   SLC27A5_dual 1 1 1
+   Cholate_r_dual 0 1 2
+   NR0B2_dual 0 1 1
+   OATP_A 0 1 3
+   UGT2B4_mRNA_dual 1 1 1
+   NR1H4_mRNA 0 1 1
+   ABCB11_dual 1 1 1
+   Chenodiol_Intracellular 0 1 2
+   Chenodiol_r_dual 0 1 2
+   Chenodiol_r 0 1 2
+   CYP8B1_mRNA_dual 1 1 1
+   BA_HOMEOSTASIS 0 1 1
+   ABCB11_mRNA_dual 1 1 1
+   FGFR4_gene 1 1 1
+   Cholate_Intracellular 0 1 2
+   BACS_II 0 1 3
+   Sterol_26_hydroxylase 0 1 3
+   SLCO1A2_dual 1 1 1
+   ABCB11_mRNA 0 1 1
+   BAAT_dual 1 1 1
+   ABCB11 0 1 1
+   BA_LOW 0 1 1
+   NR1H4 1 1 1
+   ABCC2 0 1 1
+   Chenodiol_Intracellular_dual 0 1 2
+   HNF4A 0 1 1
+   Cholesterol_Source 1 1 1
+   CYP8B1_dual 1 1 1
+   ABCB4_mRNA_dual 1 1 1
+   CYP7A1 0 1 1
+   FGFR4_dual 1 1 1
+   OATP8 0 1 3
+   SLCO1B1_mRNA_dual 1 1 1
+   SLC27A5 0 1 1
+   BAAT 0 1 1
+   RXRa_dual 1 1 1
+   SLCO1A2_mRNA_dual 1 1 1
+   FXR_dual 1 1 1
+   CYP27A1_mRNA 0 1 1
+   HNF4A_mRNA 0 1 1
+   BAAT_mRNA_dual 1 1 1
+   ABCC2_mRNA 0 1 1
+   SLCO1B3_dual 1 1 1
+   SLCO1A2 0 1 1
+   cFOS_dual 1 1 1
+   NR5A2 1 1 1
+   NR0B2 0 1 1
+   Cholesterol_pool 0 1 3
+   ABCB4_dual 1 1 1
+   FGF19 0 1 1
+   IR1_dual 1 1 1
+   FGFR4 0 1 1
+   dNTPs_dual 0 1 2
+   SLC10A1_mRNA 0 1 1
+END
+
+REACTIONS
+  INTERACTION NR5A2_translation 1.0 SLOW 0.0
+      SUBSTRATE NR5A2_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE AAs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FTF_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT FTF
+      PRODUCT AAs
+      PRODUCT NR5A2_mRNA
+      CONSUMED NR5A2_mRNA
+      CONSUMED AAs
+      CONSUMED FTF_dual
+  END
+  INTERACTION tr1972306 1.0 SLOW 0.0
+      SUBSTRATE DR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLC10A1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SLC10A1
+      PRODUCT DR1
+      CONSUMED DR1
+      CONSUMED SLC10A1_dual
+  END
+  INTERACTION tr1924817 1.0 SLOW 0.0
+      SUBSTRATE BAAT_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE BACAT_II
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE BACAT
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT BAAT_mRNA_dual
+      CONSUMED BAAT_mRNA_dual
+      CONSUMED BACAT_II
+      CONSUMED BACAT
+  END
+  INTERACTION NR5A2_transcription 1.0 SLOW 0.0
+      SUBSTRATE NR5A2
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE NR5A2_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE dNTPs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT dNTPs
+      PRODUCT NR5A2
+      PRODUCT NR5A2_mRNA
+      CONSUMED NR5A2
+      CONSUMED NR5A2_mRNA_dual
+      CONSUMED dNTPs
+  END
+  INTERACTION tr1698548 1.0 SLOW 0.0
+      SUBSTRATE SHP
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE NR0B2
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SHP
+      PRODUCT NR0B2_dual
+      CONSUMED SHP
+      CONSUMED NR0B2
+  END
+  INTERACTION NR0B2_transcription 1.0 SLOW 0.0
+      SUBSTRATE dNTPs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE NR0B2
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE NR0B2_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT dNTPs
+      PRODUCT NR0B2_mRNA
+      PRODUCT NR0B2
+      CONSUMED dNTPs
+      CONSUMED NR0B2
+      CONSUMED NR0B2_mRNA_dual
+  END
+  INTERACTION Chenodiol_synthesis 1.0 SLOW 0.0
+      SUBSTRATE Bile_acid_high_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE Cholesterol_pool
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE Chenodiol_r
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT Bile_acid_high
+      PRODUCT BA_HIGH
+      PRODUCT Cholesterol_pool
+      CONSUMED Bile_acid_high_dual
+      CONSUMED Cholesterol_pool
+      CONSUMED Chenodiol_r
+  END
+  INTERACTION tr1051342 1.0 SLOW 0.0
+      SUBSTRATE dNTPs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE CYP7A1_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE CYP7A1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT CYP7A1
+      PRODUCT dNTPs
+      PRODUCT CYP7A1_mRNA
+      CONSUMED dNTPs
+      CONSUMED CYP7A1_mRNA_dual
+      CONSUMED CYP7A1
+  END
+  INTERACTION tr1924083 1.0 SLOW 0.0
+      SUBSTRATE MRP2
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE ABCC2_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT ABCC2_mRNA_dual
+      CONSUMED MRP2
+      CONSUMED ABCC2_mRNA_dual
+  END
+  INTERACTION NR1H4_transcription 1.0 SLOW 0.0
+      SUBSTRATE dNTPs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE NR1H4
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE NR1H4_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT NR1H4_mRNA
+      PRODUCT NR1H4
+      PRODUCT dNTPs
+      CONSUMED dNTPs
+      CONSUMED NR1H4
+      CONSUMED NR1H4_mRNA_dual
+  END
+  INTERACTION tr1999444 1.0 SLOW 0.0
+      SUBSTRATE FGF19_gene
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FGF19_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE dNTPs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT FGF19_mRNA
+      PRODUCT dNTPs
+      PRODUCT FGF19_gene
+      CONSUMED FGF19_gene
+      CONSUMED FGF19_mRNA_dual
+      CONSUMED dNTPs
+  END
+  INTERACTION tr1695712 1.0 SLOW 0.0
+      SUBSTRATE HNF4A
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE HNF4A_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT HNF4A_dual
+      PRODUCT HNF4A_mRNA_dual
+      CONSUMED HNF4A
+      CONSUMED HNF4A_mRNA_dual
+  END
+  INTERACTION HNF4A_transcription 1.0 SLOW 0.0
+      SUBSTRATE FGFR4_gene
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE dNTPs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FGFR4_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT dNTPs
+      PRODUCT FGFR4_gene
+      PRODUCT FGFR4_mRNA
+      CONSUMED FGFR4_gene
+      CONSUMED dNTPs
+      CONSUMED FGFR4_mRNA_dual
+  END
+  INTERACTION tr1710189 1.0 SLOW 0.0
+      SUBSTRATE NR1H4_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FXR
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT FXR_dual
+      PRODUCT NR1H4_mRNA_dual
+      CONSUMED NR1H4_mRNA_dual
+      CONSUMED FXR
+  END
+  INTERACTION tr1948070 1.0 SLOW 0.0
+      SUBSTRATE AAs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE UGT2B4_protein
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs_dual
+      CONSUMED AAs_dual
+      CONSUMED UGT2B4_protein
+  END
+  INTERACTION tr1711190 1.0 SLOW 0.0
+      SUBSTRATE CYP8B1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE CYP8B1_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT CYP8B1_dual
+      PRODUCT CYP8B1_mRNA_dual
+      CONSUMED CYP8B1_dual
+      CONSUMED CYP8B1_mRNA
+  END
+  INTERACTION tr1710464 1.0 SLOW 0.0
+      SUBSTRATE RXRa_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE IR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT RXRa_dual
+      PRODUCT IR1_dual
+      CONSUMED RXRa_dual
+      CONSUMED IR1
+  END
+  INTERACTION tr1948079 1.0 SLOW 0.0
+      SUBSTRATE UGT2B4_protein
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE UGT2B4_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT UGT2B4_mRNA_dual
+      CONSUMED UGT2B4_protein
+      CONSUMED UGT2B4_mRNA_dual
+  END
+  INTERACTION tr1711199 1.0 SLOW 0.0
+      SUBSTRATE DR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE CYP8B1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT DR1
+      PRODUCT CYP8B1
+      CONSUMED DR1
+      CONSUMED CYP8B1_dual
+  END
+  INTERACTION tr1973891 1.0 SLOW 0.0
+      SUBSTRATE DR1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLCO1B3
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SLCO1B3_dual
+      PRODUCT DR1_dual
+      CONSUMED DR1_dual
+      CONSUMED SLCO1B3
+  END
+  INTERACTION tr1924880 1.0 SLOW 0.0
+      SUBSTRATE BAAT
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE IR1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT BAAT_dual
+      PRODUCT IR1_dual
+      CONSUMED BAAT
+      CONSUMED IR1_dual
+  END
+  INTERACTION tr1972270 1.0 SLOW 0.0
+      SUBSTRATE AAs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLC10A1_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs
+      PRODUCT SLC10A1_mRNA
+      PRODUCT NTCP
+      CONSUMED AAs
+      CONSUMED SLC10A1_mRNA
+  END
+  INTERACTION tr1972279 1.0 SLOW 0.0
+      SUBSTRATE SLC10A1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLC10A1_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE dNTPs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT dNTPs
+      PRODUCT SLC10A1
+      PRODUCT SLC10A1_mRNA
+      CONSUMED SLC10A1
+      CONSUMED SLC10A1_mRNA_dual
+      CONSUMED dNTPs
+  END
+  INTERACTION tr1698378 1.0 SLOW 0.0
+      SUBSTRATE NR0B2_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE NR0B2_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT NR0B2_mRNA_dual
+      PRODUCT NR0B2_dual
+      CONSUMED NR0B2_dual
+      CONSUMED NR0B2_mRNA
+  END
+  INTERACTION tr1922485 1.0 SLOW 0.0
+      SUBSTRATE CYP27A1_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE Sterol_26_hydroxylase
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT CYP27A1_mRNA_dual
+      CONSUMED CYP27A1_mRNA_dual
+      CONSUMED Sterol_26_hydroxylase
+  END
+  INTERACTION tr1923238 1.0 SLOW 0.0
+      SUBSTRATE AAs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE BSEP
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs_dual
+      CONSUMED AAs_dual
+      CONSUMED BSEP
+  END
+  INTERACTION tr1923256 1.0 SLOW 0.0
+      SUBSTRATE dNTPs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE ABCB11
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE ABCB11_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT dNTPs
+      PRODUCT ABCB11_mRNA
+      PRODUCT ABCB11
+      CONSUMED dNTPs
+      CONSUMED ABCB11
+      CONSUMED ABCB11_mRNA_dual
+  END
+  INTERACTION DR1_binding 1.0 SLOW 0.0
+      SUBSTRATE FTF
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE cFOS_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE HNF4A
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE DR1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SHP_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT HNF4A
+      PRODUCT SHP_dual
+      PRODUCT FTF
+      PRODUCT cFOS_dual
+      PRODUCT DR1
+      CONSUMED FTF
+      CONSUMED cFOS_dual
+      CONSUMED HNF4A
+      CONSUMED DR1_dual
+      CONSUMED SHP_dual
+  END
+  INTERACTION tr1946402 1.0 SLOW 0.0
+      SUBSTRATE SLC27A5_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE IR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT IR1
+      PRODUCT SLC27A5
+      CONSUMED SLC27A5_dual
+      CONSUMED IR1
+  END
+  INTERACTION HNF4A_translation 1.0 SLOW 0.0
+      SUBSTRATE AAs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FGFR4_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FGFR4_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT FGFR4
+      PRODUCT FGFR4_mRNA
+      PRODUCT AAs
+      CONSUMED AAs
+      CONSUMED FGFR4_dual
+      CONSUMED FGFR4_mRNA
+  END
+  INTERACTION tr1697146 1.0 SLOW 0.0
+      SUBSTRATE SHP
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE DR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SHP
+      PRODUCT DR1_dual
+      CONSUMED SHP
+      CONSUMED DR1
+  END
+  INTERACTION tr1922467 1.0 SLOW 0.0
+      SUBSTRATE CYP27A1_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE AAs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT CYP27A1_mRNA
+      PRODUCT Sterol_26_hydroxylase
+      PRODUCT AAs
+      CONSUMED CYP27A1_mRNA
+      CONSUMED AAs
+  END
+  INTERACTION tr1924826 1.0 SLOW 0.0
+      SUBSTRATE BACAT
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE BACAT_II
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE AAs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs_dual
+      CONSUMED BACAT
+      CONSUMED BACAT_II
+      CONSUMED AAs_dual
+  END
+  INTERACTION tr1051351 1.0 SLOW 0.0
+      SUBSTRATE AAs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE CYP7A1_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs
+      PRODUCT Cholesterol_7_alpha_monooxygenase
+      PRODUCT CYP7A1_mRNA
+      CONSUMED AAs
+      CONSUMED CYP7A1_mRNA
+  END
+  INTERACTION tr2000120 1.0 SLOW 0.0
+      SUBSTRATE AAs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FGFR4
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT FGFR4_dual
+      PRODUCT AAs_dual
+      CONSUMED AAs_dual
+      CONSUMED FGFR4
+  END
+  INTERACTION Cholate_synthesis 1.0 SLOW 0.0
+      SUBSTRATE Bile_acid_high_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE Cholate_r
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE Cholesterol_pool
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT Bile_acid_high
+      PRODUCT BA_HIGH
+      PRODUCT Cholesterol_pool
+      CONSUMED Bile_acid_high_dual
+      CONSUMED Cholate_r
+      CONSUMED Cholesterol_pool
+  END
+  INTERACTION tr1999453 1.0 SLOW 0.0
+      SUBSTRATE FGF19_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE AAs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs
+      PRODUCT FGF19_mRNA
+      PRODUCT FGF19
+      CONSUMED FGF19_mRNA
+      CONSUMED AAs
+  END
+  INTERACTION tr1947283 1.0 SLOW 0.0
+      SUBSTRATE ABCB4
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE IR1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT ABCB4_dual
+      PRODUCT IR1_dual
+      CONSUMED ABCB4
+      CONSUMED IR1_dual
+  END
+  INTERACTION NR1H4_translation 1.0 SLOW 0.0
+      SUBSTRATE AAs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE NR1H4_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FXR_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs
+      PRODUCT FXR
+      PRODUCT NR1H4_mRNA
+      CONSUMED AAs
+      CONSUMED NR1H4_mRNA
+      CONSUMED FXR_dual
+  END
+  INTERACTION tr1710198 1.0 SLOW 0.0
+      SUBSTRATE AAs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FXR
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs_dual
+      PRODUCT FXR_dual
+      CONSUMED AAs_dual
+      CONSUMED FXR
+  END
+  INTERACTION tr1948043 1.0 SLOW 0.0
+      SUBSTRATE UGT2B4_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE dNTPs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT dNTPs_dual
+      PRODUCT UGT2B4_mRNA_dual
+      CONSUMED UGT2B4_mRNA
+      CONSUMED dNTPs_dual
+  END
+  INTERACTION tr1711181 1.0 SLOW 0.0
+      SUBSTRATE dNTPs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE CYP8B1_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT dNTPs_dual
+      PRODUCT CYP8B1_mRNA_dual
+      CONSUMED dNTPs_dual
+      CONSUMED CYP8B1_mRNA
+  END
+  INTERACTION tr1684957 1.0 SLOW 0.0
+      SUBSTRATE FXR_agonist_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE Chenodiol_Intracellular
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT FXR_agonist
+      CONSUMED FXR_agonist_dual
+      CONSUMED Chenodiol_Intracellular
+  END
+  INTERACTION tr1974705 1.0 SLOW 0.0
+      SUBSTRATE SLCO1B1_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE OATP2
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SLCO1B1_mRNA_dual
+      CONSUMED SLCO1B1_mRNA_dual
+      CONSUMED OATP2
+  END
+  INTERACTION tr1972261 1.0 SLOW 0.0
+      SUBSTRATE AAs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE NTCP
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs_dual
+      CONSUMED AAs_dual
+      CONSUMED NTCP
+  END
+  INTERACTION tr1973046 1.0 SLOW 0.0
+      SUBSTRATE DR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLCO1A2_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT DR1
+      PRODUCT SLCO1A2
+      CONSUMED DR1
+      CONSUMED SLCO1A2_dual
+  END
+  INTERACTION Bile_acid_clearance 1.0 SLOW 0.0
+      SUBSTRATE Chenodiol_r_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE Bile_acid_high
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE Cholate_r_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT Bile_acid_high_dual
+      PRODUCT BA_LOW
+      CONSUMED Chenodiol_r_dual
+      CONSUMED Bile_acid_high
+      CONSUMED Cholate_r_dual
+  END
+  INTERACTION tr1974651 1.0 SLOW 0.0
+      SUBSTRATE SLCO1B1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE DR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT DR1
+      PRODUCT SLCO1B1
+      CONSUMED SLCO1B1_dual
+      CONSUMED DR1
+  END
+  INTERACTION tr1923229 1.0 SLOW 0.0
+      SUBSTRATE ABCB11_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE BSEP
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT ABCB11_mRNA_dual
+      CONSUMED ABCB11_mRNA_dual
+      CONSUMED BSEP
+  END
+  INTERACTION NR2B1_transcription 1.0 SLOW 0.0
+      SUBSTRATE dNTPs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE NR2B1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE NR2B1_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT NR2B1_mRNA
+      PRODUCT NR2B1
+      PRODUCT dNTPs
+      CONSUMED dNTPs
+      CONSUMED NR2B1
+      CONSUMED NR2B1_mRNA_dual
+  END
+  INTERACTION tr1973091 1.0 SLOW 0.0
+      SUBSTRATE AAs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE OATP_A
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs_dual
+      CONSUMED AAs_dual
+      CONSUMED OATP_A
+  END
+  INTERACTION DR1_dissociation 1.0 SLOW 0.0
+      SUBSTRATE FTF_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE DR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT DR1_dual
+      PRODUCT FTF_dual
+      CONSUMED FTF_dual
+      CONSUMED DR1
+  END
+  INTERACTION tr1694832 1.0 SLOW 0.0
+      SUBSTRATE NR5A2_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FTF
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT NR5A2_mRNA_dual
+      PRODUCT FTF_dual
+      CONSUMED NR5A2_mRNA_dual
+      CONSUMED FTF
+  END
+  INTERACTION tr1923247 1.0 SLOW 0.0
+      SUBSTRATE ABCB11_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE AAs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT ABCB11_mRNA
+      PRODUCT BSEP
+      PRODUCT AAs
+      CONSUMED ABCB11_mRNA
+      CONSUMED AAs
+  END
+  INTERACTION tr1999462 1.0 SLOW 0.0
+      SUBSTRATE AAs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FGF19
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs_dual
+      CONSUMED AAs_dual
+      CONSUMED FGF19
+  END
+  INTERACTION tr1946411 1.0 SLOW 0.0
+      SUBSTRATE SLC27A5_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLC27A5_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SLC27A5_mRNA_dual
+      PRODUCT SLC27A5_dual
+      CONSUMED SLC27A5_mRNA
+      CONSUMED SLC27A5_dual
+  END
+  INTERACTION tr1922476 1.0 SLOW 0.0
+      SUBSTRATE AAs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE Sterol_26_hydroxylase
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs_dual
+      CONSUMED AAs_dual
+      CONSUMED Sterol_26_hydroxylase
+  END
+  INTERACTION tr1051360 1.0 SLOW 0.0
+      SUBSTRATE AAs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE Cholesterol_7_alpha_monooxygenase
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs_dual
+      CONSUMED AAs_dual
+      CONSUMED Cholesterol_7_alpha_monooxygenase
+  END
+  INTERACTION tr1698208 1.0 SLOW 0.0
+      SUBSTRATE BA_HIGH
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE BA_LOW
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT BA_HOMEOSTASIS
+      CONSUMED BA_HIGH
+      CONSUMED BA_LOW
+  END
+  INTERACTION tr1051369 1.0 SLOW 0.0
+      SUBSTRATE Cholesterol_7_alpha_monooxygenase
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE CYP7A1_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT CYP7A1_mRNA_dual
+      CONSUMED Cholesterol_7_alpha_monooxygenase
+      CONSUMED CYP7A1_mRNA_dual
+  END
+  INTERACTION Cholesterol_burst 1.0 SLOW 0.0
+      SUBSTRATE Cholesterol_Source
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT Cholesterol_pool
+      CONSUMED Cholesterol_Source
+  END
+  INTERACTION tr1695676 1.0 SLOW 0.0
+      SUBSTRATE dNTPs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE HNF4A_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT dNTPs_dual
+      PRODUCT HNF4A_mRNA_dual
+      CONSUMED dNTPs_dual
+      CONSUMED HNF4A_mRNA
+  END
+  INTERACTION tr1946438 1.0 SLOW 0.0
+      SUBSTRATE AAs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLC27A5_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs
+      PRODUCT BACS_II
+      PRODUCT BACS
+      PRODUCT SLC27A5_mRNA
+      CONSUMED AAs
+      CONSUMED SLC27A5_mRNA
+  END
+  INTERACTION tr1709498 1.0 SLOW 0.0
+      SUBSTRATE RXRa
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE NR2B1_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT NR2B1_mRNA_dual
+      PRODUCT RXRa_dual
+      CONSUMED RXRa
+      CONSUMED NR2B1_mRNA_dual
+  END
+  INTERACTION tr1924020 1.0 SLOW 0.0
+      SUBSTRATE IR1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE ABCC2
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT IR1_dual
+      PRODUCT ABCC2_dual
+      CONSUMED IR1_dual
+      CONSUMED ABCC2
+  END
+  INTERACTION tr1924029 1.0 SLOW 0.0
+      SUBSTRATE ABCC2_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE IR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT IR1
+      PRODUCT ABCC2
+      CONSUMED ABCC2_dual
+      CONSUMED IR1
+  END
+  INTERACTION tr1973828 1.0 SLOW 0.0
+      SUBSTRATE OATP8
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLCO1B3_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SLCO1B3_mRNA_dual
+      CONSUMED OATP8
+      CONSUMED SLCO1B3_mRNA_dual
+  END
+  INTERACTION tr1948052 1.0 SLOW 0.0
+      SUBSTRATE UGT2B4_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE UGT2B4
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE dNTPs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT UGT2B4
+      PRODUCT dNTPs
+      PRODUCT UGT2B4_mRNA
+      CONSUMED UGT2B4_mRNA_dual
+      CONSUMED UGT2B4
+      CONSUMED dNTPs
+  END
+  INTERACTION tr1973882 1.0 SLOW 0.0
+      SUBSTRATE SLCO1B3_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE DR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT DR1
+      PRODUCT SLCO1B3
+      CONSUMED SLCO1B3_dual
+      CONSUMED DR1
+  END
+  INTERACTION tr1709462 1.0 SLOW 0.0
+      SUBSTRATE dNTPs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE NR2B1_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT NR2B1_mRNA_dual
+      PRODUCT dNTPs_dual
+      CONSUMED dNTPs_dual
+      CONSUMED NR2B1_mRNA
+  END
+  INTERACTION tr1974642 1.0 SLOW 0.0
+      SUBSTRATE SLCO1B1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE DR1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT DR1_dual
+      PRODUCT SLCO1B1_dual
+      CONSUMED SLCO1B1
+      CONSUMED DR1_dual
+  END
+  INTERACTION tr1999408 1.0 SLOW 0.0
+      SUBSTRATE FGF19_gene
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE IR1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT FGF19_gene_dual
+      PRODUCT IR1_dual
+      CONSUMED FGF19_gene
+      CONSUMED IR1_dual
+  END
+  INTERACTION tr1972252 1.0 SLOW 0.0
+      SUBSTRATE SLC10A1_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE NTCP
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SLC10A1_mRNA_dual
+      CONSUMED SLC10A1_mRNA_dual
+      CONSUMED NTCP
+  END
+  INTERACTION tr1999471 1.0 SLOW 0.0
+      SUBSTRATE FGF19
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FGF19_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT FGF19_mRNA_dual
+      CONSUMED FGF19
+      CONSUMED FGF19_mRNA_dual
+  END
+  INTERACTION tr1923274 1.0 SLOW 0.0
+      SUBSTRATE ABCB11_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE ABCB11_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT ABCB11_mRNA_dual
+      PRODUCT ABCB11_dual
+      CONSUMED ABCB11_dual
+      CONSUMED ABCB11_mRNA
+  END
+  INTERACTION tr1710225 1.0 SLOW 0.0
+      SUBSTRATE dNTPs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE NR1H4_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT dNTPs_dual
+      PRODUCT NR1H4_mRNA_dual
+      CONSUMED dNTPs_dual
+      CONSUMED NR1H4_mRNA
+  END
+  INTERACTION NR2B1_translation 1.0 SLOW 0.0
+      SUBSTRATE RXRa_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE NR2B1_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE AAs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT NR2B1_mRNA
+      PRODUCT RXRa
+      PRODUCT AAs
+      CONSUMED RXRa_dual
+      CONSUMED NR2B1_mRNA
+      CONSUMED AAs
+  END
+  INTERACTION tr2000147 1.0 SLOW 0.0
+      SUBSTRATE dNTPs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FGFR4_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT FGFR4_mRNA_dual
+      PRODUCT dNTPs_dual
+      CONSUMED dNTPs_dual
+      CONSUMED FGFR4_mRNA
+  END
+  INTERACTION tr2000458 1.0 SLOW 0.0
+      SUBSTRATE cFOS
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE DR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT DR1_dual
+      PRODUCT cFOS
+      CONSUMED cFOS
+      CONSUMED DR1
+  END
+  INTERACTION tr1709489 1.0 SLOW 0.0
+      SUBSTRATE RXRa
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE AAs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs_dual
+      PRODUCT RXRa_dual
+      CONSUMED RXRa
+      CONSUMED AAs_dual
+  END
+  INTERACTION IR1_binding 1.0 SLOW 0.0
+      SUBSTRATE IR1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FXR_agonist
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE RXRa
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FXR
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT RXRa
+      PRODUCT FXR_agonist
+      PRODUCT IR1
+      PRODUCT FXR
+      CONSUMED IR1_dual
+      CONSUMED FXR_agonist
+      CONSUMED RXRa
+      CONSUMED FXR
+  END
+  INTERACTION tr1684835 1.0 SLOW 0.0
+      SUBSTRATE FXR_agonist_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE Cholate_Intracellular
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT FXR_agonist
+      CONSUMED FXR_agonist_dual
+      CONSUMED Cholate_Intracellular
+  END
+  INTERACTION tr1924038 1.0 SLOW 0.0
+      SUBSTRATE ABCC2_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE ABCC2_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT ABCC2_mRNA_dual
+      PRODUCT ABCC2_dual
+      CONSUMED ABCC2_dual
+      CONSUMED ABCC2_mRNA
+  END
+  INTERACTION tr1973837 1.0 SLOW 0.0
+      SUBSTRATE AAs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE OATP8
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs_dual
+      CONSUMED AAs_dual
+      CONSUMED OATP8
+  END
+  INTERACTION tr1974678 1.0 SLOW 0.0
+      SUBSTRATE dNTPs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLCO1B1_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLCO1B1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SLCO1B1_mRNA
+      PRODUCT dNTPs
+      PRODUCT SLCO1B1
+      CONSUMED dNTPs
+      CONSUMED SLCO1B1_mRNA_dual
+      CONSUMED SLCO1B1
+  END
+  INTERACTION tr1948025 1.0 SLOW 0.0
+      SUBSTRATE IR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE UGT2B4_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT IR1
+      PRODUCT UGT2B4
+      CONSUMED IR1
+      CONSUMED UGT2B4_dual
+  END
+  INTERACTION tr1973037 1.0 SLOW 0.0
+      SUBSTRATE SLCO1A2
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE DR1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SLCO1A2_dual
+      PRODUCT DR1_dual
+      CONSUMED SLCO1A2
+      CONSUMED DR1_dual
+  END
+  INTERACTION tr1924835 1.0 SLOW 0.0
+      SUBSTRATE AAs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE BAAT_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs
+      PRODUCT BACAT
+      PRODUCT BACAT_II
+      PRODUCT BAAT_mRNA
+      CONSUMED AAs
+      CONSUMED BAAT_mRNA
+  END
+  INTERACTION tr1947274 1.0 SLOW 0.0
+      SUBSTRATE IR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE ABCB4_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT ABCB4
+      PRODUCT IR1
+      CONSUMED IR1
+      CONSUMED ABCB4_dual
+  END
+  INTERACTION tr1946393 1.0 SLOW 0.0
+      SUBSTRATE SLC27A5
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE IR1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SLC27A5_dual
+      PRODUCT IR1_dual
+      CONSUMED SLC27A5
+      CONSUMED IR1_dual
+  END
+  INTERACTION tr1711154 1.0 SLOW 0.0
+      SUBSTRATE Sterol_12_alpha_hydoxylase
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE AAs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs_dual
+      CONSUMED Sterol_12_alpha_hydoxylase
+      CONSUMED AAs_dual
+  END
+  INTERACTION tr1948034 1.0 SLOW 0.0
+      SUBSTRATE UGT2B4_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE UGT2B4_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT UGT2B4_dual
+      PRODUCT UGT2B4_mRNA_dual
+      CONSUMED UGT2B4_mRNA
+      CONSUMED UGT2B4_dual
+  END
+  INTERACTION tr1923265 1.0 SLOW 0.0
+      SUBSTRATE dNTPs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE ABCB11_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT ABCB11_mRNA_dual
+      PRODUCT dNTPs_dual
+      CONSUMED dNTPs_dual
+      CONSUMED ABCB11_mRNA
+  END
+  INTERACTION tr1694841 1.0 SLOW 0.0
+      SUBSTRATE AAs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FTF
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs_dual
+      PRODUCT FTF_dual
+      CONSUMED AAs_dual
+      CONSUMED FTF
+  END
+  INTERACTION tr1051306 1.0 SLOW 0.0
+      SUBSTRATE CYP7A1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE DR1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT CYP7A1_dual
+      PRODUCT DR1_dual
+      CONSUMED CYP7A1
+      CONSUMED DR1_dual
+  END
+  INTERACTION tr1974696 1.0 SLOW 0.0
+      SUBSTRATE OATP2
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE AAs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs_dual
+      CONSUMED OATP2
+      CONSUMED AAs_dual
+  END
+  INTERACTION tr1974660 1.0 SLOW 0.0
+      SUBSTRATE SLCO1B1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLCO1B1_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SLCO1B1_mRNA_dual
+      PRODUCT SLCO1B1_dual
+      CONSUMED SLCO1B1_dual
+      CONSUMED SLCO1B1_mRNA
+  END
+  INTERACTION IR1_dissociation 1.0 SLOW 0.0
+      SUBSTRATE IR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FXR_agonist_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT IR1_dual
+      PRODUCT FXR_agonist_dual
+      CONSUMED IR1
+      CONSUMED FXR_agonist_dual
+  END
+  INTERACTION tr1974669 1.0 SLOW 0.0
+      SUBSTRATE SLCO1B1_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE dNTPs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SLCO1B1_mRNA_dual
+      PRODUCT dNTPs_dual
+      CONSUMED SLCO1B1_mRNA
+      CONSUMED dNTPs_dual
+  END
+  INTERACTION tr1924047 1.0 SLOW 0.0
+      SUBSTRATE dNTPs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE ABCC2_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT dNTPs_dual
+      PRODUCT ABCC2_mRNA_dual
+      CONSUMED dNTPs_dual
+      CONSUMED ABCC2_mRNA
+  END
+  INTERACTION tr1973846 1.0 SLOW 0.0
+      SUBSTRATE SLCO1B3_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE AAs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs
+      PRODUCT OATP8
+      PRODUCT SLCO1B3_mRNA
+      CONSUMED SLCO1B3_mRNA
+      CONSUMED AAs
+  END
+  INTERACTION HNF4A_translation 1.0 SLOW 0.0
+      SUBSTRATE AAs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE HNF4A_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE HNF4A_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs
+      PRODUCT HNF4A
+      PRODUCT HNF4A_mRNA
+      CONSUMED AAs
+      CONSUMED HNF4A_dual
+      CONSUMED HNF4A_mRNA
+  END
+  INTERACTION tr1922440 1.0 SLOW 0.0
+      SUBSTRATE CYP27A1_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE CYP27A1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT CYP27A1_mRNA_dual
+      PRODUCT CYP27A1_dual
+      CONSUMED CYP27A1_mRNA
+      CONSUMED CYP27A1_dual
+  END
+  INTERACTION tr1924844 1.0 SLOW 0.0
+      SUBSTRATE dNTPs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE BAAT_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE BAAT
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT BAAT_mRNA
+      PRODUCT dNTPs
+      PRODUCT BAAT
+      CONSUMED dNTPs
+      CONSUMED BAAT_mRNA_dual
+      CONSUMED BAAT
+  END
+  INTERACTION tr1922449 1.0 SLOW 0.0
+      SUBSTRATE CYP27A1_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE dNTPs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT CYP27A1_mRNA_dual
+      PRODUCT dNTPs_dual
+      CONSUMED CYP27A1_mRNA
+      CONSUMED dNTPs_dual
+  END
+  INTERACTION tr1946420 1.0 SLOW 0.0
+      SUBSTRATE SLC27A5_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE dNTPs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT dNTPs_dual
+      PRODUCT SLC27A5_mRNA_dual
+      CONSUMED SLC27A5_mRNA
+      CONSUMED dNTPs_dual
+  END
+  INTERACTION tr1946447 1.0 SLOW 0.0
+      SUBSTRATE BACS_II
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE BACS
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE AAs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs_dual
+      CONSUMED BACS_II
+      CONSUMED BACS
+      CONSUMED AAs_dual
+  END
+  INTERACTION tr1922422 1.0 SLOW 0.0
+      SUBSTRATE CYP27A1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE DR1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT CYP27A1_dual
+      PRODUCT DR1_dual
+      CONSUMED CYP27A1
+      CONSUMED DR1_dual
+  END
+  INTERACTION tr1999417 1.0 SLOW 0.0
+      SUBSTRATE FGF19_gene_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE IR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT IR1
+      PRODUCT FGF19_gene
+      CONSUMED FGF19_gene_dual
+      CONSUMED IR1
+  END
+  INTERACTION tr1972297 1.0 SLOW 0.0
+      SUBSTRATE SLC10A1_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLC10A1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SLC10A1_mRNA_dual
+      PRODUCT SLC10A1_dual
+      CONSUMED SLC10A1_mRNA
+      CONSUMED SLC10A1_dual
+  END
+  INTERACTION tr1694868 1.0 SLOW 0.0
+      SUBSTRATE dNTPs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE NR5A2_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT dNTPs_dual
+      PRODUCT NR5A2_mRNA_dual
+      CONSUMED dNTPs_dual
+      CONSUMED NR5A2_mRNA
+  END
+  INTERACTION tr1051315 1.0 SLOW 0.0
+      SUBSTRATE DR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE CYP7A1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT DR1
+      PRODUCT CYP7A1
+      CONSUMED DR1
+      CONSUMED CYP7A1_dual
+  END
+  INTERACTION tr1710497 1.0 SLOW 0.0
+      SUBSTRATE IR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FXR_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT IR1_dual
+      PRODUCT FXR_dual
+      CONSUMED IR1
+      CONSUMED FXR_dual
+  END
+  INTERACTION tr1948061 1.0 SLOW 0.0
+      SUBSTRATE UGT2B4_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE AAs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs
+      PRODUCT UGT2B4_protein
+      PRODUCT UGT2B4_mRNA
+      CONSUMED UGT2B4_mRNA
+      CONSUMED AAs
+  END
+  INTERACTION tr1946429 1.0 SLOW 0.0
+      SUBSTRATE SLC27A5
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE dNTPs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLC27A5_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SLC27A5_mRNA
+      PRODUCT SLC27A5
+      PRODUCT dNTPs
+      CONSUMED SLC27A5
+      CONSUMED dNTPs
+      CONSUMED SLC27A5_mRNA_dual
+  END
+  INTERACTION tr1973855 1.0 SLOW 0.0
+      SUBSTRATE SLCO1B3
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE dNTPs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLCO1B3_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT dNTPs
+      PRODUCT SLCO1B3
+      PRODUCT SLCO1B3_mRNA
+      CONSUMED SLCO1B3
+      CONSUMED dNTPs
+      CONSUMED SLCO1B3_mRNA_dual
+  END
+  INTERACTION tr1924056 1.0 SLOW 0.0
+      SUBSTRATE ABCC2
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE dNTPs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE ABCC2_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT ABCC2
+      PRODUCT dNTPs
+      PRODUCT ABCC2_mRNA
+      CONSUMED ABCC2
+      CONSUMED dNTPs
+      CONSUMED ABCC2_mRNA_dual
+  END
+  INTERACTION tr1696754 1.0 SLOW 0.0
+      SUBSTRATE dNTPs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE NR0B2_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT NR0B2_mRNA_dual
+      PRODUCT dNTPs_dual
+      CONSUMED dNTPs_dual
+      CONSUMED NR0B2_mRNA
+  END
+  INTERACTION HNF4A_transcription 1.0 SLOW 0.0
+      SUBSTRATE HNF4A_gene
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE HNF4A_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE dNTPs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT HNF4A_gene
+      PRODUCT dNTPs
+      PRODUCT HNF4A_mRNA
+      CONSUMED HNF4A_gene
+      CONSUMED HNF4A_mRNA_dual
+      CONSUMED dNTPs
+  END
+  INTERACTION tr1924853 1.0 SLOW 0.0
+      SUBSTRATE BAAT_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE dNTPs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT dNTPs_dual
+      PRODUCT BAAT_mRNA_dual
+      CONSUMED BAAT_mRNA
+      CONSUMED dNTPs_dual
+  END
+  INTERACTION tr1973055 1.0 SLOW 0.0
+      SUBSTRATE SLCO1A2_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLCO1A2_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SLCO1A2_mRNA_dual
+      PRODUCT SLCO1A2_dual
+      CONSUMED SLCO1A2_mRNA
+      CONSUMED SLCO1A2_dual
+  END
+  INTERACTION tr1922458 1.0 SLOW 0.0
+      SUBSTRATE dNTPs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE CYP27A1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE CYP27A1_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT CYP27A1_mRNA
+      PRODUCT CYP27A1
+      PRODUCT dNTPs
+      CONSUMED dNTPs
+      CONSUMED CYP27A1
+      CONSUMED CYP27A1_mRNA_dual
+  END
+  INTERACTION tr1947256 1.0 SLOW 0.0
+      SUBSTRATE dNTPs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE ABCB4_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT dNTPs_dual
+      PRODUCT ABCB4_mRNA_dual
+      CONSUMED dNTPs_dual
+      CONSUMED ABCB4_mRNA
+  END
+  INTERACTION tr1051324 1.0 SLOW 0.0
+      SUBSTRATE CYP7A1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE CYP7A1_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT CYP7A1_mRNA_dual
+      PRODUCT CYP7A1_dual
+      CONSUMED CYP7A1_dual
+      CONSUMED CYP7A1_mRNA
+  END
+  INTERACTION tr1946456 1.0 SLOW 0.0
+      SUBSTRATE SLC27A5_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE BACS
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE BACS_II
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SLC27A5_mRNA_dual
+      CONSUMED SLC27A5_mRNA_dual
+      CONSUMED BACS
+      CONSUMED BACS_II
+  END
+  INTERACTION tr1922431 1.0 SLOW 0.0
+      SUBSTRATE DR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE CYP27A1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT DR1
+      PRODUCT CYP27A1
+      CONSUMED DR1
+      CONSUMED CYP27A1_dual
+  END
+  INTERACTION tr1947238 1.0 SLOW 0.0
+      SUBSTRATE AAs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE ABCB4_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs
+      PRODUCT MDR3
+      PRODUCT ABCB4_mRNA
+      CONSUMED AAs
+      CONSUMED ABCB4_mRNA
+  END
+  INTERACTION tr2000111 1.0 SLOW 0.0
+      SUBSTRATE FGFR4
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FGFR4_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT FGFR4_dual
+      PRODUCT FGFR4_mRNA_dual
+      CONSUMED FGFR4
+      CONSUMED FGFR4_mRNA_dual
+  END
+  INTERACTION tr1711172 1.0 SLOW 0.0
+      SUBSTRATE CYP8B1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE dNTPs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE CYP8B1_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT dNTPs
+      PRODUCT CYP8B1
+      PRODUCT CYP8B1_mRNA
+      CONSUMED CYP8B1
+      CONSUMED dNTPs
+      CONSUMED CYP8B1_mRNA_dual
+  END
+  INTERACTION tr1924065 1.0 SLOW 0.0
+      SUBSTRATE AAs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE ABCC2_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs
+      PRODUCT MRP2
+      PRODUCT ABCC2_mRNA
+      CONSUMED AAs
+      CONSUMED ABCC2_mRNA
+  END
+  INTERACTION tr1973864 1.0 SLOW 0.0
+      SUBSTRATE SLCO1B3_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE dNTPs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SLCO1B3_mRNA_dual
+      PRODUCT dNTPs_dual
+      CONSUMED SLCO1B3_mRNA
+      CONSUMED dNTPs_dual
+  END
+  INTERACTION tr1948016 1.0 SLOW 0.0
+      SUBSTRATE IR1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE UGT2B4
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT IR1_dual
+      PRODUCT UGT2B4_dual
+      CONSUMED IR1_dual
+      CONSUMED UGT2B4
+  END
+  INTERACTION tr1947265 1.0 SLOW 0.0
+      SUBSTRATE ABCB4_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE ABCB4_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT ABCB4_dual
+      PRODUCT ABCB4_mRNA_dual
+      CONSUMED ABCB4_dual
+      CONSUMED ABCB4_mRNA
+  END
+  INTERACTION tr1972288 1.0 SLOW 0.0
+      SUBSTRATE SLC10A1_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE dNTPs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT dNTPs_dual
+      PRODUCT SLC10A1_mRNA_dual
+      CONSUMED SLC10A1_mRNA
+      CONSUMED dNTPs_dual
+  END
+  INTERACTION tr1999426 1.0 SLOW 0.0
+      SUBSTRATE FGF19_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FGF19_gene_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT FGF19_mRNA_dual
+      PRODUCT FGF19_gene_dual
+      CONSUMED FGF19_mRNA
+      CONSUMED FGF19_gene_dual
+  END
+  INTERACTION tr1697053 1.0 SLOW 0.0
+      SUBSTRATE IR1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE NR0B2
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT IR1_dual
+      PRODUCT NR0B2_dual
+      CONSUMED IR1_dual
+      CONSUMED NR0B2
+  END
+  INTERACTION tr1711145 1.0 SLOW 0.0
+      SUBSTRATE Sterol_12_alpha_hydoxylase
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE CYP8B1_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT CYP8B1_mRNA_dual
+      CONSUMED Sterol_12_alpha_hydoxylase
+      CONSUMED CYP8B1_mRNA_dual
+  END
+  INTERACTION tr1923292 1.0 SLOW 0.0
+      SUBSTRATE IR1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE ABCB11
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT ABCB11_dual
+      PRODUCT IR1_dual
+      CONSUMED IR1_dual
+      CONSUMED ABCB11
+  END
+  INTERACTION MAPK_signalling 1.0 SLOW 0.0
+      SUBSTRATE cFOS_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FGFR4
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FGF19
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT FGFR4
+      PRODUCT cFOS
+      PRODUCT FGF19
+      CONSUMED cFOS_dual
+      CONSUMED FGFR4
+      CONSUMED FGF19
+  END
+  INTERACTION tr1974687 1.0 SLOW 0.0
+      SUBSTRATE AAs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLCO1B1_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SLCO1B1_mRNA
+      PRODUCT OATP2
+      PRODUCT AAs
+      CONSUMED AAs
+      CONSUMED SLCO1B1_mRNA
+  END
+  INTERACTION tr1684844 1.0 SLOW 0.0
+      SUBSTRATE Chenodiol_Intracellular_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE FXR_agonist
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE Cholate_Intracellular_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT FXR_agonist_dual
+      CONSUMED Chenodiol_Intracellular_dual
+      CONSUMED FXR_agonist
+      CONSUMED Cholate_Intracellular_dual
+  END
+  INTERACTION tr1697190 1.0 SLOW 0.0
+      SUBSTRATE HNF4A_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE DR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT HNF4A_dual
+      PRODUCT DR1_dual
+      CONSUMED HNF4A_dual
+      CONSUMED DR1
+  END
+  INTERACTION tr1973100 1.0 SLOW 0.0
+      SUBSTRATE SLCO1A2_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE OATP_A
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SLCO1A2_mRNA_dual
+      CONSUMED SLCO1A2_mRNA_dual
+      CONSUMED OATP_A
+  END
+  INTERACTION tr1972315 1.0 SLOW 0.0
+      SUBSTRATE DR1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLC10A1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT DR1_dual
+      PRODUCT SLC10A1_dual
+      CONSUMED DR1_dual
+      CONSUMED SLC10A1
+  END
+  INTERACTION tr1973064 1.0 SLOW 0.0
+      SUBSTRATE SLCO1A2_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE dNTPs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SLCO1A2_mRNA_dual
+      PRODUCT dNTPs_dual
+      CONSUMED SLCO1A2_mRNA
+      CONSUMED dNTPs_dual
+  END
+  INTERACTION tr1947247 1.0 SLOW 0.0
+      SUBSTRATE dNTPs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE ABCB4_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE ABCB4
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT dNTPs
+      PRODUCT ABCB4_mRNA
+      PRODUCT ABCB4
+      CONSUMED dNTPs
+      CONSUMED ABCB4_mRNA_dual
+      CONSUMED ABCB4
+  END
+  INTERACTION tr1924862 1.0 SLOW 0.0
+      SUBSTRATE BAAT_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE BAAT_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT BAAT_dual
+      PRODUCT BAAT_mRNA_dual
+      CONSUMED BAAT_dual
+      CONSUMED BAAT_mRNA
+  END
+  INTERACTION tr1051333 1.0 SLOW 0.0
+      SUBSTRATE dNTPs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE CYP7A1_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT CYP7A1_mRNA_dual
+      PRODUCT dNTPs_dual
+      CONSUMED dNTPs_dual
+      CONSUMED CYP7A1_mRNA
+  END
+  INTERACTION tr1947229 1.0 SLOW 0.0
+      SUBSTRATE MDR3
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE AAs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs_dual
+      CONSUMED MDR3
+      CONSUMED AAs_dual
+  END
+  INTERACTION tr1711163 1.0 SLOW 0.0
+      SUBSTRATE AAs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE CYP8B1_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT Sterol_12_alpha_hydoxylase
+      PRODUCT AAs
+      PRODUCT CYP8B1_mRNA
+      CONSUMED AAs
+      CONSUMED CYP8B1_mRNA
+  END
+  INTERACTION tr1947220 1.0 SLOW 0.0
+      SUBSTRATE MDR3
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE ABCB4_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT ABCB4_mRNA_dual
+      CONSUMED MDR3
+      CONSUMED ABCB4_mRNA_dual
+  END
+  INTERACTION tr1973873 1.0 SLOW 0.0
+      SUBSTRATE SLCO1B3_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLCO1B3_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT SLCO1B3_dual
+      PRODUCT SLCO1B3_mRNA_dual
+      CONSUMED SLCO1B3_dual
+      CONSUMED SLCO1B3_mRNA
+  END
+  INTERACTION tr1973082 1.0 SLOW 0.0
+      SUBSTRATE AAs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLCO1A2_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT OATP_A
+      PRODUCT AAs
+      PRODUCT SLCO1A2_mRNA
+      CONSUMED AAs
+      CONSUMED SLCO1A2_mRNA
+  END
+  INTERACTION tr1924074 1.0 SLOW 0.0
+      SUBSTRATE MRP2
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE AAs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs_dual
+      CONSUMED MRP2
+      CONSUMED AAs_dual
+  END
+  INTERACTION NR0B2_translation 1.0 SLOW 0.0
+      SUBSTRATE AAs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SHP_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE NR0B2_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT NR0B2_mRNA
+      PRODUCT SHP
+      PRODUCT AAs
+      CONSUMED AAs
+      CONSUMED SHP_dual
+      CONSUMED NR0B2_mRNA
+  END
+  INTERACTION NR0B2_promoter_activation 1.0 SLOW 0.0
+      SUBSTRATE NR0B2_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE IR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SHP_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT NR0B2
+      PRODUCT IR1
+      PRODUCT SHP_dual
+      CONSUMED NR0B2_dual
+      CONSUMED IR1
+      CONSUMED SHP_dual
+  END
+  INTERACTION tr1999435 1.0 SLOW 0.0
+      SUBSTRATE FGF19_mRNA
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE dNTPs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT FGF19_mRNA_dual
+      PRODUCT dNTPs_dual
+      CONSUMED FGF19_mRNA
+      CONSUMED dNTPs_dual
+  END
+  INTERACTION tr1923283 1.0 SLOW 0.0
+      SUBSTRATE IR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE ABCB11_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT ABCB11
+      PRODUCT IR1
+      CONSUMED IR1
+      CONSUMED ABCB11_dual
+  END
+  INTERACTION tr1695703 1.0 SLOW 0.0
+      SUBSTRATE AAs_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE HNF4A
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT AAs_dual
+      PRODUCT HNF4A_dual
+      CONSUMED AAs_dual
+      CONSUMED HNF4A
+  END
+  INTERACTION tr1711208 1.0 SLOW 0.0
+      SUBSTRATE CYP8B1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE DR1_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT DR1_dual
+      PRODUCT CYP8B1_dual
+      CONSUMED CYP8B1
+      CONSUMED DR1_dual
+  END
+  INTERACTION tr1973073 1.0 SLOW 0.0
+      SUBSTRATE dNTPs
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLCO1A2
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE SLCO1A2_mRNA_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT dNTPs
+      PRODUCT SLCO1A2
+      PRODUCT SLCO1A2_mRNA
+      CONSUMED dNTPs
+      CONSUMED SLCO1A2
+      CONSUMED SLCO1A2_mRNA_dual
+  END
+  INTERACTION tr1924871 1.0 SLOW 0.0
+      SUBSTRATE BAAT_dual
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      SUBSTRATE IR1
+         ACTIVITY 2
+           0 0.0
+           1 1.0
+         END
+      END
+      PRODUCT BAAT
+      PRODUCT IR1
+      CONSUMED BAAT_dual
+      CONSUMED IR1
+  END
+END
+
+GSMN
+   MODEL HepatoNet1
+   EXT_TAG _xt
+   METABOLITE AAs Translation
+      ACTIVITY 2
+         0 0
+         0.001 1
+      END
+   END
+   METABOLITE dNTPs Transcription
+      ACTIVITY 2
+         0.0 0
+         0.001 1
+      END
+   END
+   METABOLITE AAs_dual Translation
+      ACTIVITY 2
+         0 1
+         0.001 0
+      END
+   END
+   METABOLITE Cholate_Intracellular_dual HC00502_c
+      ACTIVITY 2
+         0.0 1
+         0.2 0
+      END
+   END
+   METABOLITE Cholate_r HC00502_r
+      ACTIVITY 2
+         0.0 0
+         0.5 1
+      END
+   END
+   METABOLITE Cholate_r_dual HC00502_r
+      ACTIVITY 2
+         0.0 1
+         0.49 0
+      END
+   END
+   METABOLITE Chenodiol_Intracellular HC00958_c
+      ACTIVITY 2
+         0.0 0
+         0.2 1
+      END
+   END
+   METABOLITE Chenodiol_r_dual HC00958_r
+      ACTIVITY 2
+         0.0 1
+         0.49 0
+      END
+   END
+   METABOLITE Chenodiol_r HC00958_r
+      ACTIVITY 2
+         0.0 0
+         0.5 1
+      END
+   END
+   METABOLITE Cholate_Intracellular HC00502_c
+      ACTIVITY 2
+         0.0 0
+         0.2 1
+      END
+   END
+   METABOLITE Chenodiol_Intracellular_dual HC00958_c
+      ACTIVITY 2
+         0.0 1
+         0.2 0
+      END
+   END
+   METABOLITE dNTPs_dual Transcription
+      ACTIVITY 2
+         0.0 1
+         0.001 0
+      END
+   END
+   ENZYME UGT2B4_protein r0532
+      ACTIVITY 2
+         0 0.0 0.1
+         1 0.0 1.0
+      END
+   END
+   ENZYME MRP2 list
+      ACTIVITY 2
+         0 0.0 0.1
+         1 0.0 1.0
+      END
+      LIST 3
+         r0814 1.0
+         r0993 1.0
+         r0969 1.0
+      END
+   END
+   ENZYME BACAT list
+      ACTIVITY 2
+         0 -0.1 0.1
+         1 -1.0 1.0
+      END
+      LIST 2
+         r0629 1.0
+         r0630 1.0
+      END
+   END
+   ENZYME BSEP list
+      ACTIVITY 2
+         0 0.0 0.1
+         1 0.0 1.0
+      END
+      LIST 4
+         r1504 1.0
+         r1505 1.0
+         r1506 1.0
+         r1507 1.0
+      END
+   END
+   ENZYME BACS list
+      ACTIVITY 2
+         0 -0.1 0.1
+         1 -1.0 1.0
+      END
+      LIST 5
+         r0573 1.0
+         r0650 1.0
+         r0651 1.0
+         r0690 1.0
+         r0704 1.0
+      END
+   END
+   ENZYME BACAT_II r0631
+      ACTIVITY 2
+         0 0.0 0.1
+         1 0.0 1.0
+      END
+   END
+   ENZYME MDR3 list
+      ACTIVITY 2
+         0 0.0 0.1
+         1 0.0 1.0
+      END
+      LIST 4
+         r1508 1.0
+         r1509 1.0
+         r1510 1.0
+         r1511 1.0
+      END
+   END
+   ENZYME Cholesterol_7_alpha_monooxygenase r0335
+      ACTIVITY 2
+         0 -0.1 0.1
+         1 -1.0 1.0
+      END
+   END
+   ENZYME OATP2 list
+      ACTIVITY 1
+         0 -0.1 0.1
+      END
+      LIST 95
+         r2198 1.0
+         r2199 1.0
+         r2200 1.0
+         r2201 1.0
+         r2202 1.0
+         r2218 1.0
+         r2219 1.0
+         r2220 1.0
+         r2221 1.0
+         r2222 1.0
+         r2223 1.0
+         r2224 1.0
+         r2225 1.0
+         r2226 1.0
+         r2227 1.0
+         r2228 1.0
+         r2229 1.0
+         r2230 1.0
+         r2231 1.0
+         r2232 1.0
+         r2233 1.0
+         r2234 1.0
+         r2235 1.0
+         r2236 1.0
+         r2237 1.0
+         r2238 1.0
+         r2239 1.0
+         r2240 1.0
+         r2241 1.0
+         r2242 1.0
+         r2243 1.0
+         r2244 1.0
+         r2245 1.0
+         r2246 1.0
+         r2247 1.0
+         r2248 1.0
+         r2249 1.0
+         r2250 1.0
+         r2251 1.0
+         r2252 1.0
+         r2253 1.0
+         r2254 1.0
+         r2255 1.0
+         r2256 1.0
+         r2257 1.0
+         r2258 1.0
+         r2259 1.0
+         r2260 1.0
+         r2261 1.0
+         r2262 1.0
+         r2263 1.0
+         r2264 1.0
+         r2265 1.0
+         r2266 1.0
+         r2267 1.0
+         r2268 1.0
+         r2269 1.0
+         r2270 1.0
+         r2271 1.0
+         r2272 1.0
+         r2273 1.0
+         r2274 1.0
+         r2275 1.0
+         r2276 1.0
+         r2277 1.0
+         r2278 1.0
+         r2279 1.0
+         r2280 1.0
+         r2281 1.0
+         r2282 1.0
+         r2283 1.0
+         r2284 1.0
+         r2285 1.0
+         r2286 1.0
+         r2287 1.0
+         r2288 1.0
+         r2289 1.0
+         r2290 1.0
+         r2291 1.0
+         r2292 1.0
+         r2293 1.0
+         r2294 1.0
+         r2295 1.0
+         r2296 1.0
+         r2297 1.0
+         r2298 1.0
+         r2299 1.0
+         r2300 1.0
+         r2301 1.0
+         r2302 1.0
+         r2303 1.0
+         r2304 1.0
+         r2305 1.0
+         r2306 1.0
+         r2307 1.0
+      END
+   END
+   ENZYME Sterol_12_alpha_hydoxylase r0751
+      ACTIVITY 2
+         0 0.0 0.1
+         1 0.0 1.0
+      END
+   END
+   ENZYME NTCP list
+      ACTIVITY 2
+         0 0.0 0.1
+         1 0.0 1.0
+      END
+      LIST 11
+         r1163 1.0
+         r1494 1.0
+         r1495 1.0
+         r1496 1.0
+         r1497 1.0
+         r1498 1.0
+         r1499 1.0
+         r1500 1.0
+         r1501 1.0
+         r1502 1.0
+         r1503 1.0
+      END
+   END
+   ENZYME OATP_A list
+      ACTIVITY 2
+         0 -0.1 0.1
+         1 -1.0 1.0
+      END
+      LIST 94
+         r2139 1.0
+         r2140 1.0
+         r2141 1.0
+         r2142 1.0
+         r2143 1.0
+         r2144 1.0
+         r2145 1.0
+         r2146 1.0
+         r2147 1.0
+         r2148 1.0
+         r2149 1.0
+         r2150 1.0
+         r2151 1.0
+         r2152 1.0
+         r2153 1.0
+         r2154 1.0
+         r2155 1.0
+         r2156 1.0
+         r2157 1.0
+         r2158 1.0
+         r2159 1.0
+         r2160 1.0
+         r2161 1.0
+         r2162 1.0
+         r2163 1.0
+         r2164 1.0
+         r2165 1.0
+         r2166 1.0
+         r2167 1.0
+         r2168 1.0
+         r2169 1.0
+         r2170 1.0
+         r2171 1.0
+         r2172 1.0
+         r2173 1.0
+         r2174 1.0
+         r2175 1.0
+         r2176 1.0
+         r2177 1.0
+         r2178 1.0
+         r2179 1.0
+         r2180 1.0
+         r2181 1.0
+         r2182 1.0
+         r2183 1.0
+         r2184 1.0
+         r2185 1.0
+         r2186 1.0
+         r2187 1.0
+         r2188 1.0
+         r2189 1.0
+         r2190 1.0
+         r2191 1.0
+         r2192 1.0
+         r2193 1.0
+         r2194 1.0
+         r2195 1.0
+         r2196 1.0
+         r2197 1.0
+         r2203 1.0
+         r2204 1.0
+         r2205 1.0
+         r2206 1.0
+         r2207 1.0
+         r2208 1.0
+         r2209 1.0
+         r2210 1.0
+         r2211 1.0
+         r2212 1.0
+         r2213 1.0
+         r2214 1.0
+         r2215 1.0
+         r2216 1.0
+         r2217 1.0
+         r2308 1.0
+         r2309 1.0
+         r2310 1.0
+         r2311 1.0
+         r2312 1.0
+         r2482 1.0
+         r2483 1.0
+         r2484 1.0
+         r2485 1.0
+         r2486 1.0
+         r2487 1.0
+         r2488 1.0
+         r2489 1.0
+         r2490 1.0
+         r2491 1.0
+         r2492 1.0
+         r2493 1.0
+         r2494 1.0
+         r2495 1.0
+         r2496 1.0
+      END
+   END
+   ENZYME BACS_II list
+      ACTIVITY 2
+         0 0.0 0.1
+         1 0.0 1.0
+      END
+      LIST 1
+         r0689 1.0
+      END
+   END
+   ENZYME Sterol_26_hydroxylase list
+      ACTIVITY 2
+         0 -0.1 0.1
+         1 -1.0 1.0
+      END
+      LIST 3
+         r0740 1.0
+         r0741 1.0
+         r0742 1.0
+      END
+   END
+   ENZYME OATP8 list
+      ACTIVITY 2
+         0 -0.1 0.1
+         1 -1.0 1.0
+      END
+      LIST 23
+         r2313 1.0
+         r2314 1.0
+         r2315 1.0
+         r2316 1.0
+         r2317 1.0
+         r2318 1.0
+         r2319 1.0
+         r2320 1.0
+         r2321 1.0
+         r2322 1.0
+         r2323 1.0
+         r2324 1.0
+         r2325 1.0
+         r2326 1.0
+         r2327 1.0
+         r2328 1.0
+         r2329 1.0
+         r2330 1.0
+         r2331 1.0
+         r2332 1.0
+         r2333 1.0
+         r2334 1.0
+         r2335 1.0
+      END
+   END
+   ENZYME Cholesterol_pool PR_Cholesterol
+      ACTIVITY 2
+         0 0.0 0.0
+         1 -0.5 0.5
+      END
+   END
+END
