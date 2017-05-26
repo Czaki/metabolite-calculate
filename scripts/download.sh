@@ -6,6 +6,11 @@ script_dir="$(dirname "$0")"
 
 mkdir -p $download
 
+if [ $# -eq 1 ]; then 
+    echo "ALA"
+    tar -xvf $!
+fi
+
 if [ -d $cluster ]; then
     rm -rf $cluster
 fi

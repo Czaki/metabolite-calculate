@@ -1,4 +1,4 @@
-script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+script_dir="$( cd "$( dirname "$0" )" && pwd )"
 source_dir=`dirname $script_dir`
 home=$source_dir
 download=${home}/download
