@@ -54,8 +54,7 @@ object SimpleApp {
       i += 1
     }
     println(combination_num)
-    combination_num = 200
-    val single_step = 4
+    val single_step = 100
     val distData =  if (args.length == 3){
       val pos = Source.fromFile(args(2)).getLines().toArray.map(_.toInt)
       val pos2 = pos.map(_+1)
@@ -69,7 +68,7 @@ object SimpleApp {
         else
           base_range
       }
-      println(ranges zip ranges.tail)
+      //println(ranges zip ranges.tail)
       sc.makeRDD(ranges zip ranges.tail)
     }
     val c = {

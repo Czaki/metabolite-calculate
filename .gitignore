@@ -1,11 +1,16 @@
 # Prerequisites
+ex_res*/
+ex_res*
+*.zip
+gurobi702/
 spark-2.1.0-bin-hadoop2.7
 target
 project
 cmake-build-debug
 cmake-build-release
 *.DS_Store
-
+gurobi702/
+test*.txt
 # Created by https://www.gitignore.io/api/vim,clion,c,c++
 .idea
 ### C ###
