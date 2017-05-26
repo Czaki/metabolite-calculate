@@ -308,7 +308,7 @@ Metabolism::Metabolism(std::string qsspn_file_path,
   this->solver->print_info();
 }
 
-void Metabolism::getProblemConstraintList(std::ostream &result_file) {
+void Metabolism::calculateRange(std::ostream &result_file, size_t begin, size_t end) {
   size_t counter = 0;
   size_t variants = 1;
   std::vector<std::vector<counter_type>> enzyme_values;
@@ -321,8 +321,14 @@ void Metabolism::getProblemConstraintList(std::ostream &result_file) {
     std::cerr << el.size() << " ";
   }*/
   std::vector<counter_type> dd;
+  std::pair<size_t, size_t> range;
+  if (end == 0){
+    range = this->range_;
+  } else {
+    range = std::make_pair(begin, end);
+  }
   auto all_variant_iterator =
-      VectorIterator<counter_type>(enzyme_values, range_);
+      VectorIterator<counter_type>(enzyme_values, range);
   // std::cerr << all_variant_iterator.length() << std::endl;
   if (!result_file.good()) {
     std::cerr << "Error" << std::endl;

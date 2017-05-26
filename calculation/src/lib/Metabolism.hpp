@@ -135,7 +135,7 @@ public:
   void set_range(size_t begin, size_t end){
     this->range_ = std::make_pair(begin,end);
   }
-  void getProblemConstraintList(std::ostream &result_file);
+  void calculateRange(std::ostream &result_file, size_t begin, size_t end);
   void print_targets(std::ostream &os){
     for(auto &el : targets_set_){
       os << el << std::endl;

@@ -23,12 +23,12 @@ int main(int argc, char *argv[]) {
       begin = boost::lexical_cast<size_t>(line.substr(1, pos - 1));
       end = boost::lexical_cast<size_t>(line.substr(pos + 1, line.length() - pos - 2));
       //std:: cin >> begin >> end;
-      met.set_range(begin, end);
+      // met.set_range(begin, end);
       // std::cerr << "Start " << line << " " << begin << " " << end << "\n";
       /*for (size_t i = 0; i< end-begin; i++){
         std::cout << "1 1 1 1 8 1 1 1 1 1 1 1 1 9\n";
       }*/
-      met.getProblemConstraintList(std::cout);
+      met.calculateRange(std::cout, begin, end);
     }
     return 0;
   }
@@ -44,7 +44,7 @@ int main(int argc, char *argv[]) {
 
   met.print_targets(std::cout);
   std::ofstream result_file(argv[3]);
-  met.getProblemConstraintList(result_file);
+  met.calculateRange(result_file, 0, 0);
   result_file.close();
 
   return 0;
