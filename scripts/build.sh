@@ -1,5 +1,5 @@
 script_dir="$(dirname "$0")"
-. ${script_dir}/settings.sh
+. ${script_dir}/path.sh
 
 if [ ! -d $cluster ]; then
     echo "${RED}${cluster} directory not exists${NC}"

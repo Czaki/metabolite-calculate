@@ -10,9 +10,9 @@ jdk_path=$cluster/jdk
 hadoop_path=$cluster/hadoop
 scala_path=$cluster/scala
 spark_path=$cluster/spark
-stb_path=$cluster/sbt
+sbt_path=${cluster}/sbt
 master_file=$home/master
-slave_file=$home/slaves 
+slave_file=$script_dir/slaves 
 user=$USERNAME
 
 cpp_dir=$source_dir/calculation

@@ -3,7 +3,7 @@ script_dir="$(dirname "$0")"
 
 export JAVA_HOME=$jdk_path 
 export SCALA_HOME=$scala_path 
-export SBT_HOME=$stb_path 
+export SBT_HOME=$sbt_path 
 export HADOOP_INSTALL=$hadoop_path 
 export HADOOP_PREFIX=$HADOOP_INSTALL 
 export SPARK_HOME=$spark_path

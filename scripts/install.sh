@@ -16,7 +16,7 @@ etc_hadoop=${HADOOP_INSTALL}/etc/hadoop
 #hdfs_dir="$( mktemp -d /tmp/hadoop.XXXXXX )"
 hdfs_dir="${home}/hdfsdata"
 master=$(head -n 1 $master_file)
-cp $home/slaves $HADOOP_INSTALL/etc/hadoop/slaves
+cp $script_dir/slaves $HADOOP_INSTALL/etc/hadoop/slaves
 
 
 
