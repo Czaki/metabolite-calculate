@@ -1,5 +1,5 @@
-. ./settings.sh 
-sed -i '$ a . path.sh' ~/.bashrc
+script_dir="$(dirname "$0")"
+. ${script_dir}/settings.sh 
 
 cd $cluster 
 
@@ -111,7 +111,7 @@ export HADOOP_INSTALL=$HADOOP_INSTALL
 export HADOOP_PREFIX=$HADOOP_INSTALL
 export SPARK_HOME=$SPARK_HOME
 
-export SPARK_WORKER_CORES=6
+export SPARK_WORKER_CORES=`grep -c ^processor /proc/cpuinfo`     
 export SPARK_PUBLIC_DNS=${master}
 EOF
 

@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
-. ./settings.sh
+
+script_dir="$(dirname "$0")"
+. ${script_dir}/settings.sh
 
 
 mkdir -p $download
 
-if [ -e $cluster ]; then
+if [ -d $cluster ]; then
     rm -rf $cluster
 fi
 

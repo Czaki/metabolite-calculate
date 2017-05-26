@@ -1,4 +1,5 @@
-. ./settings.sh 
+script_dir="$(dirname "$0")"
+. ${script_dir}/settings.sh
 
 export JAVA_HOME=$jdk_path 
 export SCALA_HOME=$scala_path 

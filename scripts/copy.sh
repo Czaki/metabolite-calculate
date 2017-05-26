@@ -1,4 +1,5 @@
-. ./setings.sh
+script_dir="$(dirname "$0")"
+. ${script_dir}/setings.sh
 
 rm -fr $home/hdfsdata
 mkdir -p $home/hdfsdata
