@@ -1,5 +1,8 @@
 script_dir="$(dirname "$0")"
 . ${script_dir}/path.sh
+
+set -u
+
 echo 
 echo "***************************************************************************"
 echo stop-yarn.sh

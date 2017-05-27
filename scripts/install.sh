@@ -1,11 +1,13 @@
 script_dir="$(dirname "$0")"
 . ${script_dir}/settings.sh 
 
+set -u
+
 cd $cluster 
 
 export JAVA_HOME=$jdk_path
 export SCALA_HOME=$scala_path
-export SBT_HOME=$stb_path
+export SBT_HOME=$sbt_path
 export HADOOP_INSTALL=$hadoop_path
 export HADOOP_PREFIX=$HADOOP_INSTALL
 export SPARK_HOME=$spark_path 
@@ -114,6 +116,7 @@ export SBT_HOME=$SBT_HOME
 export HADOOP_INSTALL=$HADOOP_INSTALL
 export HADOOP_PREFIX=$HADOOP_INSTALL
 export SPARK_HOME=$SPARK_HOME
+export HADOOP_CONF_DIR=${etc_hadoop}
 
 export SPARK_WORKER_CORES=`grep -c ^processor /proc/cpuinfo`     
 export SPARK_PUBLIC_DNS=${master}

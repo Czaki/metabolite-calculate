@@ -3,6 +3,7 @@
 script_dir="$(dirname "$0")"
 . ${script_dir}/settings.sh
 
+set -u
 
 mkdir -p $download
 

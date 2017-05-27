@@ -35,3 +35,6 @@ do
   #$scp -r $home/cluster $user@$name:$home
 done < $slave_file
 
+hdfs namenode -format 
+hdsf dfs -mkdir /user
+hdfs dfs -mkdir /user/$user
