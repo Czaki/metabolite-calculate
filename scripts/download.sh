@@ -45,18 +45,18 @@ if [ ! -e $download/scala-2.11.6.tgz ]; then
     exit -1
 fi 
 
-if [ ! -e $download/spark-2.0.2-bin-hadoop2.7.tgz ]; then 
-    wget -P ${home}/download www-eu.apache.org/dist/spark/spark-2.0.2/spark-2.0.2-bin-hadoop2.7.tgz
+if [ ! -e $download/spark-2.1.1-bin-hadoop2.7.tgz ]; then 
+    wget -P ${home}/download http://www-eu.apache.org/dist/spark/spark-2.1.1/spark-2.1.1-bin-hadoop2.7.tgz
 fi
-if [ ! -e $download/spark-2.0.2-bin-hadoop2.7.tgz ]; then 
+if [ ! -e $download/spark-2.1.1-bin-hadoop2.7.tgz ]; then 
     echo "${RED}[ERROR] no spark download${NC}"
     exit -1
 fi
 
-if [ ! -e $download/sbt-0.13.12.tgz ]; then
-    wget -P ${home}/download https://dl.bintray.com/sbt/native-packages/sbt/0.13.12/sbt-0.13.12.tgz
+if [ ! -e $download/sbt-0.13.15.tgz ]; then
+    wget -P ${home}/download https://dl.bintray.com/sbt/native-packages/sbt/0.13.12/sbt-0.13.15.tgz
 fi
-if [ ! -e $download/sbt-0.13.12.tgz ]; then
+if [ ! -e $download/sbt-0.13.15.tgz ]; then
     echo "${RED}[ERROR] no sbt download${NC}"
     exit -1
 fi
