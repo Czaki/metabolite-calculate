@@ -16,8 +16,9 @@ fi
 if [ ! -e $build/metabolite ]; then 
     echo "${RED}Build fail${NC}"
 fi
-cp $build/metabolite $cluster/ 
+cp $build/metabolite $cluster/
 
+echo $_JAVA_OPTIONS
 cd $source_dir/distribute
 sbt package 
 cp target/scala-2.11/metabolite-distribute_2.11-1.0.jar $cluster/

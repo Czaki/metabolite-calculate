@@ -8,19 +8,30 @@ mkdir -p $home/hdfsdata/datanode
 
 
 cd $home
-
+set -u
 master=$(head -n 1 $master_file)
+echo $slave_file 
+ssh="ssh -i ~/.ssh/id_rsa"
+scp="scp -i ~/.ssh/id_rsa"
 
+ssh-add ~/.ssh/id_rsa
+rm -f $home/cluster.tar
+cd $home 
+tar -cf $home/cluster.tar cluster
 while read name
 do
-    if [ $name -eq $master]; then
+    echo "buka"
+    if [ "$name" = "$master" ]; then
+        echo "Buka2 $name $master"
         continue
     fi
   echo "============================== syncing to:" $name "==================================="
   
-  ssh -n $user@$name rm -fr "$home/cluster $home/hdfsdata"
-  ssh -n $user@$name mkdir -p $home/hdfsdata
-  ssh -n $user@$name mkdir $home/hdfsdata/datanode
-  scp -r $home/cluster $user@$name:$home
+  $ssh -n $user@$name rm -fr "$home/cluster $home/hdfsdata"
+  $ssh -n $user@$name mkdir -p $home/hdfsdata
+  $ssh -n $user@$name mkdir $home/hdfsdata/datanode
+  scp $home/cluster.tar $user@$name:$home
+  $ssh -n $user@$name tar xf $home/cluster.tar -C $home
+  #$scp -r $home/cluster $user@$name:$home
 done < $slave_file
 

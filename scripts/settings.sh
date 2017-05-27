@@ -11,8 +11,8 @@ hadoop_path=$cluster/hadoop
 scala_path=$cluster/scala
 spark_path=$cluster/spark
 sbt_path=${cluster}/sbt
-master_file=$home/master
+master_file=$script_dir/master
 slave_file=$script_dir/slaves 
-user=$USERNAME
-
+user=`whoami`
+export _JAVA_OPTIONS="" 
 cpp_dir=$source_dir/calculation
