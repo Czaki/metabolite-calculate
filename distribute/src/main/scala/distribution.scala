@@ -17,8 +17,8 @@ object SimpleApp {
     }
   }
 
-  def getFileExtension(file: File) = {
-    val name = file.getName()
+  def getFileExtension(file: File): String = {
+    val name = file.getName
     try
       name.substring(name.lastIndexOf(".") + 1)
     catch {
@@ -28,7 +28,7 @@ object SimpleApp {
   }
 
   def main(args: Array[String]) {
-    if (args.length < 2){
+    if (args.length < 4){
       println(args(0).toString)
       sys.error("Wrong execution arguments\n")
       System.exit(1)
@@ -36,6 +36,10 @@ object SimpleApp {
 
     val executable = args(0)
     val file_list = getListOfFiles(args(1))
+    if (file_list.isEmpty){
+      System.err.println("[Error] No accces to qsspn and sfba file")
+      System.exit(-1)
+    }
     val qsspn_file = file_list.filter(getFileExtension(_) == "qsspn").head
     val sfba_file = file_list.filter(getFileExtension(_) == "sfba").head
     val conf = new SparkConf().setAppName("Simple Application") //.setMaster("local[4]")
@@ -53,30 +57,47 @@ object SimpleApp {
       }
       i += 1
     }
+    if (combination_num == 0){
+      System.err.println("[Error] wrong combination num")
+      System.exit(-1)
+    }
     println(combination_num)
     val single_step = 100
-    val distData =  if (args.length == 3){
-      val pos = Source.fromFile(args(2)).getLines().toArray.map(_.toInt)
+    val distData =  if (args.length == 4){
+      val pos = Source.fromFile(args(3)).getLines().toArray.map(_.toInt)
       val pos2 = pos.map(_+1)
       val ranges = pos zip pos2
       sc.makeRDD(ranges)
     } else {
-      val ranges = {
-        val base_range = List.range(0, combination_num, single_step)
-        if (combination_num % single_step != 0)
-          base_range ++ List(combination_num)
-        else
-          base_range
+      if (args.length == 5) {
+        val ranges = {
+          val base_range = List.range(args(3).toInt, args(4).toInt, single_step)
+          if (combination_num % single_step != 0)
+            base_range ++ List(combination_num)
+          else
+            base_range
+        }
+        //println(ranges zip ranges.tail)
+        sc.makeRDD(ranges zip ranges.tail)
+      } else {
+        val ranges = {
+          val base_range = List.range(0, combination_num, single_step)
+          if (combination_num % single_step != 0)
+            base_range ++ List(combination_num)
+          else
+            base_range
+        }
+        //println(ranges zip ranges.tail)
+        sc.makeRDD(ranges zip ranges.tail)
       }
-      //println(ranges zip ranges.tail)
-      sc.makeRDD(ranges zip ranges.tail)
     }
+
     val c = {
       distData.pipe(executable + " " + qsspn_file + " " + sfba_file + " -str")
     }
     //print("Res: ")
     //println(c.count())
-    c.saveAsTextFile("../ex_res_txt")
+    c.saveAsTextFile(args(2))
     sc.stop()
   }
 }

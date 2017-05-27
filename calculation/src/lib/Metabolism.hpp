@@ -100,7 +100,8 @@ private:
 class Metabolite {
 public:
   Metabolite(std::string name, std::string goal, std::vector<std::pair<double, counter_type>> mapping):
-          name_(name), goal_(goal), mapping_(mapping){};
+          name_(name), goal_(goal), mapping_(mapping){
+  };
   auto operator()(double c) const {
     counter_type res = 0;
     for (auto &el : mapping_) {
