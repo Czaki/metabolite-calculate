@@ -67,18 +67,19 @@ object SimpleApp {
       val pos = Source.fromFile(args(3)).getLines().toArray.map(_.toInt)
       val pos2 = pos.map(_+1)
       val ranges = pos zip pos2
-      sc.makeRDD(ranges)
+      sc.makeRDD(ranges, 300)
     } else {
       if (args.length == 5) {
         val ranges = {
-          val base_range = List.range(args(3).toInt, args(4).toInt, single_step)
-          if (combination_num % single_step != 0)
-            base_range ++ List(combination_num)
+          val max_num = args(4).toInt
+          val base_range = List.range(args(3).toInt, max_num, single_step)
+          if (max_num % single_step != 0)
+            base_range ++ List(max_num)
           else
             base_range
         }
         //println(ranges zip ranges.tail)
-        sc.makeRDD(ranges zip ranges.tail)
+        sc.makeRDD(ranges zip ranges.tail, 300)
       } else {
         val ranges = {
           val base_range = List.range(0, combination_num, single_step)
@@ -88,7 +89,7 @@ object SimpleApp {
             base_range
         }
         //println(ranges zip ranges.tail)
-        sc.makeRDD(ranges zip ranges.tail)
+        sc.makeRDD(ranges zip ranges.tail, 300)
       }
     }
 

@@ -54,7 +54,7 @@ if [ ! -e $download/spark-2.1.1-bin-hadoop2.7.tgz ]; then
 fi
 
 if [ ! -e $download/sbt-0.13.15.tgz ]; then
-    wget -P ${home}/download https://dl.bintray.com/sbt/native-packages/sbt/0.13.12/sbt-0.13.15.tgz
+    wget -P ${home}/download https://dl.bintray.com/sbt/native-packages/sbt/0.13.15/sbt-0.13.15.tgz
 fi
 if [ ! -e $download/sbt-0.13.15.tgz ]; then
     echo "${RED}[ERROR] no sbt download${NC}"
