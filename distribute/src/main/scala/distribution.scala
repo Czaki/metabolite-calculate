@@ -94,7 +94,7 @@ object SimpleApp {
     }
 
     val c = {
-      distData.pipe(executable + " " + qsspn_file + " " + sfba_file + " -str")
+      distData.pipe(executable + " " + qsspn_file + " " + sfba_file + " --interactive")
     }
     //print("Res: ")
     //println(c.count())

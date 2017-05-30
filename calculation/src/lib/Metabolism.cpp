@@ -306,7 +306,6 @@ Metabolism::Metabolism(std::string qsspn_file_path,
   }
   range_ = std::make_pair(0, len);
   this->solver->print_info();
-  std::cerr << "target: " << *targets_set_.begin() << std::endl;
 }
 
 void Metabolism::calculateRange(std::ostream &result_file, size_t begin, size_t end) {
@@ -338,19 +337,20 @@ void Metabolism::calculateRange(std::ostream &result_file, size_t begin, size_t 
   while (!all_variant_iterator.end()) {
     dd = all_variant_iterator.next();
     auto constraint = this->solver->prepareProblemConstraints(dd);
-    std::map<std::string, double> opt_res;
     result_file << dd << " |";
-    for (auto &name : this->targets_set_) {
-      opt_res[name] = this->solver->optimize(name, constraint);
-      result_file << " " << opt_res[name] << std::endl;
-      break;
+    if (this->target != ""){
+      double res = this->solver->optimize(this->target, constraint);
+      result_file << " " << res << std::endl;
+    } else {
+      std::map<std::string, double> opt_res;
+      for (auto &name : this->targets_set_) {
+        opt_res[name] = this->solver->optimize(name, constraint);
+      }
+      for (auto &met : this->metabolites_) {
+        result_file << " " << met(opt_res[met.goal()]);
+      }
+      result_file << std::endl;
     }
-    continue;
-    for (auto & met : this->metabolites_){
-      result_file << " " << met(opt_res[met.goal()]);
-    }
-    result_file << std::endl;
-
   }
 }
 

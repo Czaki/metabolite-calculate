@@ -83,6 +83,9 @@ public:
     std::cerr << "lp_system_row_index_: " << lp_system_row_index_.size() << std::endl;
     std::cerr << "lp_system_col_index_: " << lp_system_col_index_.size() << std::endl;
   }
+  bool valid_target(std::string target){
+    return this->lp_system_col_index_.count(target) > 0 || this->lp_system_row_index_.count(target) > 0;
+  }
 
 private:
   std::vector<int> lp_system_i_;
@@ -124,7 +127,9 @@ private:
 };
 
 
-
+/*!
+ * Class to represent cell metabolism described in qsspn and sfba files.
+ */
 class Metabolism {
 public:
   typedef std::vector<uint8_t> Marking;
@@ -132,6 +137,21 @@ public:
   Metabolism(std::string qsspn_file_path, std::string sfba_file_path);
   virtual ~Metabolism(){
     free(this->solver);
+  };
+  void set_range(std::pair<size_t, size_t> range){
+    this->range_ = range;
+  }
+  /**
+   * check that target is proper target for current metabolism and if yest then set it.
+   * @param target_name
+   * @return
+   */
+  bool set_target(std::string target_name){
+    if (this->solver->valid_target(target_name)){
+      this->target = target_name;
+      return true;
+    }
+    return false;
   };
   void set_range(size_t begin, size_t end){
     this->range_ = std::make_pair(begin,end);
@@ -144,6 +164,7 @@ public:
   }
 
 private:
+  std::string target = "";
   std::string model_name_; /*! model name  */
   std::string ext_tag_;
   std::vector<Metabolite> metabolites_;
