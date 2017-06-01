@@ -147,3 +147,5 @@ Session.vim
 tags
 
 # End of https://www.gitignore.io/api/vim,clion,c,c++
+
+calculation/cmake-build-debug-mpi/
