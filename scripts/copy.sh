@@ -36,5 +36,3 @@ do
 done < $slave_file
 
 hdfs namenode -format 
-hdsf dfs -mkdir /user
-hdfs dfs -mkdir /user/$user

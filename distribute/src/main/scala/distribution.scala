@@ -67,7 +67,7 @@ object SimpleApp {
       val pos = Source.fromFile(args(3)).getLines().toArray.map(_.toInt)
       val pos2 = pos.map(_+1)
       val ranges = pos zip pos2
-      sc.makeRDD(ranges, 300)
+      sc.makeRDD(ranges, 2000)
     } else {
       if (args.length == 5) {
         val ranges = {
@@ -79,7 +79,7 @@ object SimpleApp {
             base_range
         }
         //println(ranges zip ranges.tail)
-        sc.makeRDD(ranges zip ranges.tail, 300)
+        sc.makeRDD(ranges zip ranges.tail, 2000)
       } else {
         val ranges = {
           val base_range = List.range(0, combination_num, single_step)
@@ -89,12 +89,12 @@ object SimpleApp {
             base_range
         }
         //println(ranges zip ranges.tail)
-        sc.makeRDD(ranges zip ranges.tail, 300)
+        sc.makeRDD(ranges zip ranges.tail, 2000)
       }
     }
 
     val c = {
-      distData.pipe(executable + " " + qsspn_file + " " + sfba_file + " --interactive")
+      distData.pipe(executable + " " + qsspn_file + " " + sfba_file + " --interactive --target HC00178_b")
     }
     //print("Res: ")
     //println(c.count())
