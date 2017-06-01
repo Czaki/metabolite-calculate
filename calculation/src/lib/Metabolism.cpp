@@ -337,16 +337,20 @@ void Metabolism::calculateRange(std::ostream &result_file, size_t begin, size_t 
   while (!all_variant_iterator.end()) {
     dd = all_variant_iterator.next();
     auto constraint = this->solver->prepareProblemConstraints(dd);
-    std::map<std::string, double> opt_res;
-    for (auto &name : this->targets_set_) {
-      opt_res[name] = this->solver->optimize(name, constraint);
-    }
     result_file << dd << " |";
-    for (auto & met : this->metabolites_){
-      result_file << " " << met(opt_res[met.goal()]);
+    if (this->target != ""){
+      double res = this->solver->optimize(this->target, constraint);
+      result_file << " " << res << std::endl;
+    } else {
+      std::map<std::string, double> opt_res;
+      for (auto &name : this->targets_set_) {
+        opt_res[name] = this->solver->optimize(name, constraint);
+      }
+      for (auto &met : this->metabolites_) {
+        result_file << " " << met(opt_res[met.goal()]);
+      }
+      result_file << std::endl;
     }
-    result_file << std::endl;
-
   }
 }
 

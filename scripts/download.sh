@@ -54,7 +54,7 @@ if [ ! -e $download/spark-2.1.1-bin-hadoop2.7.tgz ]; then
 fi
 
 if [ ! -e $download/sbt-0.13.15.tgz ]; then
-    wget -P ${home}/download https://dl.bintray.com/sbt/native-packages/sbt/0.13.12/sbt-0.13.15.tgz
+    wget -P ${home}/download https://dl.bintray.com/sbt/native-packages/sbt/0.13.15/sbt-0.13.15.tgz
 fi
 if [ ! -e $download/sbt-0.13.15.tgz ]; then
     echo "${RED}[ERROR] no sbt download${NC}"
@@ -67,7 +67,7 @@ tar -xvf $download/hadoop-2.7.3.tar.gz -C $cluster
 mv $cluster/hadoop-2.7.3 $hadoop_path
 tar -xvf $download/scala-2.11.6.tgz -C $cluster
 mv $cluster/scala-2.11.6 $scala_path
-tar -xvf $download/spark-2.0.2-bin-hadoop2.7.tgz -C $cluster
-mv $cluster/spark-2.0.2-bin-hadoop2.7 $spark_path
-tar -xvf $download/sbt-0.13.12.tgz -C $cluster
+tar -xvf $download/spark-2.1.1-bin-hadoop2.7.tgz -C $cluster
+mv $cluster/spark-2.1.1-bin-hadoop2.7 $spark_path
+tar -xvf $download/sbt-0.13.15.tgz -C $cluster
 

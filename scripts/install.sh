@@ -118,7 +118,7 @@ export HADOOP_PREFIX=$HADOOP_INSTALL
 export SPARK_HOME=$SPARK_HOME
 export HADOOP_CONF_DIR=${etc_hadoop}
 
-export SPARK_WORKER_CORES=`grep -c ^processor /proc/cpuinfo`     
+export SPARK_WORKER_CORES=\`grep -c ^processor /proc/cpuinfo\`     
 export SPARK_PUBLIC_DNS=${master}
 EOF
 
