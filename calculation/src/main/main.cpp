@@ -4,7 +4,6 @@
 #include <vector>
 #include <boost/lexical_cast.hpp>
 #include <boost/program_options.hpp>
-#include <boost/exception_ptr.hpp>
 #ifdef MPI_BUILD
 #include <mpi.h>
 const size_t chunk_szie = 200;

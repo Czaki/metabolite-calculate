@@ -118,7 +118,7 @@ public:
   };
   size_t number_of_levels() const { return mapping_.size(); }
 
-  auto goal() { return this->goal_;}
+  auto goal() const { return this->goal_;}
 
 private:
   std::string name_;
