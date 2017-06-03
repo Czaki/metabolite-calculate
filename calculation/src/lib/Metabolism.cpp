@@ -233,7 +233,11 @@ auto readQSSPN(std::istream &s) {
   }
   return met;
 }
-
+/*!
+ * Class for generate cartesian product
+ *
+ * @tparam T - type of iterated objects. Must support compare and size_t add
+ */
 template <typename T> class VectorIterator {
 public:
   VectorIterator(const std::vector<std::vector<T>> &v,
@@ -248,7 +252,15 @@ public:
       iterator_vector.push_back(el.begin() + num);
     }
   };
+  /*!
+   * give current value of cartesian product
+   * @return
+   */
   std::vector<T> value() { return current_val; }
+  /*!
+   * generate next element of cartesian product and change state
+   * @return
+   */
   std::vector<T> next() {
     if (this->end())
       throw std::out_of_range(std::string(__FILE__) + ": " +
@@ -274,6 +286,10 @@ public:
     }
     return current_val;
   }
+  /*!
+   * check that is eny element of cartesian product that was not produced
+   * @return
+   */
   bool end() { return current >= range.second; }
 
     size_t length(){
@@ -308,7 +324,7 @@ Metabolism::Metabolism(std::string qsspn_file_path,
   this->solver->print_info();
 }
 
-void Metabolism::calculateRange(std::ostream &result_file, size_t begin, size_t end) {
+void Metabolism::calculateRange(std::ostream &result_file, size_t begin, size_t end) const {
   size_t counter = 0;
   size_t variants = 1;
   std::vector<std::vector<counter_type>> enzyme_values;
@@ -325,9 +341,10 @@ void Metabolism::calculateRange(std::ostream &result_file, size_t begin, size_t 
   if (end == 0){
     range = this->range_;
   } else {
+    end = std::min(end, this->range_.second);
     range = std::make_pair(begin, end);
   }
-  auto all_variant_iterator =
+  VectorIterator<counter_type> all_variant_iterator =
       VectorIterator<counter_type>(enzyme_values, range);
   // std::cerr << all_variant_iterator.length() << std::endl;
   if (!result_file.good()) {

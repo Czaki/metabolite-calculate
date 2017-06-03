@@ -118,7 +118,7 @@ public:
   };
   size_t number_of_levels() const { return mapping_.size(); }
 
-  auto goal() { return this->goal_;}
+  auto goal() const { return this->goal_;}
 
 private:
   std::string name_;
@@ -156,7 +156,18 @@ public:
   void set_range(size_t begin, size_t end){
     this->range_ = std::make_pair(begin,end);
   }
-  void calculateRange(std::ostream &result_file, size_t begin, size_t end);
+  auto get_range() const{
+    return this->range_;
+  }
+  /*!
+   * Class to simulate metabolite fba
+   * Fba is defined in sfba file. All variants of constraints marking
+   * comes from qsspn file. With @see VectorIterator
+   * @param result_file - stream on which result is writen
+   * @param begin -
+   * @param end
+   */
+  void calculateRange(std::ostream &result_file, size_t begin, size_t end) const;
   void print_targets(std::ostream &os){
     for(auto &el : targets_set_){
       os << el << std::endl;
