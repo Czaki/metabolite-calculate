@@ -11,7 +11,6 @@
 #include "Metabolism.hpp"
 
 namespace {
-
 template <class T>
 inline std::ostream &operator<<(std::ostream &os, const std::vector<T> &v) {
   //os << v.size();
@@ -28,6 +27,7 @@ inline std::ostream &operator<<(std::ostream &os,
      << ")";
   return os;
 }
+
 std::vector<std::tuple<std::string, counter_type, counter_type, uint8_t>>
 readSubstances(std::istream &s) {
   std::string line = "";
@@ -233,77 +233,7 @@ auto readQSSPN(std::istream &s) {
   }
   return met;
 }
-/*!
- * Class for generate cartesian product
- *
- * @tparam T - type of iterated objects. Must support compare and size_t add
- */
-template <typename T> class VectorIterator {
-public:
-  VectorIterator(const std::vector<std::vector<T>> &v,
-                 std::pair<size_t, size_t> range)
-      : iterate_values(v), range(range) {
-    size_t begin = range.first;
-    current = range.first;
-    for (auto &el : iterate_values) {
-      size_t num = begin % el.size();
-      begin /= el.size();
-      current_val.push_back(el[num]);
-      iterator_vector.push_back(el.begin() + num);
-    }
-  };
-  /*!
-   * give current value of cartesian product
-   * @return
-   */
-  std::vector<T> value() { return current_val; }
-  /*!
-   * generate next element of cartesian product and change state
-   * @return
-   */
-  std::vector<T> next() {
-    if (this->end())
-      throw std::out_of_range(std::string(__FILE__) + ": " +
-                              std::to_string(__LINE__));
-    current++;
-    auto val_it = current_val.begin();
-    auto ite_it = iterator_vector.begin();
-    auto vec_it = iterate_values.begin();
-    bool br;
-    for (size_t i = 0; i < current_val.size(); i++) {
-      current_val[i] = *iterator_vector[i];
-    }
-    (*iterator_vector.begin())++;
-    for (; ite_it != iterator_vector.end(); val_it++, ite_it++, vec_it++) {
-      br = true;
-      if (*ite_it == vec_it->end() && ite_it + 1 != iterator_vector.end()) {
-        *ite_it = vec_it->begin();
-        (*(ite_it + 1))++;
-        br = false;
-      }
-      if (br)
-        break;
-    }
-    return current_val;
-  }
-  /*!
-   * check that is eny element of cartesian product that was not produced
-   * @return
-   */
-  bool end() { return current >= range.second; }
-
-    size_t length(){
-      return range.second - range.first;
-    }
-
-private:
-  std::vector<std::vector<T>> iterate_values;
-  std::vector<typename std::vector<T>::const_iterator> iterator_vector;
-  std::vector<T> current_val;
-  std::pair<size_t, size_t> range;
-  size_t current;
-};
-} // namespace
+}//namespace
 
 Metabolism::Metabolism(std::string qsspn_file_path,
                        std::string sfba_file_path) {
@@ -344,8 +274,8 @@ void Metabolism::calculateRange(std::ostream &result_file, size_t begin, size_t 
     end = std::min(end, this->range_.second);
     range = std::make_pair(begin, end);
   }
-  VectorIterator<counter_type> all_variant_iterator =
-      VectorIterator<counter_type>(enzyme_values, range);
+  utils::VectorIterator<counter_type> all_variant_iterator =
+      utils::VectorIterator<counter_type>(enzyme_values, range);
   // std::cerr << all_variant_iterator.length() << std::endl;
   if (!result_file.good()) {
     std::cerr << "Error" << std::endl;

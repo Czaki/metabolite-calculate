@@ -10,8 +10,8 @@ include_directories(${METABOLITE_SOURCE_DIR}/boost_extract/)
 set(CMAKE_C_FLAGS_DEBUG "-O0 -g")
 set(CMAKE_C_FLAGS_RELEASE "-O3 -DNDEBUG")
 
-set(SOURCE_FILES src/main/main.cpp src/lib/Metabolism.cpp src/lib/Metabolism.hpp src/lib/LPSolverFacade.cpp
-    src/lib/LPSolverFacade.h)
+set(SOURCE_FILES src/lib/Metabolism.cpp src/lib/Metabolism.hpp src/lib/LPSolverFacade.cpp
+    src/lib/LPSolverFacade.h src/lib/utils.hpp)
 
 find_library(GMP REQUIRED)
 set(CMAKE_EXE_LINKER_FLAGS "-lgmp")
@@ -21,9 +21,13 @@ add_subdirectory(${METABOLITE_SOURCE_DIR}/lib)
 add_subdirectory(${METABOLITE_SOURCE_DIR}/boost_extract)
 
 
-add_executable(metabolite ${SOURCE_FILES})
+add_executable(metabolite src/main/main.cpp ${SOURCE_FILES})
 target_link_libraries(metabolite glpk)
 target_link_libraries(metabolite MiniBoost )
+
+add_executable(coverage src/main/coverage.cpp ${SOURCE_FILES})
+target_link_libraries(coverage glpk)
+target_link_libraries(coverage MiniBoost )
 
 if (MPI_BUILD)
   find_package(MPI REQUIRED)

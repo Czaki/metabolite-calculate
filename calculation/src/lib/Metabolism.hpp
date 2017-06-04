@@ -11,8 +11,8 @@
 #include <vector>
 #include <set>
 #include "LPSolverFacade.h"
+#include "utils.hpp"
 
-typedef uint32_t counter_type;
 
 class FileFormatException : public std::logic_error {
 public:
@@ -158,6 +158,13 @@ public:
   }
   auto get_range() const{
     return this->range_;
+  }
+  utils::VectorIterator<counter_type> get_vector(){
+    std::vector<std::vector<counter_type>> enzyme_values;
+    for (auto &el : enzymes_) {
+      enzyme_values.push_back(el.get_threshold_values());
+    }
+    return utils::VectorIterator<counter_type>(enzyme_values, range_);
   }
   /*!
    * Class to simulate metabolite fba
