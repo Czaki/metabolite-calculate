@@ -1,16 +1,17 @@
+#! /usr/bin/env bash
 script_dir="$(dirname "$0")"
-. ${script_dir}/settings.sh 
+. ${script_dir}/settings.sh
 
 set -u
 
-cd $cluster 
+cd $cluster
 
 export JAVA_HOME=$jdk_path
 export SCALA_HOME=$scala_path
 export SBT_HOME=$sbt_path
 export HADOOP_INSTALL=$hadoop_path
 export HADOOP_PREFIX=$HADOOP_INSTALL
-export SPARK_HOME=$spark_path 
+export SPARK_HOME=$spark_path
 
 export PATH=$JAVA_HOME/bin:$SCALA_HOME/bin:$SBT_HOME/bin:$SPARK_HOME/bin:$SPARK_HOME/sbin:$HADOOP_INSTALL/bin:$HADOOP_INSTALL/sbin:$PATH
 
@@ -26,7 +27,7 @@ cp $script_dir/slaves $HADOOP_INSTALL/etc/hadoop/slaves
 
 
 
-echo 
+echo
 echo "***************************************************************************"
 echo modifying ${HADOOP_INSTALL}/etc/hadoop/hadoop-env.sh
 echo setting export JAVA_HOME=${JAVA_HOME}
@@ -55,7 +56,7 @@ cat <<EOF > ${etc_hadoop}/hdfs-site.xml
     <value>file://${hdfs_dir}/datanode</value>
     <description>Comma separated list of paths on the local filesystem of a DataNode where it should store its blocks.</description>
   </property>
- 
+
   <property>
     <name>dfs.namenode.name.dir</name>
     <value>file://${hdfs_dir}/namenode</value>
@@ -94,14 +95,14 @@ cat <<EOF > ${etc_hadoop}/yarn-site.xml
 </configuration>
 EOF
 
-echo 
+echo
 echo "***************************************************************************"
 echo hdfs namenode -format
 echo "***************************************************************************"
 # Format the namenode directory (DO THIS ONLY ONCE, THE FIRST TIME)
 hdfs namenode -format
 
-echo 
+echo
 echo "***************************************************************************"
 echo configuring Spark
 echo "***************************************************************************"
@@ -118,9 +119,8 @@ export HADOOP_PREFIX=$HADOOP_INSTALL
 export SPARK_HOME=$SPARK_HOME
 export HADOOP_CONF_DIR=${etc_hadoop}
 
-export SPARK_WORKER_CORES=\`grep -c ^processor /proc/cpuinfo\`     
+export SPARK_WORKER_CORES=\`grep -c ^processor /proc/cpuinfo\`
 export SPARK_PUBLIC_DNS=${master}
 EOF
 
-cp $slave_file $SPARK_HOME/conf/slaves 
-
+cp $slave_file $SPARK_HOME/conf/slaves
