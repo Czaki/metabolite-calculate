@@ -134,6 +134,11 @@ class Metabolism {
 public:
   typedef std::vector<uint8_t> Marking;
   typedef SFBA::ProblemConstraint ProblemConstraint;
+  /*!
+   * Constructor for Metabolism class
+   * @param qsspn_file_path - path to file with quasi state petrii net definition
+   * @param sfba_file_path - path to metamolic network saved in sfba format
+   */
   Metabolism(std::string qsspn_file_path, std::string sfba_file_path);
   virtual ~Metabolism(){
     free(this->solver);

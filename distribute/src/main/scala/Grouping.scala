@@ -14,7 +14,7 @@ object Grouping {
     new File(directoryName)
       .listFiles
       .filter(_.isDirectory)
-      .map(_.getName)
+      .map(_.getPath)
   }
 
   def main(args: Array[String]) {
@@ -33,7 +33,7 @@ object Grouping {
     val df = key_data.toDF("target", "main")
     df.write.partitionBy("target").text(args(1))
     val dirs = getListOfSubDirectories(args(1))
-    val summary_file = new PrintWriter(args(1), "summary.txt")
+    val summary_file = new PrintWriter(new File(args(1), "summary.txt").toString)
     for (name <- dirs){
       val path = new File(name, "part*").toString
       val target_data = sc.textFile(path)
@@ -41,6 +41,7 @@ object Grouping {
       summary_file.write(name)
       summary_file.write(": ")
       summary_file.write(size.toString)
+      summary_file.write("\n")
     }
     summary_file.close()
   }
