@@ -7,9 +7,9 @@ import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession
 
 
-class Grouping {
-  def main(args: Array[String]): Unit = {
-    if (args.length != 3){
+object Grouping {
+  def main(args: Array[String]) {
+    if (args.length != 2){
       println(args(0).toString)
       sys.error("Wrong execution arguments\n")
       System.exit(1)
@@ -19,7 +19,7 @@ class Grouping {
     val sc = new SparkContext(conf)
     val ss = SparkSession.builder().getOrCreate()
     import ss.implicits._
-    val data = sc.textFile(args(1).toString)
+    val data = sc.textFile(args(0).toString)
     val key_data = data.map(v => (v.split("\\|")(1).trim, v))
     val df = key_data.toDF("target", "main")
     df.write.partitionBy("target").text(args(1))
