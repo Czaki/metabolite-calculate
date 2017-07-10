@@ -86,6 +86,7 @@ auto parse_options(int argc, const char ** argv){
     if (vm.count(name) == 0){
       std::cout << name << " not set" << std::endl;
       print_usage(visible_options, argv[0]);
+      std::exit(1);
     }
   }
   return vm;

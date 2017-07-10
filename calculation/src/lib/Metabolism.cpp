@@ -456,6 +456,7 @@ void SFBA::parse_linear_expression(const std::string &expression, const int j,
           boost::lexical_cast<double>(word); // TODO zamienic na parsowanie ze
                                              // standardowych bibliotek, bo tu
                                              // nie moze byc +inf bo isdigit !!!
+                                             // [GB] może - nie mozna brać nieskończenie wiele elementów do składnika
       atom >> word;
     }
     if (word.length() >= ext_tag.length() &&

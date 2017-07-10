@@ -4,11 +4,23 @@ project(metabolite)
 set(CMAKE_CXX_STANDARD 14)
 SET(METABOLITE_SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/src)
 
+set(CMAKE_C_FLAGS_DEBUG "-O0 -g")
+set(CMAKE_C_FLAGS_RELEASE "-O3 -DNDEBUG")
+
 include_directories(${METABOLITE_SOURCE_DIR}/boost_extract/)
 #set(CMAKE_VERBOSE_MAKEFILE ON)
 
-set(CMAKE_C_FLAGS_DEBUG "-O0 -g")
-set(CMAKE_C_FLAGS_RELEASE "-O3 -DNDEBUG")
+if (EXISTS ${METABOLITE_SOURCE_DIR}/gurobi702)
+  include_directories(${METABOLITE_SOURCE_DIR}/gurobi702/linux64/include/)
+  set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -DGUROBI=1")
+  message("GUROBI" ${METABOLITE_SOURCE_DIR})
+  set(GUROBI 1)
+else()
+  message("NO GUROBI")
+  set(GUROBI 0)
+endif()
+
+
 
 set(SOURCE_FILES src/lib/Metabolism.cpp src/lib/Metabolism.hpp src/lib/LPSolverFacade.cpp
     src/lib/LPSolverFacade.h src/lib/utils.hpp)
@@ -28,6 +40,11 @@ target_link_libraries(metabolite MiniBoost )
 add_executable(coverage src/main/coverage.cpp ${SOURCE_FILES})
 target_link_libraries(coverage glpk)
 target_link_libraries(coverage MiniBoost )
+
+if (GUROBI)
+  target_link_libraries()
+endif()
+
 
 if (MPI_BUILD)
   find_package(MPI REQUIRED)
