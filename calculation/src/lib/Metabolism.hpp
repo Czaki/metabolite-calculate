@@ -10,7 +10,7 @@
 #include <utility>
 #include <vector>
 #include <set>
-#include "LPSolverFacade.h"
+#include "LPSolverAbstract.h"
 #include "utils.hpp"
 
 
@@ -97,7 +97,7 @@ private:
   std::map<std::string, int> lp_system_col_index_;
   std::map<std::string, std::pair<double, double>> default_constraints_;
   std::map<std::string, std::pair<size_t, const Enzyme *>> reaction_enzyme_map_;
-  PNFBA::LPSolverFacade * lp_solver_;
+  PNFBA::LPSolverFacadeAbstract * lp_solver_;
 };
 
 class Metabolite {

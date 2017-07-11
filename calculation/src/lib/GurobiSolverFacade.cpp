@@ -2,6 +2,7 @@
 // Created by czaki on 04.07.17.
 //
 
+#ifdef GUROBI
 #include "GurobiSolverFacade.h"
 #include <limits>
 
@@ -13,7 +14,7 @@ GurobiSolverFacade::GurobiSolverFacade(
     std::map<std::string, int> &lp_system_col_index,
     std::vector<int> &lp_system_i, std::vector<int> &lp_system_j,
     std::vector<double> &lp_system_val)
-    : env(), model(env) {
+    : model(env) {
   std::unordered_map<std::string, GRBVar> variable_map;
   std::unordered_map<std::string, GRBLinExpr> equation_map;
   for(auto & name : lp_system_col_names){
@@ -31,3 +32,4 @@ GurobiSolverFacade::GurobiSolverFacade(
 
 }
 }
+#endif
