@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.1)
 project(metabolite)
 
-set(CMAKE_VERBOSE_MAKEFILE OFF)
-
 set(CMAKE_CXX_STANDARD 14)
 SET(METABOLITE_SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/src)
 
@@ -12,18 +10,17 @@ set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O3 -DNDEBUG")
 include_directories(${METABOLITE_SOURCE_DIR}/boost_extract/)
 #set(CMAKE_VERBOSE_MAKEFILE ON)
 
-if (EXISTS ${METABOLITE_SOURCE_DIR}/gurobi702)
-  include_directories(${METABOLITE_SOURCE_DIR}/gurobi702/linux64/include/)
-  set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -DGUROBI=1 -v")
+if (EXISTS ${METABOLITE_SOURCE_DIR}/gurobi750)
+  include_directories(${METABOLITE_SOURCE_DIR}/gurobi750/linux64/include/)
+  set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -DGUROBI=1")
   message("GUROBI" ${METABOLITE_SOURCE_DIR})
   set(GUROBI 1)
-  link_directories(${METABOLITE_SOURCE_DIR}/gurobi702/linux64/lib/)
+  link_directories(${METABOLITE_SOURCE_DIR}/gurobi750/linux64/lib/)
+  add_subdirectory(${METABOLITE_SOURCE_DIR}/gurobi_interface)
 else()
   message("NO GUROBI")
   set(GUROBI 0)
 endif()
-
-
 
 set(SOURCE_FILES src/lib/Metabolism.cpp src/lib/Metabolism.hpp   src/lib/utils.hpp)
 
@@ -49,8 +46,8 @@ target_link_libraries(coverage MiniBoost )
 
 if (GUROBI)
   #set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lgurobi_c++ -lgurobi70 -lm")
-  target_link_libraries(metabolite -lgurobi_c++ -lgurobi70 -lm)
-  target_link_libraries(coverage -lgurobi_c++ -lgurobi70 -lm)
+  target_link_libraries(metabolite gurobi -lgurobi75 -lm)
+  target_link_libraries(coverage gurobi -lgurobi75 -lm)
 else ()
   target_link_libraries(metabolite glpk)
   target_link_libraries(coverage glpk)

@@ -1,4 +1,5 @@
 # Prerequisites
+gurobi7*/
 ex_res*/
 ex_res*
 *.zip
