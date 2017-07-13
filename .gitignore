@@ -11,6 +11,7 @@ build/
 cluster/
 resul*/ 
 test_res/
+cmake-build-debug-1
 cmake-build-debug
 cmake-build-release
 *.DS_Store

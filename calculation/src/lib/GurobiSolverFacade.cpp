@@ -28,15 +28,15 @@ GurobiSolverFacade::GurobiSolverFacade(
   }
   for (size_t i=1; i < lp_system_i.size(); i++){
     std::string name = lp_system_row_names[lp_system_i[i]-1];
-    if (name == "HC00178_c"){
-      std::cout << lp_system_val[i] << " " << lp_system_col_names[lp_system_j[i]-1] << std::endl;
-    }
     equation_map[name] += lp_system_val[i] * variable_map[lp_system_col_names[lp_system_j[i]-1]];
+  }
+  for(auto & name : lp_system_row_names){
+    std::string consume_name = name + "+consume";
+    equation_map[name] = -1 * model.addVar(-std::numeric_limits<double>::infinity(), std::numeric_limits<double>::infinity(), 0.0, GRB_CONTINUOUS, consume_name);
   }
   for (auto & equation : equation_map){
     model.addConstr(equation.second == 0, equation.first);
   }
-
 }
 }
 #endif
