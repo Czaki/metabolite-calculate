@@ -188,8 +188,13 @@ int main(int argc, char *argv[]) {
       size_t pos = line.find(',');
       size_t begin, end;
       try {
-        begin = boost::lexical_cast<size_t>(line.substr(1, pos - 1));
-        end = boost::lexical_cast<size_t>(line.substr(pos + 1, line.length() - pos - 2));
+        if (pos != std::string::npos) {
+          begin = boost::lexical_cast<size_t>(line.substr(1, pos - 1));
+          end = boost::lexical_cast<size_t>(line.substr(pos + 1, line.length() - pos - 2));
+        } else {
+          begin = boost::lexical_cast<size_t>(line);
+          end = begin+1;
+        }
       } catch (std::exception){
         std::cerr << "wrong range: " << line << std::endl;
         continue;
