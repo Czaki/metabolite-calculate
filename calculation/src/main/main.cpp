@@ -86,6 +86,7 @@ auto parse_options(int argc, const char ** argv){
     if (vm.count(name) == 0){
       std::cout << name << " not set" << std::endl;
       print_usage(visible_options, argv[0]);
+      std::exit(1);
     }
   }
   return vm;
@@ -187,8 +188,13 @@ int main(int argc, char *argv[]) {
       size_t pos = line.find(',');
       size_t begin, end;
       try {
-        begin = boost::lexical_cast<size_t>(line.substr(1, pos - 1));
-        end = boost::lexical_cast<size_t>(line.substr(pos + 1, line.length() - pos - 2));
+        if (pos != std::string::npos) {
+          begin = boost::lexical_cast<size_t>(line.substr(1, pos - 1));
+          end = boost::lexical_cast<size_t>(line.substr(pos + 1, line.length() - pos - 2));
+        } else {
+          begin = boost::lexical_cast<size_t>(line);
+          end = begin+1;
+        }
       } catch (std::exception){
         std::cerr << "wrong range: " << line << std::endl;
         continue;

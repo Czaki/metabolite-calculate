@@ -9,6 +9,10 @@
 #include <sstream>
 
 #include "Metabolism.hpp"
+#include "LPSolverFacade.h"
+#ifdef  GUROBI
+#include "GurobiSolverFacade.h"
+#endif
 
 namespace {
 template <class T>
@@ -305,9 +309,15 @@ SFBA::SFBA(std::string sfba_path, std::string ext_tag,
            const std::vector<Enzyme> &enzyme_vec) {
   auto is = std::ifstream(sfba_path);
   parse_lp_system(is, ext_tag);
+#ifdef GUROBI
+  lp_solver_ = new PNFBA::GurobiSolverFacade(
+      lp_system_row_names_, lp_system_col_names_, lp_system_row_index_,
+      lp_system_col_index_, lp_system_i_, lp_system_j_, lp_system_val_);
+#else
   lp_solver_ = new PNFBA::LPSolverFacade(
       lp_system_row_names_, lp_system_col_names_, lp_system_row_index_,
       lp_system_col_index_, lp_system_i_, lp_system_j_, lp_system_val_);
+#endif
   size_t i = 0;
   for (auto &enz : enzyme_vec) {
     auto reaction_list = enz.get_reaction_list();
@@ -456,6 +466,7 @@ void SFBA::parse_linear_expression(const std::string &expression, const int j,
           boost::lexical_cast<double>(word); // TODO zamienic na parsowanie ze
                                              // standardowych bibliotek, bo tu
                                              // nie moze byc +inf bo isdigit !!!
+                                             // [GB] może - nie mozna brać nieskończenie wiele elementów do składnika
       atom >> word;
     }
     if (word.length() >= ext_tag.length() &&

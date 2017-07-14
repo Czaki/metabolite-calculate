@@ -1,4 +1,5 @@
 # Prerequisites
+gurobi7*/
 ex_res*/
 ex_res*
 *.zip
@@ -10,6 +11,7 @@ build/
 cluster/
 resul*/ 
 test_res/
+cmake-build-*/
 cmake-build-debug
 cmake-build-release
 *.DS_Store
