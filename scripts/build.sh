@@ -13,7 +13,7 @@ if [ ! -d $build ] || [ ! -e $build/metabolite ]; then
     mkdir -p $build
     cd $build
     cmake -DCMAKE_BUILD_TYPE=Release $cpp_dir
-    make
+    make -j 4
 fi
 if [ ! -e $build/metabolite ]; then 
     echo "${RED}Build fail${NC}"
