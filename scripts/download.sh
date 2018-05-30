@@ -7,7 +7,7 @@ set -u
 
 mkdir -p $download
 
-if [ $# -eq 1 ]; then 
+if [ $# -eq 1 ]; then
     echo "ALA"
     tar -xvf $1
 fi
@@ -18,56 +18,55 @@ fi
 
 mkdir -p $cluster
 
-#wget -P ${home}/download --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.tar.gzi
 
-
-if [ ! -e $download/jdk-8u131-linux-x64.tar.gz ]; then
-    wget -P $download --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
+f [ "${custom_java}" = true ]; then
+    if [ ! -e $download/jdk-8u171-linux-x64.tar.gz ]; then
+        wget --no-check-certificate --no-cookies -O ${download}/jdk-8u171-linux-x64.tar.gz --header "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u171-b11/512cd62ec5174c3487ac17c61aaa89e8/jdk-8u171-linux-x64.tar.gz"
+    fi
+    if [ ! -e $download/jdk-8u171-linux-x64.tar.gz ]; then
+        echo "${RED}[ERROR] no java download${NC}"
+        exit -1
+    fi
 fi
-if [! -e $download/jdk-8u131-linux-x64.tar.gz ]; then
-    echo "${RED}[ERROR] no java download${NC}"
-    exit -1
-fi 
 
-if [ ! -e $download/hadoop-2.7.3.tar.gz ]; then
-    wget -P ${download} www-eu.apache.org/dist/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz
-fi 
-if [ ! -e $download/hadoop-2.7.3.tar.gz ]; then
+if [ ! -e $download/hadoop-${hadoop_version}.tar.gz ]; then
+    wget -P ${download} www-eu.apache.org/dist/hadoop/common/hadoop-${hadoop_version}/hadoop-${hadoop_version}.tar.gz
+fi
+if [ ! -e $download/hadoop-${hadoop_version}.tar.gz ]; then
     echo "${RED}[ERROR] no hadoop download${NC}"
     exit -1
-fi 
-
-if [ ! -e $download/scala-2.11.6.tgz ]; then 
-    wget -P ${home}/download downloads.lightbend.com/scala/2.11.6/scala-2.11.6.tgz
 fi
-if [ ! -e $download/scala-2.11.6.tgz ]; then 
-    echo "${RED}[ERROR] no scala download${NC}"
-    exit -1
-fi 
 
-if [ ! -e $download/spark-2.1.1-bin-hadoop2.7.tgz ]; then 
-    wget -P ${home}/download http://www-eu.apache.org/dist/spark/spark-2.1.1/spark-2.1.1-bin-hadoop2.7.tgz
+if [ ! -e $download/spark-${spark_version}-bin-hadoop2.7.tgz ]; then
+    wget -P ${download} http://ftp.man.poznan.pl/apache/spark/spark-${spark_version}/spark-${spark_version}-bin-hadoop2.7.tgz
 fi
-if [ ! -e $download/spark-2.1.1-bin-hadoop2.7.tgz ]; then 
+if [ ! -e $download/spark-${spark_version}-bin-hadoop2.7.tgz ]; then
     echo "${RED}[ERROR] no spark download${NC}"
     exit -1
 fi
 
-if [ ! -e $download/sbt-0.13.15.tgz ]; then
-    wget -P ${home}/download https://dl.bintray.com/sbt/native-packages/sbt/0.13.15/sbt-0.13.15.tgz
+if [ ! -e $download/scala-${scala_version}.tgz ]; then
+    wget -P ${home}/download downloads.lightbend.com/scala/2.11.6/scala-2.11.6.tgz
 fi
-if [ ! -e $download/sbt-0.13.15.tgz ]; then
+if [ ! -e $download/scala-${scala_version}.tgz ]; then
+    echo "${RED}[ERROR] no scala download${NC}"
+    exit -1
+fi
+
+if [ ! -e $download/sbt-${sbt_version}.tgz ]; then
+    wget -P ${home}/download https://piccolo.link/sbt-${sbt_version}.tgz
+fi
+if [ ! -e $download/sbt-${sbt_version}.tgz ]; then
     echo "${RED}[ERROR] no sbt download${NC}"
     exit -1
 fi
 
-tar -xvf $download/jdk-8u131-linux-x64.tar.gz -C $cluster
-mv $cluster/jdk1.8.0_131 $jdk_path
-tar -xvf $download/hadoop-2.7.3.tar.gz -C $cluster
-mv $cluster/hadoop-2.7.3 $hadoop_path
-tar -xvf $download/scala-2.11.6.tgz -C $cluster
-mv $cluster/scala-2.11.6 $scala_path
-tar -xvf $download/spark-2.1.1-bin-hadoop2.7.tgz -C $cluster
-mv $cluster/spark-2.1.1-bin-hadoop2.7 $spark_path
-tar -xvf $download/sbt-0.13.15.tgz -C $cluster
-
+tar -xvf $download/jdk-8u171-linux-x64.tar.gz -C $cluster
+mv $cluster/jdk1.8.0_171 $jdk_path
+tar -xvf $download/hadoop-${hadoop_version}.tar.gz -C $cluster
+mv $cluster/hadoop-${hadoop_version} $hadoop_path
+tar -xvf $download/scala-${scala_version}.tgz -C $cluster
+mv $cluster/scala-${scala_version} $scala_path
+tar -xvf $download/spark-${spark_version}-bin-hadoop2.7.tgz -C $cluster
+mv $cluster/spark-${spark_version}-bin-hadoop2.7 $spark_path
+tar -xvf $download/sbt-${sbt_version}.tgz -C $cluster
