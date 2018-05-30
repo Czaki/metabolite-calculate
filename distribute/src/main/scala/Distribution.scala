@@ -7,7 +7,7 @@ import java.io.File
 
 
 
-object SimpleApp {
+object Distribution {
   def getListOfFiles(dir: String):List[File] = {
     val d = new File(dir)
     if (d.exists && d.isDirectory) {

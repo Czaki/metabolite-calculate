@@ -1,3 +1,4 @@
+#! /usr/bin/env bash
 script_dir="$(dirname "$0")"
 . ${script_dir}/settings.sh
 
@@ -10,13 +11,13 @@ mkdir -p $home/hdfsdata/datanode
 cd $home
 set -u
 master=$(head -n 1 $master_file)
-echo $slave_file 
+echo $slave_file
 ssh="ssh -i ~/.ssh/id_rsa"
 scp="scp -i ~/.ssh/id_rsa"
 
 ssh-add ~/.ssh/id_rsa
 rm -f $home/cluster.tar
-cd $home 
+cd $home
 tar -cf $home/cluster.tar cluster
 while read name
 do
@@ -26,7 +27,7 @@ do
         continue
     fi
   echo "============================== syncing to:" $name "==================================="
-  
+
   $ssh -n $user@$name rm -fr "$home/cluster $home/hdfsdata"
   $ssh -n $user@$name mkdir -p $home/hdfsdata
   $ssh -n $user@$name mkdir $home/hdfsdata/datanode
@@ -35,4 +36,4 @@ do
   #$scp -r $home/cluster $user@$name:$home
 done < $slave_file
 
-hdfs namenode -format 
+hdfs namenode -format

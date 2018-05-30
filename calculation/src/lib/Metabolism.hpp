@@ -10,9 +10,9 @@
 #include <utility>
 #include <vector>
 #include <set>
-#include "LPSolverFacade.h"
+#include "LPSolverAbstract.h"
+#include "utils.hpp"
 
-typedef uint32_t counter_type;
 
 class FileFormatException : public std::logic_error {
 public:
@@ -97,7 +97,7 @@ private:
   std::map<std::string, int> lp_system_col_index_;
   std::map<std::string, std::pair<double, double>> default_constraints_;
   std::map<std::string, std::pair<size_t, const Enzyme *>> reaction_enzyme_map_;
-  PNFBA::LPSolverFacade * lp_solver_;
+  PNFBA::LPSolverFacadeAbstract * lp_solver_;
 };
 
 class Metabolite {
@@ -118,7 +118,7 @@ public:
   };
   size_t number_of_levels() const { return mapping_.size(); }
 
-  auto goal() { return this->goal_;}
+  auto goal() const { return this->goal_;}
 
 private:
   std::string name_;
@@ -134,6 +134,11 @@ class Metabolism {
 public:
   typedef std::vector<uint8_t> Marking;
   typedef SFBA::ProblemConstraint ProblemConstraint;
+  /*!
+   * Constructor for Metabolism class
+   * @param qsspn_file_path - path to file with quasi state petrii net definition
+   * @param sfba_file_path - path to metamolic network saved in sfba format
+   */
   Metabolism(std::string qsspn_file_path, std::string sfba_file_path);
   virtual ~Metabolism(){
     free(this->solver);
@@ -156,7 +161,25 @@ public:
   void set_range(size_t begin, size_t end){
     this->range_ = std::make_pair(begin,end);
   }
-  void calculateRange(std::ostream &result_file, size_t begin, size_t end);
+  auto get_range() const{
+    return this->range_;
+  }
+  utils::VectorIterator<counter_type> get_vector(){
+    std::vector<std::vector<counter_type>> enzyme_values;
+    for (auto &el : enzymes_) {
+      enzyme_values.push_back(el.get_threshold_values());
+    }
+    return utils::VectorIterator<counter_type>(enzyme_values, range_);
+  }
+  /*!
+   * Class to simulate metabolite fba
+   * Fba is defined in sfba file. All variants of constraints marking
+   * comes from qsspn file. With @see VectorIterator
+   * @param result_file - stream on which result is writen
+   * @param begin -
+   * @param end
+   */
+  void calculateRange(std::ostream &result_file, size_t begin, size_t end) const;
   void print_targets(std::ostream &os){
     for(auto &el : targets_set_){
       os << el << std::endl;

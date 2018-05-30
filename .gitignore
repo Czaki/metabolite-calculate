@@ -1,4 +1,5 @@
 # Prerequisites
+gurobi7*/
 ex_res*/
 ex_res*
 *.zip
@@ -8,7 +9,9 @@ target
 project
 build/
 cluster/
-
+resul*/ 
+test_res/
+cmake-build-*/
 cmake-build-debug
 cmake-build-release
 *.DS_Store
@@ -147,3 +150,5 @@ Session.vim
 tags
 
 # End of https://www.gitignore.io/api/vim,clion,c,c++
+
+calculation/cmake-build-debug-mpi/

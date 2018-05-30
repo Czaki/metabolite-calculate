@@ -9,9 +9,12 @@
 #include <sstream>
 
 #include "Metabolism.hpp"
+#include "LPSolverFacade.h"
+#ifdef  GUROBI
+#include "GurobiSolverFacade.h"
+#endif
 
 namespace {
-
 template <class T>
 inline std::ostream &operator<<(std::ostream &os, const std::vector<T> &v) {
   //os << v.size();
@@ -28,6 +31,7 @@ inline std::ostream &operator<<(std::ostream &os,
      << ")";
   return os;
 }
+
 std::vector<std::tuple<std::string, counter_type, counter_type, uint8_t>>
 readSubstances(std::istream &s) {
   std::string line = "";
@@ -233,61 +237,7 @@ auto readQSSPN(std::istream &s) {
   }
   return met;
 }
-
-template <typename T> class VectorIterator {
-public:
-  VectorIterator(const std::vector<std::vector<T>> &v,
-                 std::pair<size_t, size_t> range)
-      : iterate_values(v), range(range) {
-    size_t begin = range.first;
-    current = range.first;
-    for (auto &el : iterate_values) {
-      size_t num = begin % el.size();
-      begin /= el.size();
-      current_val.push_back(el[num]);
-      iterator_vector.push_back(el.begin() + num);
-    }
-  };
-  std::vector<T> value() { return current_val; }
-  std::vector<T> next() {
-    if (this->end())
-      throw std::out_of_range(std::string(__FILE__) + ": " +
-                              std::to_string(__LINE__));
-    current++;
-    auto val_it = current_val.begin();
-    auto ite_it = iterator_vector.begin();
-    auto vec_it = iterate_values.begin();
-    bool br;
-    for (size_t i = 0; i < current_val.size(); i++) {
-      current_val[i] = *iterator_vector[i];
-    }
-    (*iterator_vector.begin())++;
-    for (; ite_it != iterator_vector.end(); val_it++, ite_it++, vec_it++) {
-      br = true;
-      if (*ite_it == vec_it->end() && ite_it + 1 != iterator_vector.end()) {
-        *ite_it = vec_it->begin();
-        (*(ite_it + 1))++;
-        br = false;
-      }
-      if (br)
-        break;
-    }
-    return current_val;
-  }
-  bool end() { return current >= range.second; }
-
-    size_t length(){
-      return range.second - range.first;
-    }
-
-private:
-  std::vector<std::vector<T>> iterate_values;
-  std::vector<typename std::vector<T>::const_iterator> iterator_vector;
-  std::vector<T> current_val;
-  std::pair<size_t, size_t> range;
-  size_t current;
-};
-} // namespace
+}//namespace
 
 Metabolism::Metabolism(std::string qsspn_file_path,
                        std::string sfba_file_path) {
@@ -308,7 +258,7 @@ Metabolism::Metabolism(std::string qsspn_file_path,
   this->solver->print_info();
 }
 
-void Metabolism::calculateRange(std::ostream &result_file, size_t begin, size_t end) {
+void Metabolism::calculateRange(std::ostream &result_file, size_t begin, size_t end) const {
   size_t counter = 0;
   size_t variants = 1;
   std::vector<std::vector<counter_type>> enzyme_values;
@@ -325,10 +275,11 @@ void Metabolism::calculateRange(std::ostream &result_file, size_t begin, size_t 
   if (end == 0){
     range = this->range_;
   } else {
+    end = std::min(end, this->range_.second);
     range = std::make_pair(begin, end);
   }
-  auto all_variant_iterator =
-      VectorIterator<counter_type>(enzyme_values, range);
+  utils::VectorIterator<counter_type> all_variant_iterator =
+      utils::VectorIterator<counter_type>(enzyme_values, range);
   // std::cerr << all_variant_iterator.length() << std::endl;
   if (!result_file.good()) {
     std::cerr << "Error" << std::endl;
@@ -358,9 +309,15 @@ SFBA::SFBA(std::string sfba_path, std::string ext_tag,
            const std::vector<Enzyme> &enzyme_vec) {
   auto is = std::ifstream(sfba_path);
   parse_lp_system(is, ext_tag);
+#ifdef GUROBI
+  lp_solver_ = new PNFBA::GurobiSolverFacade(
+      lp_system_row_names_, lp_system_col_names_, lp_system_row_index_,
+      lp_system_col_index_, lp_system_i_, lp_system_j_, lp_system_val_);
+#else
   lp_solver_ = new PNFBA::LPSolverFacade(
       lp_system_row_names_, lp_system_col_names_, lp_system_row_index_,
       lp_system_col_index_, lp_system_i_, lp_system_j_, lp_system_val_);
+#endif
   size_t i = 0;
   for (auto &enz : enzyme_vec) {
     auto reaction_list = enz.get_reaction_list();
@@ -509,6 +466,7 @@ void SFBA::parse_linear_expression(const std::string &expression, const int j,
           boost::lexical_cast<double>(word); // TODO zamienic na parsowanie ze
                                              // standardowych bibliotek, bo tu
                                              // nie moze byc +inf bo isdigit !!!
+                                             // [GB] może - nie mozna brać nieskończenie wiele elementów do składnika
       atom >> word;
     }
     if (word.length() >= ext_tag.length() &&
