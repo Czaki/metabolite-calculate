@@ -10,16 +10,16 @@ if [ ! -d $cluster ]; then
     #exit -1
 fi
 
-if [ ! -d $build ] || [ ! -e $build/metabolite ]; then
+if [ ! -d $build ] || [ ! -e $build/metabolite_glpk ]; then
     mkdir -p $build
     cd $build
     cmake -DCMAKE_BUILD_TYPE=Release $cpp_dir
     make -j 4
 fi
-if [ ! -e $build/metabolite ]; then
+if [ ! -e $build/metabolite_glpk ]; then
     echo "${RED}Build fail${NC}"
 fi
-cp $build/metabolite $cluster/
+cp $build/metabolite_glpk $cluster/
 
 echo $_JAVA_OPTIONS
 cd $source_dir/distribute

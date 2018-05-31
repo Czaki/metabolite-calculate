@@ -19,7 +19,7 @@ fi
 mkdir -p $cluster
 
 
-f [ "${custom_java}" = true ]; then
+if [ "${custom_java}" = true ]; then
     if [ ! -e $download/jdk-8u171-linux-x64.tar.gz ]; then
         wget --no-check-certificate --no-cookies -O ${download}/jdk-8u171-linux-x64.tar.gz --header "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u171-b11/512cd62ec5174c3487ac17c61aaa89e8/jdk-8u171-linux-x64.tar.gz"
     fi
@@ -46,7 +46,7 @@ if [ ! -e $download/spark-${spark_version}-bin-hadoop2.7.tgz ]; then
 fi
 
 if [ ! -e $download/scala-${scala_version}.tgz ]; then
-    wget -P ${home}/download downloads.lightbend.com/scala/2.11.6/scala-2.11.6.tgz
+    wget -P ${home}/download downloads.lightbend.com/scala/${scala_version}/scala-${scala_version}.tgz
 fi
 if [ ! -e $download/scala-${scala_version}.tgz ]; then
     echo "${RED}[ERROR] no scala download${NC}"
