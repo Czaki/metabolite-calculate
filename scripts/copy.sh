@@ -31,7 +31,7 @@ do
   $ssh -n $user@$name rm -fr "$home/cluster $home/hdfsdata"
   $ssh -n $user@$name mkdir -p $home/hdfsdata
   $ssh -n $user@$name mkdir $home/hdfsdata/datanode
-  scp $home/cluster.tar $user@$name:$home
+  scp $home/cluster.tar.gz $user@$name:$home
   $ssh -n $user@$name tar xf $home/cluster.tar.gz -C $home
   #$scp -r $home/cluster $user@$name:$home
 done < $slave_file
