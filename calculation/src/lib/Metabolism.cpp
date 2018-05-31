@@ -296,7 +296,9 @@ void Metabolism::calculateRange(std::ostream &result_file, size_t begin, size_t 
       std::map<std::string, double> opt_res;
       for (auto &name : this->targets_set_) {
         opt_res[name] = this->solver->optimize(name, constraint);
+        result_file << " " << opt_res[name];
       }
+      result_file << dd << " |";
       for (auto &met : this->metabolites_) {
         result_file << " " << met(opt_res[met.goal()]);
       }
