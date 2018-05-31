@@ -18,7 +18,7 @@ scp="scp -i ~/.ssh/id_rsa"
 ssh-add ~/.ssh/id_rsa
 rm -f $home/cluster.tar
 cd $home
-tar -cf $home/cluster.tar cluster
+tar -zcf $home/cluster.tar.gz cluster
 while read name
 do
     echo "buka"
@@ -32,7 +32,7 @@ do
   $ssh -n $user@$name mkdir -p $home/hdfsdata
   $ssh -n $user@$name mkdir $home/hdfsdata/datanode
   scp $home/cluster.tar $user@$name:$home
-  $ssh -n $user@$name tar xf $home/cluster.tar -C $home
+  $ssh -n $user@$name tar xf $home/cluster.tar.gz -C $home
   #$scp -r $home/cluster $user@$name:$home
 done < $slave_file
 
