@@ -61,12 +61,12 @@ if [ ! -e $download/sbt-${sbt_version}.tgz ]; then
     exit -1
 fi
 
-tar -xvf $download/jdk-8u171-linux-x64.tar.gz -C $cluster
+tar -xf $download/jdk-8u171-linux-x64.tar.gz -C $cluster
 mv $cluster/jdk1.8.0_171 $jdk_path
-tar -xvf $download/hadoop-${hadoop_version}.tar.gz -C $cluster
+tar -xf $download/hadoop-${hadoop_version}.tar.gz -C $cluster
 mv $cluster/hadoop-${hadoop_version} $hadoop_path
-tar -xvf $download/scala-${scala_version}.tgz -C $cluster
+tar -xf $download/scala-${scala_version}.tgz -C $cluster
 mv $cluster/scala-${scala_version} $scala_path
-tar -xvf $download/spark-${spark_version}-bin-hadoop2.7.tgz -C $cluster
+tar -xf $download/spark-${spark_version}-bin-hadoop2.7.tgz -C $cluster
 mv $cluster/spark-${spark_version}-bin-hadoop2.7 $spark_path
-tar -xvf $download/sbt-${sbt_version}.tgz -C $cluster
+tar -xf $download/sbt-${sbt_version}.tgz -C $cluster
