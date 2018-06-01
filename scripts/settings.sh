@@ -1,7 +1,11 @@
-script_dir="$( cd "$( dirname "$0" )" && pwd )"
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source_dir=`dirname $script_dir`
 #home=$source_dir
-home="/tmp/hadoop"
+if [ -e "${script_dir}/home.sh" ]; then 
+    . ${script_dir}/home.sh
+else
+    home="/tmp/hadoop"
+fi
 download=${home}/download
 cluster=${home}/cluster
 build=${home}/build
@@ -37,5 +41,4 @@ export HADOOP_INSTALL=${hadoop_path}
 export SPARK_HOME=${spark_path}
 export HADOP_PREFIX=${HADOOP_INSTALL}
 
-export PATH=$JAVA_HOME/bin:$SCALA_HOME/bin:$SBT_HOME/bin:$SPARK_HOME/bin:$SPARK_HOME/sbin:$HADOOP_INSTALL/bin:$HADOOP_INSTALL/sbin:$PATH
 

@@ -27,3 +27,5 @@ sbt package
 cp target/scala-2.11/metabolite-distribute_2.11-1.0.jar $cluster/
 cp -r $source_dir/data $cluster/
 cp -r $source_dir/data-simple $cluster/
+
+cp $HOME/.ivy2/cache/com.github.scopt/scopt_2.11/jars/scopt_2.11-3.7.0.jar $cluster

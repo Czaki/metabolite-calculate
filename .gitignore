@@ -1,3 +1,4 @@
+scripts/home.sh
 # Prerequisites
 gurobi7*/
 ex_res*/

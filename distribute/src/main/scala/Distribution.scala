@@ -71,8 +71,6 @@ object Distribution {
       arg[(Int, Int)]("range").optional().action((p, c) => c.copy(range = p, from_file = false, calculate_all = false))
       opt[Int]('p', "parts_size").action((p, c) => c.copy(parts_size = p))
       opt[File]("range_file").action((p, c) => c.copy(range_file = p, from_file = true, calculate_all = false))
-
-
     }
   }
 
@@ -131,8 +129,6 @@ object Distribution {
     val parser = get_parser()
     parser.parse(args, Config()) match {
       case Some(config) => {
-        println(config)
-        sys.exit(1)
         val conf = new SparkConf().setAppName("Distribute metabolite") //.setMaster("local[4]")
         val sc = new SparkContext(conf)
         if (config.from_file) {
@@ -166,8 +162,6 @@ object Distribution {
       case None => {
         sys.exit(-1)
       }
-
-
     }
   }
 }

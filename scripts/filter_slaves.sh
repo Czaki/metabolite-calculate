@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-script_dir="$(dirname "$0")"
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 . ${script_dir}/settings.sh
 
 while read name

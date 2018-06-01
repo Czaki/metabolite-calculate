@@ -195,7 +195,7 @@ int main(int argc, char *argv[]) {
           begin = boost::lexical_cast<size_t>(line);
           end = begin+1;
         }
-      } catch (std::exception){
+      } catch (std::exception &){
         std::cerr << "wrong range: " << line << std::endl;
         continue;
       }

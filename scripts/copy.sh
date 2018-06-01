@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-script_dir="$(dirname "$0")"
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 . ${script_dir}/settings.sh
 
 rm -fr $home/hdfsdata
@@ -16,7 +16,7 @@ ssh="ssh -i ~/.ssh/id_rsa"
 scp="scp -i ~/.ssh/id_rsa"
 
 ssh-add ~/.ssh/id_rsa
-rm -f $home/cluster.tar
+rm -f $home/cluster.tar.gz
 cd $home
 tar -zcf $home/cluster.tar.gz cluster
 while read name
@@ -36,4 +36,4 @@ do
   #$scp -r $home/cluster $user@$name:$home
 done < $slave_file
 
-hdfs namenode -format
+${hadoop_path}/bin/hdfs namenode -format

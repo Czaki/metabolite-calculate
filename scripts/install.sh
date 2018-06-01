@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-script_dir="$(dirname "$0")"
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 . ${script_dir}/settings.sh
 
 set -u
@@ -19,7 +19,7 @@ etc_hadoop=${HADOOP_INSTALL}/etc/hadoop
 #hdfs_dir="$( mktemp -d /tmp/hadoop.XXXXXX )"
 hdfs_dir="${home}/hdfsdata"
 master=$(head -n 1 $master_file)
-if [ "" -eq "$master" ; then
+if [ "" -eq "$master" ]; then
     echo "Master fail"
     exit -1
 fi
@@ -120,7 +120,7 @@ export SPARK_HOME=$SPARK_HOME
 export HADOOP_CONF_DIR=${etc_hadoop}
 
 export SPARK_WORKER_CORES=\`grep -c ^processor /proc/cpuinfo\`
-export SPARK_PUBLIC_DNS=${master}
+export SPARK_MASTER_HOST=${master}
 EOF
 
 cp $slave_file $SPARK_HOME/conf/slaves
