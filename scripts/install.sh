@@ -110,7 +110,7 @@ echo "**************************************************************************
 cat <<EOF > $SPARK_HOME/conf/spark-env.sh
 #!/usr/bin/env bash
 
-home=/tmp/hadoop
+home=${home}
 export JAVA_HOME=$JAVA_HOME
 export SCALA_HOME=$SCALA_HOME
 export SBT_HOME=$SBT_HOME

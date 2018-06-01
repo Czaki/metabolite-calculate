@@ -37,4 +37,5 @@ export HADOOP_INSTALL=${hadoop_path}
 export SPARK_HOME=${spark_path}
 export HADOP_PREFIX=${HADOOP_INSTALL}
 
-export PATH=$JAVA_HOME/bin:$HADOOP_INSTALL/bin:$HADOOP_INSTALL/sbin:$SPARK_HOME/bin:$SPARK_HOME/sbin:$PATH
+export PATH=$JAVA_HOME/bin:$SCALA_HOME/bin:$SBT_HOME/bin:$SPARK_HOME/bin:$SPARK_HOME/sbin:$HADOOP_INSTALL/bin:$HADOOP_INSTALL/sbin:$PATH
+
