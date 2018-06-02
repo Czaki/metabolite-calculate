@@ -19,7 +19,8 @@ case class Config (
                   calculate_all: Boolean = true,
                   from_file: Boolean = false,
                   range_file: File = new File(""),
-                  single_step: Int = 100
+                  single_step: Int = 100,
+                  slices : Int = 2000
                   )
 
 
@@ -71,6 +72,8 @@ object Distribution {
       arg[(Int, Int)]("range").optional().action((p, c) => c.copy(range = p, from_file = false, calculate_all = false))
       opt[Int]('p', "parts_size").action((p, c) => c.copy(parts_size = p))
       opt[File]("range_file").action((p, c) => c.copy(range_file = p, from_file = true, calculate_all = false))
+      opt[Int]("single_step").action((p, c) => c.copy(single_step = p)).text("number of marking in one task")
+      opt[Int]("slices").action((p,c) => c.copy(slices = p)).text("number of slices in execution")
     }
   }
 
@@ -79,16 +82,10 @@ object Distribution {
       val pos = Source.fromFile(config.range_file).getLines().toArray.map(_.toInt)
       val pos2 = pos.map(_ + 1)
       val ranges = pos zip pos2
-      sc.makeRDD(ranges, 2000)
+      sc.makeRDD(ranges, config.slices)
     } else {
-      val ranges = {
-        val base_range = List.range(range._1, range._2, config.single_step)
-        if (range._2 % config.single_step != 0)
-          base_range ++ List(range._2)
-        else
-          base_range
-      }
-      sc.makeRDD(ranges zip ranges.tail, 2000)
+      val ranges =  List.range(range._1, range._2, config.single_step) ++ List(range._2)
+      sc.makeRDD(ranges zip ranges.tail, config.slices)
     }
 
     val c = {

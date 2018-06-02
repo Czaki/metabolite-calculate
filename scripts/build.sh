@@ -12,10 +12,10 @@ fi
 
 if [ ! -d $build ] || [ ! -e $build/metabolite_glpk ]; then
     mkdir -p $build
-    cd $build
-    cmake -DCMAKE_BUILD_TYPE=Release $cpp_dir
-    make -j 4
 fi
+cd $build
+cmake -DCMAKE_BUILD_TYPE=Release $cpp_dir
+make -j 4
 if [ ! -e $build/metabolite_glpk ]; then
     echo "${RED}Build fail${NC}"
 fi
