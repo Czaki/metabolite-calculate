@@ -5,6 +5,9 @@ import org.apache.spark.SparkConf
 
 import scala.io.Source
 import java.io.File
+import java.nio.file.{Files, Paths}
+
+import sys.process._
 
 
 case class Config (
@@ -20,7 +23,9 @@ case class Config (
                   from_file: Boolean = false,
                   range_file: File = new File(""),
                   single_step: Int = 100,
-                  slices : Int = 2000
+                  slices : Int = 2000,
+                  auto_copy: Boolean = false,
+                  copy_path: File = new File(sys.env("HOME"), "tmp")
                   )
 
 
@@ -74,6 +79,8 @@ object Distribution {
       opt[File]("range_file").action((p, c) => c.copy(range_file = p, from_file = true, calculate_all = false))
       opt[Int]("single_step").action((p, c) => c.copy(single_step = p)).text("number of marking in one task")
       opt[Int]("slices").action((p,c) => c.copy(slices = p)).text("number of slices in execution")
+      opt[Unit]("with_backup").action((_, c) => c.copy(auto_copy = true))
+      opt[File]("backup_path").action((p, c) => c.copy(copy_path = p))
     }
   }
 
@@ -122,10 +129,21 @@ object Distribution {
   }
 
   def main(args: Array[String]) {
-    println((11,6))
+    println(sys.env("HOME"))
+    println(sys.env("SPARK_HOME"))
+    val hdfs_executable = new File(new File(sys.env("HADOOP_INSTALL"), "bin"), "hdfs")
+    val hdfs_get = hdfs_executable.toString + " dfs -get "
+    var temp_dir = Paths.get("")
     val parser = get_parser()
     parser.parse(args, Config()) match {
-      case Some(config) => {
+      case Some(config) =>
+        if (config.auto_copy) {
+          temp_dir = Files.createTempDirectory("metabolite-output")
+
+          if (! config.copy_path.exists()){
+            Files.createDirectory(config.copy_path.toPath)
+          }
+        }
         val conf = new SparkConf().setAppName("Distribute metabolite") //.setMaster("local[4]")
         val sc = new SparkContext(conf)
         if (config.from_file) {
@@ -147,18 +165,24 @@ object Distribution {
               base_range
           }
           for ((part_range, i) <- (ranges zip ranges.tail).zipWithIndex) {
-            run_calculation(sc, config, part_range, new File(config.output_path, "part" + i.toString).toString)
+            val out_path = new File(config.output_path, "part" + i.toString)
+            run_calculation(sc, config, part_range, out_path.toString)
+            if (config.auto_copy){
+              hdfs_get + out_path.toString + " " + temp_dir.toString !
+              val out_dir = new File(temp_dir.toFile, out_path.toString)
+              if (out_dir.exists){
+                // TODO crating tar.gz archive and copy it in safe place
+              }
+            }
 
           }
         } else {
           run_calculation(sc, config, range, config.output_path.toString)
         }
         sc.stop()
-      }
 
-      case None => {
+      case None =>
         sys.exit(-1)
-      }
     }
   }
 }

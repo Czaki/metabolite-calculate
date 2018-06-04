@@ -1,6 +1,5 @@
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 . ${script_dir}/settings.sh
-set -u 
 
 export JAVA_HOME=$jdk_path 
 export SCALA_HOME=$scala_path 
