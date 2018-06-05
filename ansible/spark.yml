@@ -1,0 +1,363 @@
+---
+- hosts: local
+  gather_facts : no
+  pre_tasks:
+    - name: "loading envirorment"
+      tags: always
+      set_fact:
+        custom_java: '{{ lookup("env", "custom_java") }}'
+        download_dir: '{{ lookup("env", "download") }}'
+        cluster_dir: '{{ lookup("env", "cluster") }}'
+        hadoop_version: '{{ lookup("env", "hadoop_version") }}'
+        spark_version: '{{ lookup("env", "spark_version") }}'
+        scala_version: '{{ lookup("env", "scala_version") }}'
+        sbt_version: '{{ lookup("env", "sbt_version") }}'
+        jdk_path: '{{ lookup("env", "jdk_path") }}'
+        hadoop_path: '{{ lookup("env", "hadoop_path") }}'
+        spark_path: '{{ lookup("env", "spark_path") }}'
+        scala_path: '{{ lookup("env", "scala_path") }}'
+        sbt_path: '{{ lookup("env", "sbt_path") }}'
+        master: '{{ lookup("file", "master") }}'
+        script_dir: '{{ lookup("env", "script_dir") }}'
+        etc_hadoop: '{{ lookup("env", "hadoop_path") }}/etc/hadoop'
+        hdfs_dir:  '{{ lookup("env", "hdfs_dir") }}'
+
+  tasks:
+    - name: "create download dir"
+      file:
+        path: '{{ download_dir }}'
+        owner: '{{ lookup("env", "USER") }}'
+        group: '{{ lookup("env", "USER") }}'
+        mode: 0755
+        state: directory
+    - name: "delete cluster"
+      tags:
+        - clean
+        - setup
+      file:
+        path: '{{ cluster_dir }}'
+        state: absent
+    - name: "create cluster dir"
+      tags:
+        - clean
+        - setup
+      file:
+        path: '{{ cluster_dir }}'
+        owner: '{{ lookup("env", "USER") }}'
+        group: '{{ lookup("env", "USER") }}'
+        mode: 0755
+        state: directory
+
+    - name: "Download Java"
+      tags:
+        - download
+        - setup
+      when: 'custom_java == true'
+      command: 'wget -nc --no-check-certificate --no-cookies -O {{ download_dir }}/jdk-8u171-linux-x64.tgz --header "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u171-b11/512cd62ec5174c3487ac17c61aaa89e8/jdk-8u171-linux-x64.tar.gz"'
+      ignore_errors: True
+
+    - name: "download hadoop"
+      tags:
+        - download
+        - setup
+      get_url:
+            url: 'http://ftp.man.poznan.pl/apache/hadoop/common/hadoop-{{ hadoop_version }}/hadoop-{{ hadoop_version }}.tar.gz'
+            dest: '{{ download_dir }}//hadoop-{{ hadoop_version }}.tgz'
+
+    - name: "download spark"
+      tags:
+        - download
+        - setup
+      get_url:
+            url: 'http://ftp.man.poznan.pl/apache/spark/spark-{{ spark_version }}/spark-{{ spark_version }}-bin-hadoop2.7.tgz'
+            dest: '{{ download_dir }}//spark-{{ spark_version }}-bin-hadoop2.7.tgz'
+
+    - name: "download scala"
+      tags:
+        - download
+        - setup
+      get_url:
+            url: 'http://downloads.lightbend.com/scala/{{ scala_version }}/scala-{{ scala_version }}.tgz'
+            dest: '{{ download_dir }}//scala-{{ scala_version }}.tgz'
+
+    - name: "download sbt"
+      tags:
+        - download
+        - setup
+      get_url:
+            url: 'https://piccolo.link/sbt-{{ sbt_version }}.tgz'
+            dest: '{{ download_dir }}//sbt-{{ sbt_version }}.tgz'
+
+    - name: "Extract Hadoop"
+      tags:
+        - unpack
+        - setup
+      unarchive:
+        src: '{{ download_dir }}/hadoop-{{ hadoop_version }}.tgz'
+        dest: '{{ cluster_dir }}'
+
+    - name: "Extract Spark"
+      tags:
+        - unpack
+        - setup
+      unarchive:
+        src: '{{ download_dir }}/spark-{{ spark_version }}-bin-hadoop2.7.tgz'
+        dest: '{{ cluster_dir }}'
+
+    - name: "Extract Scala"
+      tags:
+        - unpack
+        - setup
+      unarchive:
+        src: '{{ download_dir }}/scala-{{ scala_version }}.tgz'
+        dest: '{{ cluster_dir }}'
+
+    - name: "Extract sbt"
+      tags:
+        - unpack
+        - setup
+      unarchive:
+        src: '{{ download_dir }}/sbt-{{ sbt_version }}.tgz'
+        dest: '{{ cluster_dir }}'
+
+    - name: "Extract Java"
+      when: 'custom_java == true'
+      tags:
+        - unpack
+        - setup
+      unarchive:
+        src: '{{ download_dir }}/jdk-8u171-linux-x64.tgz'
+        dest: '{{ cluster_dir }}'
+
+
+    - name: "Move Hadoop"
+      tags:
+        - unpack
+        - setup
+      command: 'mv {{ cluster_dir }}/hadoop-{{ hadoop_version }} {{ hadoop_path }}'
+
+    - name: "Move Spark"
+      tags:
+        - unpack
+        - setup
+      command: 'mv {{ cluster_dir }}/spark-{{ spark_version }}-bin-hadoop2.7 {{ spark_path }}'
+
+    - name: "Move Scala"
+      tags:
+        - unpack
+        - setup
+      command: 'mv {{ cluster_dir }}/scala-{{ scala_version }} {{ scala_path }}'
+
+    - name: Move Java
+      when: 'custom_java == true'
+      tags:
+        - unpack
+        - setup
+      command: 'mv {{ cluster_dir }}/jdk1.8.0_171 {{ jdk_path }}'
+
+    - name: Configure hadoop
+      command: '{{ item }}'
+      tags:
+        - install
+        - setup
+      with_items:
+        - 'cp {{ script_dir }}/slaves {{ hadoop_path }}/etc/hadoop/slaves'
+        - 'sed -i -e "s|^export JAVA_HOME=\${JAVA_HOME}|export JAVA_HOME={{ jdk_path }}|g" {{ hadoop_path }}/etc/hadoop/hadoop-env.sh'
+
+    - name: Hadop core-site
+      tags:
+        - install
+        - setup
+      copy:
+       dest: '{{ etc_hadoop }}/core-site.xml'
+       content: "<configuration>
+            <property>
+              <name>fs.defaultFS</name>
+              <value>hdfs://{{ master }}:9000</value>
+              <description>NameNode URI</description>
+            </property>
+          </configuration>"
+
+    - name: Hadoop hdfs-site
+      tags:
+        - install
+        - setup
+      copy:
+        dest: '{{ etc_hadoop }}/hdfs-site.xml'
+        content:
+          <configuration>
+            <property>
+              <name>dfs.replication</name>
+              <value>3</value>
+            </property>
+
+            <property>
+              <name>dfs.datanode.data.dir</name>
+              <value>file://{{ hdfs_dir }}/datanode</value>
+              <description>Comma separated list of paths on the local filesystem of a DataNode where it should store its blocks.</description>
+            </property>
+
+            <property>
+              <name>dfs.namenode.name.dir</name>
+              <value>file://{{ hdfs_dir }}/namenode</value>
+              <description>Path on the local filesystem where the NameNode stores the namespace and transaction logs persistently.</description>
+            </property>
+
+            <property>
+              <name>dfs.namenode.datanode.registration.ip-hostname-check</name>
+              <value>false</value>
+              <description>http://log.rowanto.com/why-datanode-is-denied-communication-with-namenode/</description>
+            </property>
+          </configuration>
+
+    - name: Hadoop mapred-site
+      tags:
+        - install
+        - setup
+      copy:
+         dest: '{{ etc_hadoop }}/mapred-site.xml'
+         content:
+           "<configuration>
+               <property>
+                   <name>mapreduce.framework.name</name>
+                   <value>yarn</value>
+               </property>
+           </configuration>"
+
+    - name: Hadoop yarn-site
+      tags:
+        - install
+        - setup
+      copy:
+        dest: '{{ etc_hadoop }}/yarn-site.xml'
+        content:
+          "<configuration>
+              <property>
+                  <name>yarn.nodemanager.aux-services</name>
+                  <value>mapreduce_shuffle</value>
+              </property>
+              <property>
+                  <name>yarn.resourcemanager.hostname</name>
+                  <value>{{master}}</value>
+             </property>
+          </configuration>"
+
+    - name: Hadoop hdfs format
+      tags:
+        - install
+        - setup
+      command: '{{ hadoop_path }}/bin/hdfs namenode -format -force'
+
+    - name: Spark spark-env
+      tags:
+        - install
+        - setup
+      copy:
+        dest: '{{ spark_path }}//conf/spark-env.sh'
+        content:
+          "#!/usr/bin/env bash \n
+
+          home= {{home}} \n
+          export JAVA_HOME={{ jdk_path }} \n
+          export SCALA_HOME={{ scala_path }} \n
+          export SBT_HOME={{ sbt_path }} \n
+          export HADOOP_INSTALL={{ hadoop_path }} \n
+          export HADOOP_PREFIX={{ hadoop_path }} \n
+          export SPARK_HOME={{ spark_path }} \n
+          export HADOOP_CONF_DIR={{ etc_hadoop }} \n
+
+          export SPARK_WORKER_CORES=`grep -c ^processor /proc/cpuinfo` \n
+          export SPARK_MASTER_HOST={{ master }} \n"
+    - name: Spark copy slaves
+      tags:
+        - install
+        - setup
+      copy:
+        src: '{{ script_dir }}/slaves'
+        dest: '{{ hadoop_path }}/etc/hadoop/slaves'
+
+- hosts: remote
+  pre_tasks:
+    - name: "loading envirorment"
+      tags: always
+      set_fact:
+        custom_java: '{{ lookup("env", "custom_java") }}'
+        download_dir: '{{ lookup("env", "download") }}'
+        cluster_dir: '{{ lookup("env", "cluster") }}'
+        hadoop_version: '{{ lookup("env", "hadoop_version") }}'
+        spark_version: '{{ lookup("env", "spark_version") }}'
+        scala_version: '{{ lookup("env", "scala_version") }}'
+        sbt_version: '{{ lookup("env", "sbt_version") }}'
+        jdk_path: '{{ lookup("env", "jdk_path") }}'
+        hadoop_path: '{{ lookup("env", "hadoop_path") }}'
+        spark_path: '{{ lookup("env", "spark_path") }}'
+        scala_path: '{{ lookup("env", "scala_path") }}'
+        sbt_path: '{{ lookup("env", "sbt_path") }}'
+        master: '{{ lookup("file", "master") }}'
+        script_dir: '{{ lookup("env", "script_dir") }}'
+        etc_hadoop: '{{ lookup("env", "hadoop_path") }}/etc/hadoop'
+        hdfs_dir:  '{{ lookup("env", "hdfs_dir") }}'
+        home:  '{{ lookup("env", "home") }}'
+
+  tasks:
+    - name: "delete cluster"
+      tags:
+        - coping
+        - setup
+      file:
+        path: '{{ cluster_dir }}'
+        state: absent
+    - name: "create cluster dir"
+      tags:
+        - coping
+        - setup
+      file:
+        path: '{{ cluster_dir }}'
+        owner: '{{ lookup("env", "USER") }}'
+        group: '{{ lookup("env", "USER") }}'
+        mode: 0755
+        state: directory
+    - name: copy to remotes
+      tags:
+        - coping
+        - setup
+      synchronize:
+        src: '{{ cluster_dir }}'
+        dest: '{{ home }}'
+
+- hosts: local
+  pre_tasks:
+    - name: "loading envirorment"
+      tags: always
+      set_fact:
+        custom_java: '{{ lookup("env", "custom_java") }}'
+        download_dir: '{{ lookup("env", "download") }}'
+        cluster_dir: '{{ lookup("env", "cluster") }}'
+        hadoop_version: '{{ lookup("env", "hadoop_version") }}'
+        spark_version: '{{ lookup("env", "spark_version") }}'
+        scala_version: '{{ lookup("env", "scala_version") }}'
+        sbt_version: '{{ lookup("env", "sbt_version") }}'
+        jdk_path: '{{ lookup("env", "jdk_path") }}'
+        hadoop_path: '{{ lookup("env", "hadoop_path") }}'
+        spark_path: '{{ lookup("env", "spark_path") }}'
+        scala_path: '{{ lookup("env", "scala_path") }}'
+        sbt_path: '{{ lookup("env", "sbt_path") }}'
+        master: '{{ lookup("file", "master") }}'
+        script_dir: '{{ lookup("env", "script_dir") }}'
+        etc_hadoop: '{{ lookup("env", "hadoop_path") }}/etc/hadoop'
+        hdfs_dir:  '{{ lookup("env", "hdfs_dir") }}'
+        home:  '{{ lookup("env", "home") }}'
+  tasks:
+    - name: Start cluster
+      tags:
+        - setup
+        - start_cluster
+
+      shell: '{{ item }}'
+      with_items:
+        - 'start-dfs.sh'
+        - 'start-yarn.sh'
+        - 'sleep 30'
+        - 'start-all.sh'
+      environment:
+        PATH: '{{ jdk_path }}/bin:{{ scala_path}}/bin:$SBT_HOME/bin:{{ spark_path }}/bin:{{ spark_path }}/sbin:{{ hadoop_path }}/bin:{{ hadoop_path }}/sbin:{{ ansible_env.PATH }}'
