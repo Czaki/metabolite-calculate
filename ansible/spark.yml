@@ -22,6 +22,11 @@
         etc_hadoop: '{{ lookup("env", "hadoop_path") }}/etc/hadoop'
         hdfs_dir:  '{{ lookup("env", "hdfs_dir") }}'
         home_dir:  '{{ lookup("env", "home") }}'
+        build_dir_calculate:  '{{ lookup("env", "build") }}'
+        build_dir_scala:  '{{ lookup("env", "build_scala") }}'
+        calculate_src: '{{ lookup("env", "cpp_dir") }}'
+        distribute_src: '{{ lookup("env", "source_dir") }}/distribute'
+        source_dir: '{{ lookup("env", "source_dir") }}'
 
   tasks:
     - name: "create download dir"
@@ -162,6 +167,56 @@
         - unpack
         - setup
       command: 'mv {{ cluster_dir }}/jdk1.8.0_171 {{ jdk_path }}'
+
+    - name: "create cpp build dir"
+      tags:
+        - build
+        - setup
+      file:
+        path: '{{ build_dir_calculate }}'
+        owner: '{{ lookup("env", "USER") }}'
+        group: '{{ lookup("env", "USER") }}'
+        mode: 0755
+        state: directory
+
+    - name: Build calculate
+      tags:
+        - setup
+        - build
+      shell: '{{ item }}'
+      with_items:
+        - 'bash -lc "cd {{ build_dir_calculate }} && cmake -DCMAKE_BUILD_TYPE=Release {{ calculate_src }}"'
+        - 'bash -lc "cd {{ build_dir_calculate }} && make -j 4"'
+        - 'cp {{ build_dir_calculate }}/metabolite_glpk {{ cluster_dir }}/'
+
+    - name: "create scala build dir"
+      tags:
+        - build
+        - setup
+      synchronize:
+        src: '{{ distribute_src }}'
+        dest: '{{ build_dir_scala }}'
+
+    - name: Build distribute
+      tags:
+        - setup
+        - build
+      command: '{{ item }}'
+      with_items:
+        - 'bash -lc "cd {{ build_dir_scala }}/distribute && {{ sbt_path }}/bin/sbt package"'
+        - 'cp {{ build_dir_scala }}/distribute/target/scala-2.11/metabolite-distribute_2.11-1.0.jar {{ cluster_dir }}/'
+        - 'cp .ivy2/cache/com.github.scopt/scopt_2.11/jars/scopt_2.11-3.7.0.jar {{ cluster_dir }}/'
+
+    - name: Copy data to cluster dir
+      tags:
+        - setup
+        - build
+      copy:
+        src: '{{ item }}'
+        dest: '{{ cluster_dir }}'
+      with_items:
+        - '{{ source_dir }}/data'
+        - '{{ source_dir }}/data-simple'
 
     - name: Configure hadoop
       command: '{{ item }}'
@@ -333,6 +388,19 @@
         path: '{{ hdfs_dir }}'
         state: absent
 
+    - name: Copy build and data
+      tags:
+        - build
+      copy:
+        src: '{{ item }}'
+        dest: '{{ cluster_dir }}'
+      with_items:
+        - '{{ cluster_dir }}/metabolite_glpk'
+        - '{{ cluster_dir }}/metabolite-distribute_2.11-1.0.jar'
+        - '{{ cluster_dir }}/scopt_2.11-3.7.0.jar'
+        - '{{ cluster_dir }}/data'
+        - '{{ cluster_dir }}/data-simple'
+
     - name: copy to remotes
       tags:
         - coping
@@ -376,4 +444,4 @@
         - 'sleep 30'
         - 'start-all.sh'
       environment:
-        PATH: '{{ jdk_path }}/bin:{{ scala_path}}/bin:$SBT_HOME/bin:{{ spark_path }}/bin:{{ spark_path }}/sbin:{{ hadoop_path }}/bin:{{ hadoop_path }}/sbin:{{ ansible_env.PATH }}'
+        PATH: '{{ jdk_path }}/bin:{{ scala_path}}/bin:{{ sbt_path }}/bin:{{ spark_path }}/bin:{{ spark_path }}/sbin:{{ hadoop_path }}/bin:{{ hadoop_path }}/sbin:{{ ansible_env.PATH }}'
