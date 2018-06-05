@@ -21,6 +21,7 @@
         script_dir: '{{ lookup("env", "script_dir") }}'
         etc_hadoop: '{{ lookup("env", "hadoop_path") }}/etc/hadoop'
         hdfs_dir:  '{{ lookup("env", "hdfs_dir") }}'
+        home_dir:  '{{ lookup("env", "home") }}'
 
   tasks:
     - name: "create download dir"
@@ -36,6 +37,13 @@
         - setup
       file:
         path: '{{ cluster_dir }}'
+        state: absent
+    - name: "delete hdfs"
+      tags:
+        - install
+        - setup
+      file:
+        path: '{{ hdfs_dir }}'
         state: absent
     - name: "create cluster dir"
       tags:
@@ -257,7 +265,7 @@
         content:
           "#!/usr/bin/env bash \n
 
-          home= {{home}} \n
+          home={{ home_dir }} \n
           export JAVA_HOME={{ jdk_path }} \n
           export SCALA_HOME={{ scala_path }} \n
           export SBT_HOME={{ sbt_path }} \n
@@ -274,7 +282,7 @@
         - setup
       copy:
         src: '{{ script_dir }}/slaves'
-        dest: '{{ hadoop_path }}/etc/hadoop/slaves'
+        dest: '{{ spark_path }}/conf/slaves'
 
 - hosts: remote
   pre_tasks:
@@ -317,6 +325,14 @@
         group: '{{ lookup("env", "USER") }}'
         mode: 0755
         state: directory
+    - name: "delete hdfs"
+      tags:
+        - coping
+        - setup
+      file:
+        path: '{{ hdfs_dir }}'
+        state: absent
+
     - name: copy to remotes
       tags:
         - coping
@@ -350,7 +366,7 @@
   tasks:
     - name: Start cluster
       tags:
-        - setup
+          #- setup
         - start_cluster
 
       shell: '{{ item }}'
