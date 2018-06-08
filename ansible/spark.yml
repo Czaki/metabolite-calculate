@@ -12,11 +12,11 @@
         spark_version: '{{ lookup("env", "spark_version") }}'
         scala_version: '{{ lookup("env", "scala_version") }}'
         sbt_version: '{{ lookup("env", "sbt_version") }}'
-        jdk_path: '{{ lookup("env", "jdk_path") }}'
+        JAVA_HOME: '{{ lookup("env", "JAVA_HOME") }}'
         hadoop_path: '{{ lookup("env", "hadoop_path") }}'
-        spark_path: '{{ lookup("env", "spark_path") }}'
-        scala_path: '{{ lookup("env", "scala_path") }}'
-        sbt_path: '{{ lookup("env", "sbt_path") }}'
+        SPARK_HOME: '{{ lookup("env", "SPARK_HOME") }}'
+        SCALA_HOME: '{{ lookup("env", "SCALA_HOME") }}'
+        SBT_HOME: '{{ lookup("env", "SBT_HOME") }}'
         master: '{{ lookup("file", "master") }}'
         script_dir: '{{ lookup("env", "script_dir") }}'
         etc_hadoop: '{{ lookup("env", "hadoop_path") }}/etc/hadoop'
@@ -33,7 +33,6 @@
       file:
         path: '{{ download_dir }}'
         owner: '{{ lookup("env", "USER") }}'
-        group: '{{ lookup("env", "USER") }}'
         mode: 0755
         state: directory
     - name: "delete cluster"
@@ -57,7 +56,6 @@
       file:
         path: '{{ cluster_dir }}'
         owner: '{{ lookup("env", "USER") }}'
-        group: '{{ lookup("env", "USER") }}'
         mode: 0755
         state: directory
 
@@ -101,37 +99,24 @@
             url: 'https://piccolo.link/sbt-{{ sbt_version }}.tgz'
             dest: '{{ download_dir }}//sbt-{{ sbt_version }}.tgz'
 
-    - name: "Extract Hadoop"
+    - name: "Extract Hadoop, Spark, Scala, sbt"
       tags:
         - unpack
         - setup
-      unarchive:
-        src: '{{ download_dir }}/hadoop-{{ hadoop_version }}.tgz'
-        dest: '{{ cluster_dir }}'
+      block:
+        unarchive:
+          src: '{{ download_dir }}/hadoop-{{ hadoop_version }}.tgz'
+          dest: '{{ cluster_dir }}'
+        unarchive:
+          src: '{{ download_dir }}/spark-{{ spark_version }}-bin-hadoop2.7.tgz'
+          dest: '{{ cluster_dir }}'
+        unarchive:
+          src: '{{ download_dir }}/scala-{{ scala_version }}.tgz'
+          dest: '{{ cluster_dir }}'
+        unarchive:
+          src: '{{ download_dir }}/sbt-{{ sbt_version }}.tgz'
+          dest: '{{ cluster_dir }}'
 
-    - name: "Extract Spark"
-      tags:
-        - unpack
-        - setup
-      unarchive:
-        src: '{{ download_dir }}/spark-{{ spark_version }}-bin-hadoop2.7.tgz'
-        dest: '{{ cluster_dir }}'
-
-    - name: "Extract Scala"
-      tags:
-        - unpack
-        - setup
-      unarchive:
-        src: '{{ download_dir }}/scala-{{ scala_version }}.tgz'
-        dest: '{{ cluster_dir }}'
-
-    - name: "Extract sbt"
-      tags:
-        - unpack
-        - setup
-      unarchive:
-        src: '{{ download_dir }}/sbt-{{ sbt_version }}.tgz'
-        dest: '{{ cluster_dir }}'
 
     - name: "Extract Java"
       when: 'custom_java == true'
@@ -153,20 +138,20 @@
       tags:
         - unpack
         - setup
-      command: 'mv {{ cluster_dir }}/spark-{{ spark_version }}-bin-hadoop2.7 {{ spark_path }}'
+      command: 'mv {{ cluster_dir }}/spark-{{ spark_version }}-bin-hadoop2.7 {{ SPARK_HOME }}'
 
     - name: "Move Scala"
       tags:
         - unpack
         - setup
-      command: 'mv {{ cluster_dir }}/scala-{{ scala_version }} {{ scala_path }}'
+      command: 'mv {{ cluster_dir }}/scala-{{ scala_version }} {{ SCALA_HOME }}'
 
     - name: Move Java
       when: 'custom_java == true'
       tags:
         - unpack
         - setup
-      command: 'mv {{ cluster_dir }}/jdk1.8.0_171 {{ jdk_path }}'
+      command: 'mv {{ cluster_dir }}/jdk1.8.0_171 {{ JAVA_HOME }}'
 
     - name: "create cpp build dir"
       tags:
@@ -175,7 +160,6 @@
       file:
         path: '{{ build_dir_calculate }}'
         owner: '{{ lookup("env", "USER") }}'
-        group: '{{ lookup("env", "USER") }}'
         mode: 0755
         state: directory
 
@@ -203,7 +187,7 @@
         - build
       command: '{{ item }}'
       with_items:
-        - 'bash -lc "cd {{ build_dir_scala }}/distribute && {{ sbt_path }}/bin/sbt package"'
+        - 'bash -lc "cd {{ build_dir_scala }}/distribute && {{ SBT_HOME }}/bin/sbt package"'
         - 'cp {{ build_dir_scala }}/distribute/target/scala-2.11/metabolite-distribute_2.11-1.0.jar {{ cluster_dir }}/'
         - 'cp .ivy2/cache/com.github.scopt/scopt_2.11/jars/scopt_2.11-3.7.0.jar {{ cluster_dir }}/'
 
@@ -225,7 +209,7 @@
         - setup
       with_items:
         - 'cp {{ script_dir }}/slaves {{ hadoop_path }}/etc/hadoop/slaves'
-        - 'sed -i -e "s|^export JAVA_HOME=\${JAVA_HOME}|export JAVA_HOME={{ jdk_path }}|g" {{ hadoop_path }}/etc/hadoop/hadoop-env.sh'
+        - 'sed -i -e "s|^export JAVA_HOME=\${JAVA_HOME}|export JAVA_HOME={{ JAVA_HOME }}|g" {{ hadoop_path }}/etc/hadoop/hadoop-env.sh'
 
     - name: Hadop core-site
       tags:
@@ -316,17 +300,17 @@
         - install
         - setup
       copy:
-        dest: '{{ spark_path }}//conf/spark-env.sh'
+        dest: '{{ SPARK_HOME }}//conf/spark-env.sh'
         content:
           "#!/usr/bin/env bash \n
 
           home={{ home_dir }} \n
-          export JAVA_HOME={{ jdk_path }} \n
-          export SCALA_HOME={{ scala_path }} \n
-          export SBT_HOME={{ sbt_path }} \n
+          export JAVA_HOME={{ JAVA_HOME }} \n
+          export SCALA_HOME={{ SCALA_HOME }} \n
+          export SBT_HOME={{ SBT_HOME }} \n
           export HADOOP_INSTALL={{ hadoop_path }} \n
           export HADOOP_PREFIX={{ hadoop_path }} \n
-          export SPARK_HOME={{ spark_path }} \n
+          export SPARK_HOME={{ SPARK_HOME }} \n
           export HADOOP_CONF_DIR={{ etc_hadoop }} \n
 
           export SPARK_WORKER_CORES=`grep -c ^processor /proc/cpuinfo` \n
@@ -337,28 +321,14 @@
         - setup
       copy:
         src: '{{ script_dir }}/slaves'
-        dest: '{{ spark_path }}/conf/slaves'
+        dest: '{{ SPARK_HOME }}/conf/slaves'
 
 - hosts: remote
   pre_tasks:
     - name: "loading envirorment"
       tags: always
       set_fact:
-        custom_java: '{{ lookup("env", "custom_java") }}'
-        download_dir: '{{ lookup("env", "download") }}'
         cluster_dir: '{{ lookup("env", "cluster") }}'
-        hadoop_version: '{{ lookup("env", "hadoop_version") }}'
-        spark_version: '{{ lookup("env", "spark_version") }}'
-        scala_version: '{{ lookup("env", "scala_version") }}'
-        sbt_version: '{{ lookup("env", "sbt_version") }}'
-        jdk_path: '{{ lookup("env", "jdk_path") }}'
-        hadoop_path: '{{ lookup("env", "hadoop_path") }}'
-        spark_path: '{{ lookup("env", "spark_path") }}'
-        scala_path: '{{ lookup("env", "scala_path") }}'
-        sbt_path: '{{ lookup("env", "sbt_path") }}'
-        master: '{{ lookup("file", "master") }}'
-        script_dir: '{{ lookup("env", "script_dir") }}'
-        etc_hadoop: '{{ lookup("env", "hadoop_path") }}/etc/hadoop'
         hdfs_dir:  '{{ lookup("env", "hdfs_dir") }}'
         home:  '{{ lookup("env", "home") }}'
 
@@ -377,7 +347,6 @@
       file:
         path: '{{ cluster_dir }}'
         owner: '{{ lookup("env", "USER") }}'
-        group: '{{ lookup("env", "USER") }}'
         mode: 0755
         state: directory
     - name: "delete hdfs"
@@ -414,23 +383,11 @@
     - name: "loading envirorment"
       tags: always
       set_fact:
-        custom_java: '{{ lookup("env", "custom_java") }}'
-        download_dir: '{{ lookup("env", "download") }}'
-        cluster_dir: '{{ lookup("env", "cluster") }}'
-        hadoop_version: '{{ lookup("env", "hadoop_version") }}'
-        spark_version: '{{ lookup("env", "spark_version") }}'
-        scala_version: '{{ lookup("env", "scala_version") }}'
-        sbt_version: '{{ lookup("env", "sbt_version") }}'
-        jdk_path: '{{ lookup("env", "jdk_path") }}'
+        JAVA_HOME: '{{ lookup("env", "JAVA_HOME") }}'
         hadoop_path: '{{ lookup("env", "hadoop_path") }}'
-        spark_path: '{{ lookup("env", "spark_path") }}'
-        scala_path: '{{ lookup("env", "scala_path") }}'
-        sbt_path: '{{ lookup("env", "sbt_path") }}'
-        master: '{{ lookup("file", "master") }}'
-        script_dir: '{{ lookup("env", "script_dir") }}'
-        etc_hadoop: '{{ lookup("env", "hadoop_path") }}/etc/hadoop'
-        hdfs_dir:  '{{ lookup("env", "hdfs_dir") }}'
-        home:  '{{ lookup("env", "home") }}'
+        SPARK_HOME: '{{ lookup("env", "SPARK_HOME") }}'
+        SCALA_HOME: '{{ lookup("env", "SCALA_HOME") }}'
+        SBT_HOME: '{{ lookup("env", "SBT_HOME") }}'
   tasks:
     - name: Start cluster
       tags:
@@ -444,4 +401,4 @@
         - 'sleep 30'
         - 'start-all.sh'
       environment:
-        PATH: '{{ jdk_path }}/bin:{{ scala_path}}/bin:{{ sbt_path }}/bin:{{ spark_path }}/bin:{{ spark_path }}/sbin:{{ hadoop_path }}/bin:{{ hadoop_path }}/sbin:{{ ansible_env.PATH }}'
+        PATH: '{{ JAVA_HOME }}/bin:{{ SCALA_HOME}}/bin:{{ SBT_HOME }}/bin:{{ SPARK_HOME }}/bin:{{ SPARK_HOME }}/sbin:{{ hadoop_path }}/bin:{{ hadoop_path }}/sbin:{{ ansible_env.PATH }}'

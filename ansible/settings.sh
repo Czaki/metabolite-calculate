@@ -37,7 +37,10 @@ else
     jdk_path='/usr/lib/jvm/java-8-openjdk-amd64'
 fi
 
+
 export JAVA_HOME=${jdk_path}
+export SCALA_HOME=${scala_path}
+export SBT_HOME=${sbt_path}
 export HADOOP_INSTALL=${hadoop_path}
+export HADOOP_PREFIX=${HADOOP_INSTALL}
 export SPARK_HOME=${spark_path}
-export HADOP_PREFIX=${HADOOP_INSTALL}
