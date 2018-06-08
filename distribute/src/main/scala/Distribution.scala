@@ -157,13 +157,10 @@ object Distribution {
           config.range
         }
         if (config.parts_size > 0) {
-          val ranges = {
-            val base_range = List.range(range._1, range._2, config.parts_size)
-            if (range._2 % config.parts_size != 0)
-              base_range ++ List(range._2)
-            else
-              base_range
-          }
+          val ranges = List.range(range._1, range._2, config.parts_size) ++ List(range._2)
+          println(range)
+          println(ranges)
+          println(ranges zip ranges.tail)
           for ((part_range, i) <- (ranges zip ranges.tail).zipWithIndex) {
             val out_path = new File(config.output_path, "part" + i.toString)
             run_calculation(sc, config, part_range, out_path.toString)

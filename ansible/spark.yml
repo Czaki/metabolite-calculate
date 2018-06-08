@@ -67,91 +67,64 @@
       command: 'wget -nc --no-check-certificate --no-cookies -O {{ download_dir }}/jdk-8u171-linux-x64.tgz --header "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u171-b11/512cd62ec5174c3487ac17c61aaa89e8/jdk-8u171-linux-x64.tar.gz"'
       ignore_errors: True
 
-    - name: "download hadoop"
+    - name: "download hadoop, spark, scala, sbt"
       tags:
         - download
         - setup
       get_url:
-            url: 'http://ftp.man.poznan.pl/apache/hadoop/common/hadoop-{{ hadoop_version }}/hadoop-{{ hadoop_version }}.tar.gz'
-            dest: '{{ download_dir }}//hadoop-{{ hadoop_version }}.tgz'
-
-    - name: "download spark"
-      tags:
-        - download
-        - setup
-      get_url:
-            url: 'http://ftp.man.poznan.pl/apache/spark/spark-{{ spark_version }}/spark-{{ spark_version }}-bin-hadoop2.7.tgz'
-            dest: '{{ download_dir }}//spark-{{ spark_version }}-bin-hadoop2.7.tgz'
-
-    - name: "download scala"
-      tags:
-        - download
-        - setup
-      get_url:
-            url: 'http://downloads.lightbend.com/scala/{{ scala_version }}/scala-{{ scala_version }}.tgz'
-            dest: '{{ download_dir }}//scala-{{ scala_version }}.tgz'
-
-    - name: "download sbt"
-      tags:
-        - download
-        - setup
-      get_url:
-            url: 'https://piccolo.link/sbt-{{ sbt_version }}.tgz'
-            dest: '{{ download_dir }}//sbt-{{ sbt_version }}.tgz'
+            url: '{{ item.src }}'
+            dest: '{{ item.dest }}'
+      with_items:
+        - { dest: '{{ download_dir }}/hadoop-{{ hadoop_version }}.tgz', src: 'http://ftp.man.poznan.pl/apache/hadoop/common/hadoop-{{ hadoop_version }}/hadoop-{{ hadoop_version }}.tar.gz' }
+        - { dest: '{{ download_dir }}/spark-{{ spark_version }}-bin-hadoop2.7.tgz', src: 'http://ftp.man.poznan.pl/apache/spark/spark-{{ spark_version }}/spark-{{ spark_version }}-bin-hadoop2.7.tgz' }
+        - { dest: '{{ download_dir }}/scala-{{ scala_version }}.tgz', src: 'http://downloads.lightbend.com/scala/{{ scala_version }}/scala-{{ scala_version }}.tgz' }
+        - { dest: '{{ download_dir }}/sbt-{{ sbt_version }}.tgz', src: 'https://piccolo.link/sbt-{{ sbt_version }}.tgz' }
 
     - name: "Extract Hadoop, Spark, Scala, sbt"
       tags:
         - unpack
         - setup
       block:
-        unarchive:
-          src: '{{ download_dir }}/hadoop-{{ hadoop_version }}.tgz'
-          dest: '{{ cluster_dir }}'
-        unarchive:
-          src: '{{ download_dir }}/spark-{{ spark_version }}-bin-hadoop2.7.tgz'
-          dest: '{{ cluster_dir }}'
-        unarchive:
-          src: '{{ download_dir }}/scala-{{ scala_version }}.tgz'
-          dest: '{{ cluster_dir }}'
-        unarchive:
-          src: '{{ download_dir }}/sbt-{{ sbt_version }}.tgz'
-          dest: '{{ cluster_dir }}'
+        - name: "Extract Hadoop, Spark, Scala, sbt: Create dirs"
+          file:
+            path: '{{ item }}'
+            state: directory
+            mode: 0755
+          with_items:
+            - '{{ hadoop_path }}'
+            - '{{ SPARK_HOME }}'
+            - '{{ SCALA_HOME }}'
+            - '{{ SBT_HOME }}'
 
+        - name: "Extract Hadoop, Spark, Scala, sbt: unpack"
+          unarchive:
+            src: '{{ item.tar }}'
+            dest: '{{ item.dest }}'
+            extra_opts:
+              - '--strip-components=1'
+          with_items:
+            - { tar: '{{ download_dir }}/hadoop-{{ hadoop_version }}.tgz', dest: '{{ hadoop_path }}' }
+            - { tar: '{{ download_dir }}/spark-{{ spark_version }}-bin-hadoop2.7.tgz', dest: '{{ SPARK_HOME }}' }
+            - { tar: '{{ download_dir }}/scala-{{ scala_version }}.tgz', dest: '{{ SCALA_HOME }}' }
+            - { tar: '{{ download_dir }}/sbt-{{ sbt_version }}.tgz', dest: '{{SBT_HOME}}' }
 
     - name: "Extract Java"
       when: 'custom_java == true'
       tags:
         - unpack
         - setup
-      unarchive:
-        src: '{{ download_dir }}/jdk-8u171-linux-x64.tgz'
-        dest: '{{ cluster_dir }}'
-
-
-    - name: "Move Hadoop"
-      tags:
-        - unpack
-        - setup
-      command: 'mv {{ cluster_dir }}/hadoop-{{ hadoop_version }} {{ hadoop_path }}'
-
-    - name: "Move Spark"
-      tags:
-        - unpack
-        - setup
-      command: 'mv {{ cluster_dir }}/spark-{{ spark_version }}-bin-hadoop2.7 {{ SPARK_HOME }}'
-
-    - name: "Move Scala"
-      tags:
-        - unpack
-        - setup
-      command: 'mv {{ cluster_dir }}/scala-{{ scala_version }} {{ SCALA_HOME }}'
-
-    - name: Move Java
-      when: 'custom_java == true'
-      tags:
-        - unpack
-        - setup
-      command: 'mv {{ cluster_dir }}/jdk1.8.0_171 {{ JAVA_HOME }}'
+      block:
+        - name: "Extract Java: create dir"
+          file:
+            path: '{{ JAVA_HOME }}'
+            state: directory
+            mode: 0755
+        - name: "Extract Java: unpack"
+          unarchive:
+            src: '{{ download_dir }}/jdk-8u171-linux-x64.tgz'
+            dest: '{{ JAVA_HOME }}'
+            extra_opts:
+              - '--strip-components=1'
 
     - name: "create cpp build dir"
       tags:
@@ -314,6 +287,8 @@
           export HADOOP_CONF_DIR={{ etc_hadoop }} \n
 
           export SPARK_WORKER_CORES=`grep -c ^processor /proc/cpuinfo` \n
+          MEMORY=`grep  ^MemTotal /proc/meminfo | awk '{rounded = sprintf(\"%.0f\", $2/(1024*1024)/1.5) ; print rounded}'`\n
+          #export SPARK_EXECUTOR_MEMORY=\"${MEMORY}g\"\n
           export SPARK_MASTER_HOST={{ master }} \n"
     - name: Spark copy slaves
       tags:
@@ -359,6 +334,7 @@
 
     - name: Copy build and data
       tags:
+        - never
         - build
       copy:
         src: '{{ item }}'
@@ -400,5 +376,16 @@
         - 'start-yarn.sh'
         - 'sleep 30'
         - 'start-all.sh'
+      environment:
+        PATH: '{{ JAVA_HOME }}/bin:{{ SCALA_HOME}}/bin:{{ SBT_HOME }}/bin:{{ SPARK_HOME }}/bin:{{ SPARK_HOME }}/sbin:{{ hadoop_path }}/bin:{{ hadoop_path }}/sbin:{{ ansible_env.PATH }}'
+    - name: stop cluster
+      tags:
+        - never
+        - stop_cluster
+      shell: '{{ item }}'
+      with_items:
+        - 'stop-yarn.sh'
+        - 'stop-dfs.sh'
+        - 'stop-all.sh'
       environment:
         PATH: '{{ JAVA_HOME }}/bin:{{ SCALA_HOME}}/bin:{{ SBT_HOME }}/bin:{{ SPARK_HOME }}/bin:{{ SPARK_HOME }}/sbin:{{ hadoop_path }}/bin:{{ hadoop_path }}/sbin:{{ ansible_env.PATH }}'

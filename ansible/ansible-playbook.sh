@@ -7,6 +7,5 @@ set -o nounset -o pipefail -o errexit
 set -o allexport
 source "$(dirname "$0")/settings.sh"
 set +o allexport
-echo $hadoop_version
 # Run Ansible
 exec ansible-playbook "$@"
