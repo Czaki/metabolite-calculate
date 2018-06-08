@@ -31,7 +31,7 @@ spark_version="2.3.0"
 scala_version="2.11.7"
 sbt_version="1.1.6"
 
-if [ "${custom_java}" == true ] ; then
+if [ "${custom_java}" ] ; then
     jdk_path=$cluster/jdk
 else
     jdk_path='/usr/lib/jvm/java-8-openjdk-amd64'
