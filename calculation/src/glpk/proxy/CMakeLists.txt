@@ -1,5 +1,0 @@
-INCLUDE_DIRECTORIES(../env ..)
-
-AUX_SOURCE_DIRECTORY(. FILES)
-
-add_library(proxy ${FILES})

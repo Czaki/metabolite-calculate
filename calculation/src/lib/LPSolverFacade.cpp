@@ -6,7 +6,6 @@
  */
 
 #include "LPSolverFacade.h"
-#include "../glpk/glpk.h"
 #include <cstddef>
 #include <cstdlib>
 #include <memory>

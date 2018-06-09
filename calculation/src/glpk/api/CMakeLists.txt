@@ -1,9 +1,0 @@
-INCLUDE_DIRECTORIES(.. ../env)
-INCLUDE_DIRECTORIES(.. ../misc)
-INCLUDE_DIRECTORIES(.. ../bflib)
-INCLUDE_DIRECTORIES(.. ../mpl)
-INCLUDE_DIRECTORIES(.. ../minisat)
-
-AUX_SOURCE_DIRECTORY(. FILES)
-
-add_library(api ${FILES})

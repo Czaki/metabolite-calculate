@@ -8,7 +8,7 @@
 #ifndef LP_SOLVER_FACADE_H
 #define LP_SOLVER_FACADE_H
 
-#include "../glpk/glpk.h"
+#include "../glpk/src/glpk.h"
 #include "LPSolverAbstract.h"
 
 #include <map>

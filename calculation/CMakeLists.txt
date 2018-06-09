@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.4)
 project(metabolite)
 
 # set(CMAKE_VERBOSE_MAKEFILE ON)
@@ -15,6 +15,7 @@ set(CMAKE_CXX_FLAGS_DEBUG  "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG=1")
 find_library(GMP REQUIRED)
 set(CMAKE_EXE_LINKER_FLAGS "-lgmp")
 
+
 include_directories(${METABOLITE_SOURCE_DIR}/boost_extract/)
 add_subdirectory(${METABOLITE_SOURCE_DIR}/gurobi_interface)
 add_subdirectory(${METABOLITE_SOURCE_DIR}/glpk)
@@ -25,6 +26,8 @@ set(SOURCE_FILES src/lib/Metabolism.cpp src/lib/Metabolism.hpp   src/lib/utils.h
 set(SOURCE_FILES_GLPK ${SOURCE_FILES} src/lib/LPSolverFacade.cpp src/lib/LPSolverFacade.h)
 
 find_package(GUROBI)
+find_package(LTDL)
+
 
 
 
@@ -35,6 +38,11 @@ target_link_libraries(metabolite_glpk glpk)
 add_executable(coverage_glpk src/main/coverage.cpp ${SOURCE_FILES_GLPK})
 target_link_libraries(coverage_glpk MiniBoost )
 target_link_libraries(coverage_glpk glpk)
+
+if (LTDL_FOUND)
+  target_link_libraries(metabolite_glpk ${LTDL_LIBRARIES})
+  target_link_libraries(coverage_glpk ${LTDL_LIBRARIES})
+endif ()
 
 if (GUROBI_FOUND)
   include_directories(${GUROBI_INCLUDE_DIRS})
@@ -71,6 +79,8 @@ if (MPI_BUILD)
   endif()
 
 endif ()
+
+
 
 message("CMAKE_C_FLAGS_DEBUG is ${CMAKE_C_FLAGS_DEBUG}")
 message("CMAKE_C_FLAGS_RELEASE is ${CMAKE_C_FLAGS_RELEASE}")
