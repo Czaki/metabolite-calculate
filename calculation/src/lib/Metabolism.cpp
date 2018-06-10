@@ -255,7 +255,7 @@ Metabolism::Metabolism(std::string qsspn_file_path,
     len *= el.get_threshold_values().size();
   }
   range_ = std::make_pair(0, len);
-  this->solver->print_info();
+  //this->solver->print_info();
 }
 
 void Metabolism::calculateRange(std::ostream &result_file, size_t begin, size_t end) const {

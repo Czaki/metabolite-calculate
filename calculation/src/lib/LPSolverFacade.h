@@ -46,6 +46,7 @@ namespace PNFBA {
         //LPSolverFacade(const LPSolverFacade& orig);
 
         glp_prob* partial_problem_for_copying;
+      std::map<std::string, glp_prob*> problem_map;
       std::vector<std::string> lp_system_row_names;
       std::vector<std::string> lp_system_col_names;
       std::map<std::string, int> lp_system_row_index;

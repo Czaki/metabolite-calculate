@@ -160,12 +160,22 @@ std::pair<OptError, double> LPSolverFacade::optimize(const Method &method_,
 
   // kopiujemy definicje problemu ktora utworzylismy w konstruktorze (jeszcze
   // jest bez czesci wiezow)
-  glp_prob *root = glp_create_prob();
-  glp_copy_prob(
-      root, partial_problem_for_copying,
-      GLP_ON); // If it is GLP_ON, the routine also copies all symbolic names
-  glp_set_obj_dir(root, GLP_MAX); // maksymalizujemy
-  glp_create_index(root);
+  glp_prob *root;
+  int presolve;
+  if (this->problem_map.count(objective) == 0) {
+    root = glp_create_prob();
+    glp_copy_prob(
+        root, partial_problem_for_copying,
+        GLP_ON); // If it is GLP_ON, the routine also copies all symbolic names
+    glp_set_obj_dir(root, GLP_MAX); // maksymalizujemy
+    glp_create_index(root);
+    problem_map[objective] = root;
+    presolve = GLP_ON;
+  } else {
+    root = problem_map[objective];
+    presolve = GLP_OFF;
+  }
+
 
   // ustawiamy wiezy i funkcje celu
   if (objective == "") {
@@ -235,7 +245,7 @@ std::pair<OptError, double> LPSolverFacade::optimize(const Method &method_,
     glp_init_smcp(&parm);
     parm.meth = GLP_DUAL;
     parm.it_lim = 500000;
-    parm.presolve = GLP_ON;
+    parm.presolve = presolve;
       parm.msg_lev=GLP_MSG_OFF;
     if (glp_simplex(root, &parm) == 0 && glp_get_status(root) == GLP_OPT) {
       // successfully completed
@@ -281,7 +291,7 @@ std::pair<OptError, double> LPSolverFacade::optimize(const Method &method_,
 
   OptError err((bool)ill_conditioned, error);
 
-  glp_delete_prob(root);
+  //glp_delete_prob(root);
   glp_delete_prob(root2);
 
   return std::make_pair(err, result);
