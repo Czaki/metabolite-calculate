@@ -298,11 +298,14 @@ void Metabolism::calculateRange(std::ostream &result_file, size_t begin, size_t 
         opt_res[name] = this->solver->optimize(name, constraint);
         result_file << " " << opt_res[name];
       }
+      /* Comented because of wrong borders in file with definitions 
       result_file << " |";
       for (auto &met : this->metabolites_) {
         result_file << " " << met(opt_res[met.goal()]);
       }
+       */
       result_file << std::endl;
+
     }
   }
 }
