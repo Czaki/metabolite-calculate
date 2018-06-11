@@ -346,6 +346,14 @@
         - '{{ cluster_dir }}/data'
         - '{{ cluster_dir }}/data-simple'
 
+    - name: Copy additinal files 
+      tags:
+        - never
+        - copy_add
+      copy:
+        src: '{{ cluster_dir }}/files'
+        dest: '{{ cluster_dir }}'
+
     - name: copy to remotes
       tags:
         - coping
