@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 import tarfile
 import typing
 
@@ -60,6 +61,8 @@ def marking_array(pos, length=9):
 def gen(content, separator_pos: int, value_to_class_map: typing.List[dict]):
     size_of_targets = max(map(len, value_to_class_map))
     def gen2():
+        print("aaaaa")
+        np.random.shuffle(content)
         for el in content:
             values = el.decode().split()
             yield {"inputs": list(map(int, values[:separator_pos])),
@@ -74,9 +77,9 @@ def model(batch, mode):
     with tf.variable_scope("mymodel", reuse=mode == Modes.EVAL):
         # Inputs.
         x, y, z = batch["inputs"], batch["targets"], batch["results"]
-        x = tf.reshape(x, [BATCH_SIZE, 18])  # Height and width on channels.
-        y = tf.reshape(y, [BATCH_SIZE, 14, 9])  # Bogus dimension.
-        z = tf.reshape(z, [BATCH_SIZE, 14])
+        x = tf.reshape(x, [BATCH_SIZE, size_of_marking])  # Height and width on channels.
+        y = tf.reshape(y, [BATCH_SIZE, number_of_targets, size_of_targets])  # Bogus dimension.
+        z = tf.reshape(z, [BATCH_SIZE, number_of_targets])
         # Body.
         hidden_size = 128
         h = tf.layers.dense(x, hidden_size, activation=tf.nn.relu, name="hidden")
@@ -99,25 +102,24 @@ def run(path_to_tar, path_to_json, save_path: str, restart: bool, save_path2: ty
     with open(path_to_json) as ff:
         value_to_class_map = json.load(ff)
     train_data, test_data = read_data(path_to_tar)
-    #np.savez("sample.npz", train_data, test_data)
+    # np.savez("sample.npz", train_data, test_data)
     #sample = np.load("./sample.npz")
     #train_data, test_data = sample["arr_0"], sample["arr_1"]
-    separator_pos = find_column_separator_position(train_data[0])
-
+    global size_of_marking, size_of_targets, number_of_targets
+    size_of_marking = find_column_separator_position(train_data[0])
+    size_of_targets_second_dim = len(value_to_class_map)
     tf.reset_default_graph()
     sess = tf.Session()
 
-
-    global BATCH_SIZE
-    BATCH_SIZE = 10000
     size_of_targets = max(map(len, value_to_class_map))
+    number_of_targets = len(value_to_class_map)
     types = {"inputs": tf.float32, "targets": tf.float32, "results": tf.int64}
-    shapes = {"inputs": tf.TensorShape([separator_pos]), "targets": tf.TensorShape([len(value_to_class_map), size_of_targets]),
+    shapes = {"inputs": tf.TensorShape([size_of_marking]), "targets": tf.TensorShape([number_of_targets, size_of_targets]),
               "results": tf.TensorShape(len(value_to_class_map))}
 
-    train_ds = tf.data.Dataset().from_generator(gen(train_data, separator_pos, value_to_class_map), output_types=types,
+    train_ds = tf.data.Dataset().from_generator(gen(train_data, size_of_marking, value_to_class_map), output_types=types,
                                                 output_shapes=shapes)
-    test_ds = tf.data.Dataset().from_generator(gen(test_data, separator_pos, value_to_class_map), output_types=types,
+    test_ds = tf.data.Dataset().from_generator(gen(test_data, size_of_marking, value_to_class_map), output_types=types,
                                                output_shapes=shapes)
 
     train_batches = train_ds.repeat().batch(BATCH_SIZE)
@@ -163,11 +165,15 @@ def main():
     parser.add_argument("path_to_json", help="path to json file with metadata", type=check_file)
     parser.add_argument("path_to_save", help="path to save location")
     parser.add_argument('--restart', help="restart learning", nargs='?', default=False, const=True, type=directory)
-    parser.add_argument("-i,--iterations", help="number of iterations", dest="iterations", nargs=1, type=int,
+    parser.add_argument("-i,--iterations", help="number of iterations", dest="iterations", type=int,
                         default=1200)
+    parser.add_argument("-b,--batch_size", help="number of elements in batch", dest="batch_size", type=int,
+                        default=1000)
     args = parser.parse_args()
+    global BATCH_SIZE
+    BATCH_SIZE = args.batch_size
     print(args)
-    run(args.path_to_tar, args.path_to_json, args.path_to_save, bool(args.restart), num_steps=args.iterations[0],
+    run(args.path_to_tar, args.path_to_json, args.path_to_save, bool(args.restart), num_steps=args.iterations,
         save_path2=args.restart if isinstance(args.restart, str) else None)
 
 
